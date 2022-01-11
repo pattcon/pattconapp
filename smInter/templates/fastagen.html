@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+   <script src="{% static '/js/script.js' %}"
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+
+    <script src="{% static 'js/jseqlogo.js' %}" type="text/javascript"></script>
+    <title>Title</title>
+</head>
+<body>
+  {%block conteudo%}
+<div class="motivos" >
+
+
+  {%for i in listgen%}
+{{i}} <br>
+
+
+
+  {%endfor%}
+
+<br><br>
+
+
+
+
+</div>
+
+
+
+    {%endblock conteudo%}
+
+
+
+{%block abaixo%}
+<a href="/downfastgen">
+        <input type="button" value="Download" id="botaofasta" name="botaofasta">
+
+         </a>
+         
+ {%endblock abaixo%}
+
+
+</body>
+</html>

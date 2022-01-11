@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+   <script src="{% static '/js/script.js' %}"
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+
+    <script src="{% static 'js/jseqlogo.js' %}" type="text/javascript"></script>
+    <title>Title</title>
+</head>
+<body>
+  {%block conteudo%}
+<div class="motivos" >
+
+  <br>
+  <b> Motivo Número: </b> {{numero}} <br>
+  <b id="valor"> {{motivo}} </b>
+
+  <br><br>
+
+
+  {%for i in listaComp%}
+{{i}} <br>
+
+
+
+  {%endfor%}
+
+<br><br>
+
+    <center><b> Fasta </b>  </center>
+    <br>
+   <form>
+     <label for="esp">Espécie</label><br>
+       <textarea id="esp" name="esp" rows="5" cols="69" style="resize:none">
+</textarea>
+
+       <br>
+
+
+            <input type="button" id="fasta" name="fasta" value="Gerar" onclick="fun()">
+
+<br><br>
+
+
+       <textarea id="fastaseq" name="fastaseq" rows="5" cols="69" style="resize:none" disabled></textarea>
+
+       <br><br>
+
+    <center><b> Logo </b>  </center>
+
+<img src="{% static '/logoseq/lgseq.png' %}" height="50%" width="50%">
+</form>
+
+
+</div>
+
+
+
+
+  {%endblock conteudo%}
+
+
+
+
+</body>
+</html>

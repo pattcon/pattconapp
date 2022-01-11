@@ -1,0 +1,171 @@
+::Motivo 0 - CV
+::Locals : 1 a 2
+::Species : 
+Specie: KDN48563.1 - Sequência [L][M] Alterações: 2
+Specie: CEL55771.1 - Sequência CV Alterações: 0
+Specie: TTTTEL55830.1 - Sequência [D][R] Alterações: 2
+Specie: CEL55830.1 - Sequência CV Alterações: 0
+Specie: CMS2005Teste - Sequência [T][G] Alterações: 2
+----------------------------------------------------------------------------
+::Motivo 1 - ALDYSMRLAKAL
+::Locals : 20 a 31
+::Species : 
+Specie: KDN48563.1 - Sequência [N]L[N][G][T][V]RLAKAL Alterações: 5
+Specie: CEL55771.1 - Sequência [N][I][N][C][A][V]RLAKAL Alterações: 6
+Specie: TTTTEL55830.1 - Sequência [S]LDYSMRLAKAL Alterações: 1
+Specie: CEL55830.1 - Sequência ALDYSMRLAKAL Alterações: 0
+Specie: CMS2005Teste - Sequência ALDYSMRLAKAL Alterações: 0
+----------------------------------------------------------------------------
+::Motivo 2 - AC
+::Locals : 34 a 35
+::Species : 
+Specie: KDN48563.1 - Sequência AC Alterações: 0
+Specie: CEL55771.1 - Sequência AC Alterações: 0
+Specie: TTTTEL55830.1 - Sequência [D][F] Alterações: 2
+Specie: CEL55830.1 - Sequência [D][F] Alterações: 2
+Specie: CMS2005Teste - Sequência [E][G] Alterações: 2
+----------------------------------------------------------------------------
+::Motivo 3 - DF
+::Locals : 34 a 35
+::Species : 
+Specie: KDN48563.1 - Sequência [A][C] Alterações: 2
+Specie: CEL55771.1 - Sequência [A][C] Alterações: 2
+Specie: TTTTEL55830.1 - Sequência DF Alterações: 0
+Specie: CEL55830.1 - Sequência DF Alterações: 0
+Specie: CMS2005Teste - Sequência [E][G] Alterações: 2
+----------------------------------------------------------------------------
+::Motivo 4 - TEEGL
+::Locals : 46 a 50
+::Species : 
+Specie: KDN48563.1 - Sequência [S]EEG[F] Alterações: 2
+Specie: CEL55771.1 - Sequência [D][Q][D][K][I] Alterações: 5
+Specie: TTTTEL55830.1 - Sequência TEEGL Alterações: 0
+Specie: CEL55830.1 - Sequência TEEGL Alterações: 0
+Specie: CMS2005Teste - Sequência TEEGL Alterações: 0
+----------------------------------------------------------------------------
+::Motivo 5 - VGHMKTSL
+::Locals : 52 a 59
+::Species : 
+Specie: KDN48563.1 - Sequência [F]GH[S]K[V][F]L Alterações: 4
+Specie: CEL55771.1 - Sequência [L]G[R][P]K[V][F]L Alterações: 5
+Specie: TTTTEL55830.1 - Sequência VGHMKTSL Alterações: 0
+Specie: CEL55830.1 - Sequência VGHMKTSL Alterações: 0
+Specie: CMS2005Teste - Sequência VGHMKTSL Alterações: 0
+----------------------------------------------------------------------------
+::Motivo 6 - DAAVQLARVCREHDLNDVVIPAYRRVFTALRRMTQLGLSSSERQDALVY
+::Locals : 109 a 157
+::Species : 
+Specie: KDN48563.1 - Sequência DAA[I]QL[V][E][I]C[H][G]H[N]L[H][E][I][I]IPAYRRVF[K]ALRRMTQLGLSS[N]ERQ[E]A[I]VY Alterações: 15
+Specie: CEL55771.1 - Sequência DAA[T]QL[V]R[I]C[H][D][Y][E]L[H][E][R][A][V][G]AY[K]RVF[V]ALR[K]M[I][R]LGLSS[T]ERQDA[I]VY Alterações: 20
+Specie: TTTTEL55830.1 - Sequência DAAVQLARVCREHDLNDVVIPAYRRVFTALRRMTQLGLSSSERQDALVY Alterações: 0
+Specie: CEL55830.1 - Sequência DAAVQLARVCREHDLNDVVIPAYRRVFTALRRMTQLGLSSSERQDALVY Alterações: 0
+Specie: CMS2005Teste - Sequência DAAVQLARVCREHDLNDVVIPAYRRVFTALRRMTQLGLSSSERQDALVY Alterações: 0
+----------------------------------------------------------------------------
+::Motivo 7 - SVGHACDAAAFALKSGQDHTAVELLEEGRNLFFS
+::Locals : 159 a 192
+::Species : 
+Specie: KDN48563.1 - Sequência SVG[Y]ACDAAA[S]ALK[D][N]Q[A][V][V]AVELLEEGRNLFFS Alterações: 7
+Specie: CEL55771.1 - Sequência SVG[Y]ACDA[S]A[T]AL[R][Q]GQ[V][D][V]A[I]ELLEEGRNLFFS Alterações: 9
+Specie: TTTTEL55830.1 - Sequência SVGHACDAAAFALKSGQDHTAVELLEEGRNLFFS Alterações: 0
+Specie: CEL55830.1 - Sequência SVGHACDAAAFALKSGQDHTAVELLEEGRNLFFS Alterações: 0
+Specie: CMS2005Teste - Sequência SVGHACDAAAFALKSGQDHTAVELLEEGRNLFFS Alterações: 0
+----------------------------------------------------------------------------
+::Motivo 8 - QLFPTQMDTSAIKLQDSDLALSLEHNLERIRHYRRATDAANYQAARAFHGGGSAEDIEENASDDTPETRELLHYGAALERC
+::Locals : 221 a 301
+::Species : 
+Specie: KDN48563.1 - Sequência QL[L]P[I]Q[T]DTSAIKLQD[P]DLAL[D]L[D][E][T]LE[K]IR[Q]Y[H]RATD[S][I][G]YQ[S][N][Q][V][L][Y][E]GG[I]A[D]DI[D]E[V]A[R]D[Y][N]PE[S][Q][Q]LLHYG[K][E]LER[Y] Alterações: 34
+Specie: CEL55771.1 - Sequência QL[L]P[I]QMDT[A][S]I[R]LQD[P][N]LA[S][D]L[D][E][I][I][D][K]I[K][R]Y[H]RATD[S]A[G]YQ[E][N][L][V][D][Y][E]GG[I]A[D]DI[D][G][V]A[R]D[Y]T[T]E[S][L]ELL[R]YG[N][E]L[G][S][L] Alterações: 43
+Specie: TTTTEL55830.1 - Sequência QLFPTQMDTSAIKLQDSDLALSLEHNLERIRHYRRATDAANYQAARAFHGGGSAEDIEENASDDTPETRELLHYGAALERC Alterações: 0
+Specie: CEL55830.1 - Sequência QLFPTQMDTSAIKLQDSDLALSLEHNLERIRHYRRATDAANYQAARAFHGGGSAEDIEENASDDTPETRELLHYGAALERC Alterações: 0
+Specie: CMS2005Teste - Sequência QLFPTQMDTSAIKLQDSDLALSLEHNLERIRHYRRATDAANYQAARAFHGGGSAEDIEENASDDTPETRELLHYGAALERC Alterações: 0
+----------------------------------------------------------------------------
+::Motivo 9 - LKRIRNLPGQDNFMSTKPFSYLKQAAKLCPVVYINISQFRCDALLIDSRKGK
+::Locals : 309 a 360
+::Species : 
+Specie: KDN48563.1 - Sequência [I][E][N][A]R[K]LPG[L][S]NF[V][G][L][N]PFS[H]LKQAA[R]LCPVVY[L]NISQFRCDAL[V]I[G]S[G][P]GK Alterações: 18
+Specie: CEL55771.1 - Sequência L[E][S]IR[K]LPG[H][E][H]FMS[L][N]PFS[R]LKQAA[R][I]CP[I]VY[L][S]IS[R]FRCDAL[V]I[G][N][Q]K[H][G] Alterações: 21
+Specie: TTTTEL55830.1 - Sequência LKRIRNLPGQDNFMSTKPFSYLKQAAKLCPVVYINISQFRCDALLIDSRKGK Alterações: 0
+Specie: CEL55830.1 - Sequência LKRIRNLPGQDNFMSTKPFSYLKQAAKLCPVVYINISQFRCDALLIDSRKGK Alterações: 0
+Specie: CMS2005Teste - Sequência LKRIRNLPGQDNFMSTKPFSYLKQAAKLCPVVYINISQFRCDALLIDSRKGK Alterações: 0
+----------------------------------------------------------------------------
+::Motivo 10 - PEVLVVPLHT
+::Locals : 362 a 371
+::Species : 
+Specie: KDN48563.1 - Sequência [T][G]VLVVPL[P]T Alterações: 3
+Specie: CEL55771.1 - Sequência [S][N][A]LVVPL[P]T Alterações: 4
+Specie: TTTTEL55830.1 - Sequência PEVLVVPLHT Alterações: 0
+Specie: CEL55830.1 - Sequência PEVLVVPLHT Alterações: 0
+Specie: CMS2005Teste - Sequência PEVLVVPLHT Alterações: 0
+----------------------------------------------------------------------------
+::Motivo 11 - KLEKVLALSQIMRGVIVQQGRE
+::Locals : 373 a 394
+::Species : 
+Specie: KDN48563.1 - Sequência [T][S][A]KVLALSQ[T]MR[R][T]IVQ[K]GR[G] Alterações: 8
+Specie: CEL55771.1 - Sequência [T][F][Q]KVLALSQ[T]MR[R][T][V]VQQGR[G] Alterações: 8
+Specie: TTTTEL55830.1 - Sequência KLEKVLALSQIMRGVIVQQGRE Alterações: 0
+Specie: CEL55830.1 - Sequência KLEKVLALSQIMRGVIVQQGRE Alterações: 0
+Specie: CMS2005Teste - Sequência KLEKVLALSQIMRGVIVQQGRE Alterações: 0
+----------------------------------------------------------------------------
+::Motivo 12 - VRQGPAEEDTRAMFQ
+::Locals : 409 a 423
+::Species : 
+Specie: KDN48563.1 - Sequência VRQGP[P]E[D][N]TRAM[V]Q Alterações: 4
+Specie: CEL55771.1 - Sequência [I]R[D][D][T][P]E[D][S]TRAM[V]Q Alterações: 8
+Specie: TTTTEL55830.1 - Sequência VRQGPAEEDTRAMFQ Alterações: 0
+Specie: CEL55830.1 - Sequência VRQGPAEEDTRAMFQ Alterações: 0
+Specie: CMS2005Teste - Sequência VRQGPAEEDTRAMFQ Alterações: 0
+----------------------------------------------------------------------------
+::Motivo 13 - KGIKRQT
+::Locals : 428 a 434
+::Species : 
+Specie: KDN48563.1 - Sequência KGIKRQT Alterações: 0
+Specie: CEL55771.1 - Sequência [R][R][P]K[G][R]T Alterações: 5
+Specie: TTTTEL55830.1 - Sequência KGIKRQT Alterações: 0
+Specie: CEL55830.1 - Sequência KGIKRQT Alterações: 0
+Specie: CMS2005Teste - Sequência KGIKRQT Alterações: 0
+----------------------------------------------------------------------------
+::Motivo 14 - PTEEVRSVLRQLWNKIVQPVLSALDYLGPSDGSSD
+::Locals : 441 a 475
+::Species : 
+Specie: KDN48563.1 - Sequência P[G][Q]EV[Q]SVLRQLW[D][I]IV[R]PVL[L]ALDYL[R][L][D][S][A]SS[S] Alterações: 13
+Specie: CEL55771.1 - Sequência P[V][Q]E[I][Q]SVLRQLW[D][T]IV[R]PVLSALDYLGP[N][N][T][Y]SD Alterações: 11
+Specie: TTTTEL55830.1 - Sequência PTEEVRSVLRQLWNKIVQPVLSALDYLGPSDGSSD Alterações: 0
+Specie: CEL55830.1 - Sequência PTEEVRSVLRQLWNKIVQPVLSALDYLGPSDGSSD Alterações: 0
+Specie: CMS2005Teste - Sequência PTEEVRSVLRQLWNKIVQPVLSALDYLGPSDGSSD Alterações: 0
+----------------------------------------------------------------------------
+::Motivo 15 - GLPQICWCPSGPLATFLPLHAAGDYARGPEHCAMTHVVSTYIPTLSSLLHGLERESHTDMKDARMLLISQSASPPDLPLPGVVVEKDEIIATFGRVRRSGKVTSL
+::Locals : 477 a 581
+::Species : 
+Specie: KDN48563.1 - Sequência [D]LP[H]ICWCPSGP[S]ATFLPLHAAGDYARGPEH[W]AMTH[I]VSTY[T]P[N][I]SSLL[R][S]LERESHTD[A][R]DARMLLISQ[P]ASPP[N]LPLPGVVVE[R]D[R]I[L]ATF[D][E][T][E]R[L]G[N]VTSL Alterações: 23
+Specie: CEL55771.1 - Sequência [D]LP[H]ICWCPSGP[S]ATFLPLHAAGDYARGPEHCAMTHV[I]STYIPT[V]SSLLH[S]LER[Q]SHTD[S][R]D[S][H][I]LLISQ[P]ASPP[N]LPLPGV[I][I]E[R]D[R]I[V]ATF[E][E][F][E][G]S[N][N]VTSL Alterações: 26
+Specie: TTTTEL55830.1 - Sequência GLPQICWCPSGPLATFLPLHAAGDYARGPEHCAMTHVVSTYIPTLSSLLHGLERESHTDMKDARMLLISQSASPPDLPLPGVVVEKDEIIATFGRVRRSGKVTSL Alterações: 0
+Specie: CEL55830.1 - Sequência GLPQICWCPSGPLATFLPLHAAGDYARGPEHCAMTHVVSTYIPTLSSLLHGLERESHTDMKDARMLLISQSASPPDLPLPGVVVEKDEIIATFGRVRRSGKVTSL Alterações: 0
+Specie: CMS2005Teste - Sequência GLPQICWCPSGPLATFLPLHAAGDYARGPEHCAMTHVVSTYIPTLSSLLHGLERESHTDMKDARMLLISQSASPPDLPLPGVVVEKDEIIATFGRVRRSGKVTSL Alterações: 0
+----------------------------------------------------------------------------
+::Motivo 16 - HDQAGCAEEAIKQLPSHEILHLACHGIQNMIDPLESSVILYDANLTVREIIQAPLPKAELVYLSACQTATGSTRTPDESFSLAGSFMFAGYKGAIATMWSINDRDGCDVATSFYELVLQK
+::Locals : 584 a 703
+::Species : 
+Specie: KDN48563.1 - Sequência HD[E]AG[R][V][N]E[V][V]KQLPSHE[M]LHLACHGIQ[D]M[V]DPLESSV[V]L[S]D[G]NLT[I]REII[K][T]PLPKAELVYLSACQTATGS[V][S]TPDESFSLAGSF[L]FAGYKGA[V]ATMWSIND[K]DGCDVATSFY[K][H][I]LQK Alterações: 23
+Specie: CEL55771.1 - Sequência HD[E]AG[R][V]EE[V][M]KQLPSHE[M]LHLACHGIQ[D]M[V][N]PL[D]SSV[V]L[H]D[G]NLT[I]REIIQ[V]PL[T]KAELVYLSACQTATGS[I][N]TPDESFSLAGSFMFAGY[R]GA[V]ATMWSIND[Q]DGCDVATSFY[R][R]VLQK Alterações: 23
+Specie: TTTTEL55830.1 - Sequência HDQAGCAEEAIKQLPSHEILHLACHGIQNMIDPLESSVILYDANLTVREIIQAPLPKAELVYLSACQTATGSTRTPDESFSLAGSFMFAGYKGAIATMWSINDRDGCDVATSFYELVLQK Alterações: 0
+Specie: CEL55830.1 - Sequência HDQAGCAEEAIKQLPSHEILHLACHGIQNMIDPLESSVILYDANLTVREIIQAPLPKAELVYLSACQTATGSTRTPDESFSLAGSFMFAGYKGAIATMWSINDRDGCDVATSFYELVLQK Alterações: 0
+Specie: CMS2005Teste - Sequência HDQAGCAEEAIKQLPSHEILHLACHGIQNMIDPLESSVILYDANLTVREIIQAPLPKAELVYLSACQTATGSTRTPDESFSLAGSFMFAGYKGAIATMWSINDRDGCDVATSFYELVLQK Alterações: 0
+----------------------------------------------------------------------------
+::Motivo 17 - DGSPVENAALALHDSVQRLREANPGIDPIKWIPFVYFGTPGFSNA
+::Locals : 713 a 757
+::Species : 
+Specie: KDN48563.1 - Sequência DGSPV[A]NAA[F]ALH[G][A]VQ[E]L[L]EANPGID[L]I[R]WIPFVYFG[V]PG[A][I][T][P] Alterações: 13
+Specie: CEL55771.1 - Sequência DGSPV[S]N[S]ALALH[R][A]VQRLR[A][E]NPG[L]DPI[R]W[V]PFVYFG[V]PG[L]S[S][G] Alterações: 13
+Specie: TTTTEL55830.1 - Sequência DGSPVENAALALHDSVQRLREANPGIDPIKWIPFVYFGTPGFSNA Alterações: 0
+Specie: CEL55830.1 - Sequência DGSPVENAALALHDSVQRLREANPGIDPIKWIPFVYFGTPGFSNA Alterações: 0
+Specie: CMS2005Teste - Sequência DGSPVENAALALHDSVQRLREANPGIDPIKWIPFVYFGTPGFSNA Alterações: 0
+----------------------------------------------------------------------------
+::Motivo 18 - HARDSNL
+::Locals : 765 a 771
+::Species : 
+Specie: KDN48563.1 - Sequência [N][Y][P][R][M][A]L Alterações: 6
+Specie: CEL55771.1 - Sequência [S]A[N][E][N][A][V] Alterações: 6
+Specie: TTTTEL55830.1 - Sequência HARDSNL Alterações: 0
+Specie: CEL55830.1 - Sequência HARDSNL Alterações: 0
+Specie: CMS2005Teste - Sequência HARDSNL Alterações: 0
+----------------------------------------------------------------------------

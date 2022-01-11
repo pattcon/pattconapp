@@ -1,0 +1,130 @@
+
+body
+{
+	
+	background-image: url(smamFim.png);
+	background-repeat: no-repeat;
+	text-align: center;
+	justify-content:center;
+	width: 100%;
+    height: 100%;
+	float: center;
+}
+
+
+.lista{
+
+width:100%;
+height: 10%;
+background-color: #FDEBD0;
+
+min-height: 1px;
+
+
+}
+
+
+
+.centerdown{
+width: 50%;
+    height: 40vh;
+
+}
+
+.leftdowndiv{
+float: left;
+top: 0;
+    left: 50vh;
+    text-align: center;
+     width: 20%;
+}
+
+.righdowndiv{
+float: left;
+top: 0;
+    left: 0;
+    width: 80%;
+    text-align: left;
+    padding-top: 10px;
+    display: block;
+    line-break: auto;
+}
+
+
+
+
+.cont{
+
+    text-align: center;
+width: 50%;
+float: left;
+
+
+}
+
+
+
+
+
+.quodrant{
+    width: 10%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+
+.qbottom{
+    width: 90%;
+    height: 60%;
+}
+
+.qtop{
+    width: 90%;
+    height: 150px;
+}
+
+
+
+
+.quodrant1{
+    text-align: center;
+     width: 10%;
+     height: 300px;
+}
+
+
+
+
+.quodrant2{
+
+
+    text-align: left;
+    padding-top: 10px;
+    display: block;
+    line-break: auto;
+    width: 50%;
+    height: 300px;
+
+
+
+}
+
+
+.blocoabaixo{
+
+    width: 100%;
+
+}
+
+.quodrant3{
+    top: 50vw;
+    left: 0;
+    background-color: blue;
+}
+
+.quodrant4{
+    top: 50vw;
+    left: 50vh;
+    background-color: green;
+}

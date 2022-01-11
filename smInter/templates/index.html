@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+
+
+<title>Insert title here</title>
+
+ {%block scrpt%}
+<script>
+
+	function pcon(frm)
+	{
+		if(frm.porcent.value == "")
+		{
+		alert("Digite um valor para a porcentagem de conservação");
+		return false;
+		}
+
+		}
+
+
+
+
+</script>
+
+    {%endblock scrpt%}
+
+</head>
+
+
+
+
+
+{%block conteudo%}
+
+
+
+
+		<form id="formindex" onsubmit="return pcon(this);" name="formindex" enctype="multipart/form-data" method="post" action="analise">
+
+			 {% csrf_token %}
+			        {{ form.as_p }}
+
+
+
+
+		<label class="description">Content Percent </label>
+
+			<input name="porcent" id="porcent" type="text" maxlength="255" value=""/>
+
+		<br><br>
+<label class="description">Conservation Percent </label>
+
+			<input name="conserv" id="conserv" type="text" maxlength="190" value=""/>
+			<br><br><br>
+
+
+
+		<label class="description">Open File FASTA </label>
+		<br>
+
+			<input id="fileseq" name="fileseq" class="element file" type="file"/>
+				<br><br><br>
+
+
+		<div>
+  			<input type="radio" id="largestmot" name="typesearch" value="largestmot"
+         checked>
+  			<label for="largestmot">Largests Motifs (Fast)</label>
+
+
+
+
+  			<input type="radio" id="minsizemotif" name="typesearch" value="minsizemotif">
+  			<label for="minsizemotif">Minimum Size (Slow)</label>
+			<input name="tammin" id="tammin" type="text" maxlength="190" value=""/>
+			</div>
+
+			<br><br>
+
+			<input id="analisecamp"  name="submit" type="submit" value="Search" />
+
+
+<br>
+
+
+
+
+
+</form>
+
+{%endblock conteudo%}
+
+
+
+
+
+
+
+{%block abaixo%}
+
+
+{%endblock abaixo%}
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+  {%block conteudo%}
+
+  Search Type :::: {{tsearch}}
+
+  <br>
+
+
+{% for numero, local, motivo, inicio, fim, tam in listazip%}
+
+
+<br>
+Motivo Número:   {{ numero }} <br>
+Sequência: {{ motivo }} <br>
+Local Início: {{ inicio }} <br>
+Local Fim: {{ fim }} <br>
+Tamanho: {{ tam }} <br>
+
+    <br>
+
+
+
+
+<form id="formul" name="formul" method="post" action="motivores">
+    {% csrf_token %}
+			        {{ form.as_p }}
+        <input type="hidden" value="{{numero}}" id="valor" name="valor">
+    <input type="submit" value="Analisar" id="bot" name="val">
+
+
+</form>
+
+
+
+  
+
+
+
+          {%endfor%}
+
+  {%endblock conteudo%}
+
+
+
+
+
+{%block abaixo%}
+
+<form id="formfasta" name="formfasta" method="post" action="fastagen">
+     {% csrf_token %}
+			        {{ form.as_p }}
+
+        <input type="submit" value="Gerar Fasta dos Motivos" id="botaofasta" name="val">
+
+       
+
+</form>
+
+
+  
+
+
+
+
+
+<form id="formbusca" name="formbusca" method="post" action="fastaspecies">
+     {% csrf_token %}
+			        {{ form.as_p }}
+         <label for="spp">Espécie</label><br>
+
+    <select  name="spp" id="spp">
+        {%for k in spec%}
+        <option value={{k}}> {{k}}</option>
+        {%endfor%}}
+
+    </select>
+
+        <input type="submit" value="Gerar Fasta Para Espécie" id="botaobusca" name="botaobusca">
+
+</form>
+
+
+  <form id="formreport" name="formreport" method="post" action="report">
+     {% csrf_token %}
+			        {{ form.as_p }}
+        <input type="submit" value="Gerar Relatório" id="btreport" name="btreport">
+
+
+</form>
+
+
+<script>
+
+    function fun(form)
+    {
+    document.getElementById('valor').value = vl;
+
+    form.submit();
+
+
+}
+
+
+
+
+</script>
+
+{%endblock abaixo%}
+
+
+
+
+
+</body>
+</html>

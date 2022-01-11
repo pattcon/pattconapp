@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+	<link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+
+
+<title>Insert title here</title>
+</head>
+
+
+
+
+{%block conteudo%}
+
+
+		<form id="formindex" enctype="multipart/form-data" method="post" action="ServletUpload">
+
+
+
+		<label class="description">Porcentagem de Conservação </label>
+
+			<input name="porcent" id="porcent" type="text" maxlength="255" value=""/>
+
+		<br><br>
+
+
+
+
+		<label class="description">Abrir Arquivo FASTA </label>
+			<input id="fileseq" name="fileseq" class="element file" type="file"/>
+				<br>
+				<input id="saveForm" class="button_text" type="submit" name="submit" value="Iniciar Análise" />
+
+				<br><br><br>
+
+
+
+
+		<br><br>
+
+
+
+
+
+</form>
+	{%endblock conteudo%}
+
+<br>
+{%block abaixo%}
+
+
+<h2> Análise </h2>
+
+
+</body>
+</html>

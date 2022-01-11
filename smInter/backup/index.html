@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+
+
+<title>Insert title here</title>
+
+ {%block scrpt%}
+<script>
+
+	function pcon(frm)
+	{
+		if(frm.porcent.value == "")
+		{
+		alert("Digite um valor para a porcentagem de conservação");
+		return false;
+		}
+
+		}
+
+
+
+
+</script>
+
+    {%endblock scrpt%}
+
+</head>
+
+
+
+
+<body>
+<div class='qtop'>
+  <p align="center" height=500px></p>
+
+</div>
+
+
+<div class='qbottom'>
+  <div class='quodrant1'>
+  <br>
+<a href="url">Manual</a>
+<br><br>
+<a href="url">Tutorial</a>
+<br><br>
+<a href="url">Contato</a>
+<br>
+
+
+
+</div>
+
+
+{%block conteudo%}
+
+  <div class='quodrant2'>
+
+
+		<form id="formindex" onsubmit="return pcon(this);" name="formindex" class="appnitro" enctype="multipart/form-data" method="post" action="analise">
+
+			 {% csrf_token %}
+			        {{ form.as_p }}
+
+					<div class="form_description">
+
+
+
+
+		<label class="description">Porcentagem de Conservação </label>
+
+			<input name="porcent" id="porcent" type="text" maxlength="255" value=""/>
+
+		<br><br>
+
+
+
+
+		<label class="description">Abrir Arquivo FASTA </label>
+
+
+			<input id="fileseq" name="fileseq" class="element file" type="file"/>
+				<br>
+				<input id="analisecamp"  name="submit" type="submit" value="Iniciar Análise" />
+
+
+
+
+
+				<br><br><br>
+
+
+
+
+		<br><br>
+
+
+
+</div>
+
+
+
+
+</form>
+
+{%endblock conteudo%}
+
+
+
+	  </div>
+	  </div>
+
+
+
+</body>
+</html>
