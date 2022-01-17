@@ -122,6 +122,7 @@ def analise(request):
             occurr = new.executeBySize(minSize, porcentg, txcont)[0]
             motifs = new.executeBySize(minSize, porcentg, txcont)[1]
             locals = new.executeBySize(minSize, porcentg, txcont)[2]
+            result = new.executeBySize(minSize, porcentg, txcont)[3]
 
 
             #request.session["finalListBySize"] = motifList
@@ -130,7 +131,8 @@ def analise(request):
 
             listEnd = [motifs, occurr, locals]
 
-            context = {"tsearch":tsearch,"motifList":motifs,"locals":locals, "occurr":occurr, "minsize":minSize, "listEnd":listEnd}
+            context = {"tsearch":tsearch,"motifList":motifs,"locals":locals, "occurr":occurr, "minsize":minSize, "listEnd":listEnd,
+                   "result":result}
 
             """
                         ","minsize":minSize, localsList":localsList,#"suportsList":suportsList"""

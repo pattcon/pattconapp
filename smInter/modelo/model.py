@@ -262,6 +262,7 @@ class trieNo(object):
         listCFinalMotifs = []
         listaFinalCont = []
         groupNumber = 0
+        result = []
 
         for grupo in listaStr:
 
@@ -273,7 +274,11 @@ class trieNo(object):
             for gSz in range(0, groupSize-minSize+1):
                 searchMotif = self.searchInGroup(finalList, grupo, groupNumber, groupSize-gSz)
                 if searchMotif[0] >= minConser:
-                    print("Motif ::", searchMotif[1], "local :: ", searchMotif[2])
+                    #value = "Motif :", searchMotif[1], "- Local :: ", searchMotif[2],
+                    value = "Motif: {} - Local: {}".format(searchMotif[1], searchMotif[2])
+                    result.append(value)
+                    result.append("\n")
+                    print(result)
                     break
 
             groupNumber = groupNumber+1
@@ -281,6 +286,7 @@ class trieNo(object):
             occurrList = searchMotif[0]
             motifsList = searchMotif[1]
             localsList  = searchMotif[2]
+
 
 
 
@@ -382,7 +388,7 @@ class trieNo(object):
 
             idx = idx + 1
             """
-        return motifsList, occurrList, localsList
+        return motifsList, occurrList, localsList, result
 
 
 
