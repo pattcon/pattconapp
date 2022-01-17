@@ -7,6 +7,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
+
+
 from django.core.files.storage import FileSystemStorage
 
 import os, urllib, io, base64
@@ -124,7 +126,8 @@ def analise(request):
 
             #request.session["finalListBySize"] = motifList
 
-            listazip = zip(motifs, occurr, locals)
+            #listazip = zip(motifs, occurr, locals)
+            listazip = zip(motifs, locals)
 
             context = {"tsearch":tsearch,"motifList":motifs, "minsize":minSize, "listazip":listazip}
 
@@ -396,3 +399,4 @@ def report(request):
     file.close()
 
     return FileResponse(open("smamF/reports/report.txt", "rb"), as_attachment=True, content_type="text/plain")
+
