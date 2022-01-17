@@ -127,7 +127,7 @@ def analise(request):
             #request.session["finalListBySize"] = motifList
 
             #listazip = zip(motifs, occurr, locals)
-            listazip = zip(motifs, locals)
+            listazip = zip(motifs)
 
             context = {"tsearch":tsearch,"motifList":motifs, "minsize":minSize, "listazip":listazip}
 
