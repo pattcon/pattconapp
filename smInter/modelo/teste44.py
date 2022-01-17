@@ -185,7 +185,7 @@ class trieNo(object):
 
                     listAdd = []
                     for x in range(len(item)):
-                        part = item[x:x + sizeOfMotif]
+                        part = item[x:tam]
 
                         if len(part) == sizeOfMotif:
                             listAdd.append(part)
@@ -347,7 +347,7 @@ class trieNo(object):
 
         return [listaStrFim, listaLocaisConsFim, listaMotivoFim, listaContaAltFim, listaTipoFim]
 
-
+"""
 root = trieNo('+')
 root.nomeDoArquivo = "001.fas"
 root.porcenCon = 60
@@ -366,3 +366,4 @@ listResult = root.motifBySize(conservados, indices, 2, 50)
 print("Final :: ", listResult[0])
 #lista = root.geraListaFim(listResult[0], listResult[2], listResult[1])
 
+"""

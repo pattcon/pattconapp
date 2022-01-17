@@ -366,7 +366,7 @@ class trieNo(object):
 
         return [listaStrFim, listaLocaisConsFim, listaMotivoFim, listaContaAltFim, listaTipoFim]
 
-
+"""
 root = trieNo('+')
 root.nomeDoArquivo = "001.fas"
 root.porcenCon = 60
@@ -386,3 +386,4 @@ print("Final :: ", listResult[0])
 #lista = root.geraListaFim(listResult[0], listResult[2], listResult[1])
 
 # print("Motivos: ", listResult[4], "Total: ", len(listResult[4]))
+"""

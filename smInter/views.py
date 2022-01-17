@@ -117,16 +117,16 @@ def analise(request):
             new.nomeArq = fastaloc
             new.por = porcentg
 
-            motifList = new.executeBySize(minSize, porcentg, txcont)[0]
-            localsList = new.executeBySize(minSize, porcentg, txcont)[1]
-            suportsList = new.executeBySize(minSize, porcentg, txcont)[2]
+            occurr = new.executeBySize(minSize, porcentg, txcont)[0]
+            motifs = new.executeBySize(minSize, porcentg, txcont)[1]
+            locals = new.executeBySize(minSize, porcentg, txcont)[2]
 
 
             #request.session["finalListBySize"] = motifList
 
-            listazip = zip(localsList, motifList, suportsList)
+            listazip = zip(motifs, occurr, locals)
 
-            context = {"tsearch":tsearch,"motifList":motifList, "minsize":minSize, "listazip":listazip}
+            context = {"tsearch":tsearch,"motifList":motifs, "minsize":minSize, "listazip":listazip}
 
             """
                         ","minsize":minSize, localsList":localsList,#"suportsList":suportsList"""

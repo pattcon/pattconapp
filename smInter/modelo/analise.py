@@ -92,8 +92,6 @@ class conserv_alter():
         #listSuportsRes = root.motifBySize(conservados, indices, motsize, txCons)[2]
 
 
-
-
         """
         tamMax = 0
 

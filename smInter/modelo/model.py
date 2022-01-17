@@ -239,63 +239,107 @@ class trieNo(object):
 
         return listaMotivosFim, listaLocaisFim, listaAmConservFim, listaQuantFim, listaPorcentFim, listMotifsNumbers, listOrig
 
-    def motifBySize(self, listaStr, listaFim, motSize, txConser, txContent):
+    def motifBySize(self, listaStr, finalList, minSize, txConser, txContent):
         minConser = txConser / 100 * self.contaEspecies()
         minContent = txConser / 100 * self.contaEspecies()
+
 
         listTempMotif = []
         listQtMers = []
         listaMotivosFim = []
-        listaTempQuant = []
+
         listaLocaisFim = []
 
         listaPorcentFim = []
         listMotifsNumbers = []
-        listRegMers = []
+
         listLocals = []
         listLocalsMotifs = []
         listLocalsMotifsFim = []
+        idxMotif = 0
 
-        for grupo in range(len(listaStr)):
+        listFinalLocals = []
+        listCFinalMotifs = []
+        listaFinalCont = []
+        groupNumber = 0
 
-            idx = 0
-
-
-            #Mers list generation
-            for sizeOfMotif in range(motSize, len(listaStr[grupo][idx])+1):
-                no = trieNo('+')
-
-                listSpeciesTemp = []
-
-                for item in listaStr[grupo]:
-                    tam = len(item)
-
-                    listAdd = []
-                    for x in range(len(item)):
-                        part = item[x:x + sizeOfMotif]
-
-                        if len(part) == sizeOfMotif:
-                            listAdd.append(part)
-
-                    myList = sorted(set(listAdd), key=listAdd.index)
+        for grupo in listaStr:
 
 
+
+
+            groupSize = len(grupo[0])
+
+            for gSz in range(0, groupSize-minSize+1):
+                searchMotif = self.searchInGroup(finalList, grupo, groupNumber, groupSize-gSz)
+                if searchMotif[0] >= minConser:
+                    print("Motif ::", searchMotif[1], "local :: ", searchMotif[2])
+                    break
+
+            groupNumber = groupNumber+1
+
+            occurrList = searchMotif[0]
+            motifsList = searchMotif[1]
+            localsList  = searchMotif[2]
+
+
+
+
+
+        """
                     listLocals.append(listSpeciesTemp.copy())
 
-                    listLocalsTemp = []
+                    listTempLocals = []
+                    listCounterMers = []
+                    listaTempMerOccur = []
 
                     incr = 0
 
+
+
                     for mer in myList:
-                        listRegMers.append(no.adicionaNo(mer) + 1)
-                        listaTempQuant.append(mer)
-                        listLocalsTemp.append(listaFim[grupo][incr])
+
+                        listCounterMers.append(no.adicionaNo(mer) + 1)
+                        listaTempMerOccur.append(mer)
+                        listTempLocals.append(listaFim[grupo][incr])
                         incr = incr + 1
 
-                    listaLocaisFim.extend(listLocalsTemp)
+                listaLocaisFim.extend(listTempLocals)
 
+                maxOccur = 0
+                for r in range(len(listCounterMers)):
+                    if listCounterMers[r]>minContent:
+
+                        listFinalLocals.append(listTempLocals[r])
+                        listCFinalMotifs.append(listaTempMerOccur[r])
+                        listaFinalCont.append(listCounterMers[r])
+
+                        maxOccur = r
+                listaTempMerOccur.clear()
+                listTempLocals.clear()
+                listCounterMers.clear()
+
+                print("motivos :: ", listCFinalMotifs)
+                print("-------------------------------------------------------------------------")
+                #print("contagem :: ", listaFinalCont)
+                #print("local :: ", listFinalLocals)
+
+
+
+
+
+
+
+
+                
+
+
+                
                 listMersTemp = sorted(set(listaTempQuant), key=listaTempQuant.index)
+                
+                
 
+                
                 pos = 0
                 listCountMers = []
                 listLocalsMotifsTemp = []
@@ -303,12 +347,9 @@ class trieNo(object):
                     for q in range(len(listaTempQuant)):
                         if listMersTemp[p] == listaTempQuant[q]:
                             pos = q
-                    listCountMers.append(listRegMers[pos])
+                    listCountMers.append(listCounterMers[pos])
                     listLocalsMotifsTemp.append(listaLocaisFim[pos])
                 listaLocaisFim.clear()
-
-
-
 
                 listSuportTemp = []
 
@@ -318,11 +359,10 @@ class trieNo(object):
                         listSuportTemp.append(round(listCountMers[r] / self.numEspecies * 100))
                         listLocalsMotifs.append(listLocalsMotifsTemp[r])
 
-                if len(listTempMotif) >0:
+                if len(listTempMotif) > 0:
                     listaPorcentFim.append(listSuportTemp.copy())
                     listLocalsMotifsFim.append(listLocalsMotifs.copy())
                     listaMotivosFim.append(listTempMotif.copy())
-
 
                 listLocalsMotifs.clear()
                 listLocalsMotifsTemp.clear()
@@ -330,7 +370,7 @@ class trieNo(object):
                 listCountMers.clear()
                 listMersTemp.clear()
                 listSuportTemp.clear()
-                listRegMers.clear()
+                listCounterMers.clear()
 
                 listTempMotif.clear()
 
@@ -341,8 +381,68 @@ class trieNo(object):
                 listMotifsNumbers.append(p)
 
             idx = idx + 1
+            """
+        return motifsList, occurrList, localsList
 
-        return listaMotivosFim, listLocalsMotifsFim, listaPorcentFim
+
+
+    def searchInGroup(self, finalList, group,groupNumber, sizeItem):
+
+        listCounterMers = []
+        listaTempMers = []
+        listTempLocals = []
+
+        listLocals = []
+        listLocalsFinal = []
+        listMers = []
+
+
+
+        no = trieNo("+")
+
+
+
+
+        for item in group:
+            incr = 0
+            max = len(item)-sizeItem+1
+            for x in range(max):
+                mer = item[x: x + sizeItem]
+                listaTempMers.append(mer)
+                listTempLocals.append(finalList[groupNumber][incr])
+                incr = incr+1
+
+
+                #listaTempMers = sorted(set(listaTempMers), key=listaTempMers.index)
+
+        x=-1
+        for mer in listaTempMers:
+            listCounterMers.append(no.adicionaNo(mer) + 1)
+            listMers.append(mer)
+            localMer = listTempLocals[x+1]
+            listLocals.append(listTempLocals[x+1])
+            x = x + 1
+
+
+        maxOccurMer = 0
+        listMaxMers = []
+
+
+
+        for i in range(len(listCounterMers)):
+            if listCounterMers[i] > maxOccurMer:
+                maxOccurMer = listCounterMers[i]
+
+        for i in range(len(listCounterMers)):
+            if listCounterMers[i] == maxOccurMer:
+                listMaxMers.append(listMers[i])
+                listLocalsFinal.append(listLocals[i])
+
+
+
+        return maxOccurMer, listMaxMers, listLocalsFinal
+
+
 
 
 
@@ -729,9 +829,9 @@ class trieNo(object):
         return [listaStrFim, listaLocaisConsFim, listaMotivoFim, listaContaAltFim, listaTipoFim]
 
 
-
+"""
 root = trieNo('+')
-root.nomeDoArquivo = "03Rizhoctonia_solani.fas"
+root.nomeDoArquivo = "sbtest.fas"
 
 especiesList = root.leEspecies()
 seqAminos = root.leSequencias()
@@ -743,8 +843,6 @@ indices = root.agrupaSitesCons(locaisConservados)
 
 conservados = root.geraConserv(indices, seqAminos)
 
-lista = root.motifBySize(conservados, indices, 7, 60, 60)
+root.motifBySize(conservados, indices, 2, 50, 50)
 
-print(lista[0])
-print(lista[2])
-
+"""
