@@ -4,27 +4,32 @@ from .model import trieNo
 
 class conserv_alter():
     nomeArq = '001.fas'
-    por = 60
+    percCont = 0
+    percCons = 0
 
     def executar(self):
         root = trieNo('+')
-        root.nomeDoArquivo = self.nomeArq
-        root.porcenCon = self.por
+        root.fileName = self.nomeArq
 
-        especiesList = root.leEspecies()
-        seqAminos = root.leSequencias()
+        root.conservPerc = self.percCons
+        root.contentPerc = self.percCont
 
-        qtdeEspecies = root.contaEspecies()
-        porceCon = root.porcConservacao(qtdeEspecies)
-        locaisConservados = root.locaisConserv(porceCon)
-        indices = root.agrupaSitesCons(locaisConservados)
+        especiesList = root.readSpecies()
+        seqAminos = root.readSequences()
 
-        conservados = root.geraConserv(indices, seqAminos)
-        listResult = root.geraFim(conservados, indices)
+        qtdeEspecies = root.countSpecies()
+        porceCon = root.calcConservPerc()
+        locaisConservados = root.conservLocals(porceCon)
+        indices = root.groupConsLocals(locaisConservados)
+
+
+
+        conservados = root.genConserved(indices, seqAminos)
+        listResult = root.genMotifs(conservados, indices)
         #predominantes = root.geraPred(conservados)
 
         listConsOrig = listResult[6]
-        lista = root.geraListaFim(listResult[0], listResult[2], listResult[1])
+        lista = root.processSequences(listResult[0], listResult[2], listResult[1],listResult[4])
         motivos =lista[2]
         locais = lista[1]
 
@@ -36,7 +41,7 @@ class conserv_alter():
         numerMotivo = []
 
         qtde = len(motivos)
-        for i in range(1, qtde):
+        for i in range(0, qtde):
             numerMotivo.append(i)
 
 
@@ -66,26 +71,29 @@ class conserv_alter():
 
         porcentOcorr = listResult[4]
 
+        print("Motivos :: ", motivos)
+        print("Numeros :: ", numerMotivo)
 
 
-        return numerMotivo, locais, motivos, inicioLocal, fimLocais, inFimJuntos,listaStrFim, listaContaAlt, listaTipo, listaEsp,listaAltStr,listaAltEsp,listaAltQtde,listaConsStr,listaConsEsp, listConsOrig, porcentOcorr
+        return numerMotivo, locais, motivos, inicioLocal, fimLocais, inFimJuntos,listaStrFim, listaContaAlt, listaTipo, listaEsp,listaAltStr,listaAltEsp,listaAltQtde,listaConsStr,listaConsEsp, listConsOrig, porcentOcorr, porceCon
 
 
 
     def executeBySize(self, motsize, txCons, txCont):
         root = trieNo('+')
-        root.nomeDoArquivo = self.nomeArq
-        root.porcenCon = self.por
+        root.fileName = self.nomeArq
+        root.conservPerc = txCons
+        root.contentPerc = txCont
 
-        especiesList = root.leEspecies()
-        seqAminos = root.leSequencias()
+        especiesList = root.readSpecies()
+        seqAminos = root.readSequences()
 
-        qtdeEspecies = root.contaEspecies()
-        porceCon = root.porcConservacao(qtdeEspecies)
-        locaisConservados = root.locaisConserv(porceCon)
-        indices = root.agrupaSitesCons(locaisConservados)
+        qtdeEspecies = root.countSpecies()
+        porceCon = root.calcConservPerc()
+        locaisConservados = root.conservLocals(porceCon)
+        indices = root.groupConsLocals(locaisConservados)
 
-        conservados = root.geraConserv(indices, seqAminos)
+        conservados = root.genConserved(indices, seqAminos)
 
         listMotifsRes = root.motifBySize(conservados, indices,motsize, txCons, txCont)
         #listLocalsRes = root.motifBySize(conservados, indices, motsize, txCons)[1]

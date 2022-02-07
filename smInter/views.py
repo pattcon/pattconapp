@@ -37,12 +37,16 @@ def analise(request):
 
         # Get input data from template form
         fastaloc = ""
-        porcentg = 0
+        percContent = 0
+        percConserv = 0
+
         if request.method == 'POST' and request.FILES['fileseq']:
             myfile = request.FILES['fileseq']
             fs = FileSystemStorage()
 
-            porcentg = int(request.POST.get("porcent"))
+            percContent = int(request.POST.get("contpercent"))
+            percConserv = int(request.POST.get("conspercent"))
+
             filename = fs.save(myfile.name, myfile)
             fastaloc = str("smamF/fasta/input/" + myfile.name)
 
@@ -50,9 +54,12 @@ def analise(request):
 
         novo = conserv_alter()
         novo.nomeArq = fastaloc
-        novo.por = porcentg
+        novo.percCont = percContent
+        novo.percCons = percConserv
 
         res = novo.executar()
+
+        consTx = res[17]
 
 
 
@@ -94,7 +101,7 @@ def analise(request):
 
             "vl": "fim", "resultado": res, "numero": res[0], "locais": local, "motivo": motivo, "inicio": inicio,
             "fim": fim, "tam": tam, "inFimJuntos": res[5], "listazip": listazip, "spec": species,
-            "porcOcorr": porcOcorr,
+            "porcOcorr": porcOcorr, "cons":consTx,
             "tsearch": tsearch
         }
 
@@ -103,26 +110,31 @@ def analise(request):
     else:
         if searchType == "minsizemotif":
             tsearch = "Minimun Size"
+            fastaloc = ''
+            percCons = 0
+            percCont = 0
+            minSize = 0
 
 
             if request.method == 'POST' and request.FILES['fileseq']:
                 myfile = request.FILES['fileseq']
                 fs = FileSystemStorage()
 
-                porcentg = int(request.POST.get("porcent"))
-                txcont = int(request.POST.get("conserv"))
+                percCont = int(request.POST.get("contpercent"))
+                percCons = int(request.POST.get("conspercent"))
                 minSize = int(request.POST.get("tammin"))
                 filename = fs.save(myfile.name, myfile)
                 fastaloc = str("smamF/fasta/input/" + myfile.name)
 
             new = conserv_alter()
             new.nomeArq = fastaloc
-            new.por = porcentg
+            new.percCons = percCons
+            new.percCont = percCont
 
-            occurr = new.executeBySize(minSize, porcentg, txcont)[0]
-            motifs = new.executeBySize(minSize, porcentg, txcont)[1]
-            locals = new.executeBySize(minSize, porcentg, txcont)[2]
-            result = new.executeBySize(minSize, porcentg, txcont)[3]
+            occurr = new.executeBySize(minSize, percCons, percCont)[0]
+            motifs = new.executeBySize(minSize, percCons, percCont)[1]
+            locals = new.executeBySize(minSize, percCons, percCont)[2]
+            result = new.executeBySize(minSize, percCons, percCont)[3]
 
 
             #request.session["finalListBySize"] = motifList
@@ -156,9 +168,9 @@ def analise(request):
 def motivores(request):
 
     if request.POST:
-        numero = request.POST.get("valor","")
+        numero = request.POST.get("valor")
         numero = int(numero)
-        indice = numero-1
+        indice = numero
 
     res = request.session.get('finalList')
     listOrigi = res[15]

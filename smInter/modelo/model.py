@@ -7,44 +7,33 @@ class trieNo(object):
     def __init__(self, chtr):
         self.chr = chtr
         self.seq = []
-        self.fimpalavra = False
-        self.contaSeq = 0
-        self.contaAmino = 1
-        self.porcenCon = 60
-        self.tipo = 1
-        self.ranking = []
-        self.contaDiferentes = 0
+        self.endOfWord = False
+        self.seqCount = 0
+        self.aminoCount = 1
+        self.contentPerc = 60
+        self.conservPerc = 60
         self.wordsize = 0
-        self.nomeDoArquivo = ''
-        self.formatoArquivo = 'fasta'
-        self.numTotalResiduos= 0
-        self.numEspecies = 0
-
+        self.fileName = ''
+        self.fileFormat = 'fasta'
+        self.specNumb = 0
         self.children = [None] * 31
+        self.ranking = []
+        self.isLeaf = False
 
     
 
 
-    # lê a sequencia de aminos no arquivo Fasta
-    def leSequencias(self):
+    #Read the sequences from Fasta file
+    def readSequences(self):
+        listSequences = []
+        for i in SeqIO.parse(self.fileName, self.fileFormat):
+            listSequences.append(list(i.seq))
+        return listSequences
 
 
-
-        listaSequencias = []
-
-
-        for i in SeqIO.parse(self.nomeDoArquivo, self.formatoArquivo):
-            listaSequencias.append(list(i.seq))
-
-
-        return listaSequencias
-
-
-
-
-
-    def leQtdeResiduos(self, listaSeq):
-        seq = self.leSequencias()
+    #Read the total of the residues from the species (number of columns)
+    def readMaxSizeSequences(self, listSequencesInit):
+        seq = self.readSequences()
         tam = len(seq[0])
         self.numTotalResiduos = tam
         return seq
@@ -52,343 +41,439 @@ class trieNo(object):
 
 
 
-    # formata e adiciona os nomes das espécies à uma lista
-    def leEspecies(self):
-        listaEspecies = []
+    #Extract the name of the species from FASTA and build a list with this
+    def readSpecies(self):
+        listSpecies = []
 
-        for i in SeqIO.parse(self.nomeDoArquivo, self.formatoArquivo):
-            listaTemp = []
-            listaTemp.append(re.split(r'_', i.id))
+        for i in SeqIO.parse(self.fileName, self.fileFormat):
+            listTemp = []
+            listTemp.append(re.split(r'_', i.id))
 
-            if len(listaTemp[0][0]) < 3:
-                item = listaTemp[0][0] + ' ' + listaTemp[0][1]
+            if len(listTemp[0][0]) < 3:
+                it = listTemp[0][0] + ' ' + listTemp[0][1]
             else:
-                item = listaTemp[0][0]
+                it = listTemp[0][0]
 
-            listaEspecies.append(item)
+            listSpecies.append(it)
 
-        return listaEspecies
+        return listSpecies
 
-    def contaEspecies(self):
-        num = self.numEspecies = len(self.leEspecies())
+
+    #Count the total of the species present in the FASTA file
+    def countSpecies(self):
+        num = len(self.readSpecies())
+        self.specNumb = num
         self.ranking = [0] * num
         return num
 
-    # porcentagem a se considerar como site conservado - 60%
-    def porcConservacao(self, numeroEspecies):
-        return int(numeroEspecies * self.porcenCon / 100)
 
-    # elimina os GAP's das sequências e verifica os aminoácidos remanescentes se atendem à quantidade mínima exigida para serem
-    # considerados como uma região conservada.
-    def locaisConserv(self, porConserv):
-        listaSequencias = self.leSequencias()
 
-        #for i in SeqIO.parse(self.nomeDoArquivo, self.formatoArquivo):
-            #listaSequencias.append(i.seq)
+    #Calculate the amount of species in a column with no gap's to be consider as a conserved region
+    def calcContPercent(self):
+        return int(round(self.specNumb * self.contentPerc / 100))
 
-        listaEspecies = self.leEspecies()
+    def calcConservPerc(self):
+        return int(round(self.specNumb * self.conservPerc / 100))
 
-        locaisConservados = []
-        sitesConservados = []
-        especiesConserv = []
 
-        for j in range(len(listaSequencias[0])):
+
+
+    #Eliminate the columns with only gap's from sequências and verify if the column has minimun content
+    #to be considered as an conserved region.
+    def conservLocals(self, contPercent):
+        listSequencesInit = self.readSequences()
+        listConservLocals = []
+
+        for j in range(len(listSequencesInit[0])):
             cont = 0
             colunas = []
-            for k in range(len(listaSequencias)):
-                if (listaSequencias[k][j] != '-'):
-                    colunas.append(listaSequencias[k][j])
+            for k in range(len(listSequencesInit)):
+                if (listSequencesInit[k][j] != '-'):
+                    colunas.append(listSequencesInit[k][j])
 
 
-            if len(colunas) >= self.porcConservacao(self.numEspecies):
-                locaisConservados.append(j)
+            if len(colunas) >= self.calcContPercent():
+                listConservLocals.append(j)
 
             colunas.clear()
 
-        return locaisConservados
+        return listConservLocals
 
 
 
 
-    # agrupa os sites conservados consecutivos
-    def agrupaSitesCons(self, listCon):
-        listaTemp = []
-        listaFim = []
+    #Grouping consecutive conserved regions (columns), return indexes from original list
+    def groupConsLocals(self, listConservedLocals):
+        listTemp = []
+        listConservedFinal = []
         m = 0
         incr = 0
-        tam = len(listCon)
+        size = len(listConservedLocals)
 
-        while incr < tam:
+        while incr < size:
             chave = incr
-            while listCon[incr] - listCon[chave] == m:
-                listaTemp.append(listCon[incr])
+            while listConservedLocals[incr] - listConservedLocals[chave] == m:
+                listTemp.append(listConservedLocals[incr])
                 m = m + 1
                 incr = incr + 1
-                if incr == tam:
+                if incr == size:
                     break
-            listaFim.append(listaTemp.copy())
-            listaTemp.clear()
+            listConservedFinal.append(listTemp.copy())
+            listTemp.clear()
             m = 0
-        return listaFim
-
-        # OK - indices
+        return listConservedFinal
 
 
 
 
-    # pega os aminoacidos conservados por linha dentro da taxa de conservação estabelecida:
-    def geraConserv(self, listaCon, listaSeq):
+
+    #Create a line list from column list of data
+    def genConserved(self, listConservedAminos, listSequencesInit):
         listTemp = []
-        listaAdd = []
-        listaLocal = []
+        listAdd = []
+        listLocal = []
 
-        for item in listaCon:
-            min = item[0]
-            tam = len(item) - 1
-            max = item[tam]
-            for p in range(len(listaSeq)):
-                listTemp.append(listaSeq[p][min:max + 1])
+        for it in listConservedAminos:
+            min = it[0]
+            size = len(it) - 1
+            max = it[size]
+            for p in range(len(listSequencesInit)):
+                listTemp.append(listSequencesInit[p][min:max + 1])
 
-            listaAdd.append(listTemp.copy())
+            listAdd.append(listTemp.copy())
 
             listTemp.clear()
-##
-        # converte cada linha em uma palavra pra ser usada na Trie
+
+        #Concatenate simbols of each line, creating words to be used in the trie structure.
         lTemp = []
-        listaStr = []
+        listStr = []
         separator = ''
-        for item in listaAdd:
-            for j in item:
+        for it in listAdd:
+            for j in it:
                 strAm = separator.join(j)
                 lTemp.append(strAm)
-            listaStr.append(lTemp.copy())
+            listStr.append(lTemp.copy())
             lTemp.clear()
 
-        return listaStr
-
-    # ok - conservados - linhas
+        return listStr
 
 
 
-    # gera as sequências mais encontradas em cada grupo de sites
-    def geraFim(self, listaStr, listaFim):
 
-        listaMotivosFim = []
-        listaTempQuant = []
-        listaLocaisFim = []
-        listaAmConservFim = []
-        listaQuantFim = []
-        listaPorcentFim = []
+
+
+
+
+
+
+
+    #Trie structure, modified add procedure.
+    def addNode(self, key):
+
+        curr = self
+        exist = True
+        gapsCount = 0
+        empty = False
+
+        for i in range(len(key)):
+            if key[i] == '-':
+                gapsCount = gapsCount + 1
+        if gapsCount == len(key):
+            empty = True
+            return 0, True
+
+
+        for i in range(len(key)):
+            index = ord(key[i]) - ord('A')
+
+            if index == -20:
+                index = 29
+
+            if curr.children[index] is None:
+                curr.children[index] = trieNo(index)
+                exist = False
+
+            curr = curr.children[index]
+
+            if exist == True:
+                curr.seqCount = curr.seqCount + 1
+        curr.isLeaf = True
+
+        return curr.seqCount, empty
+
+
+
+
+
+
+
+
+    # Trie structure, modified add procedure to generate the modifications find in each sequences
+    # in compairson with the motif.
+    def addNodeGenModif(self, key):
+
+        listOut = []
+        curr = self
+
+        empty = False
+        idxNew = 0
+        idxSubst = -1
+
+        #eliminate sequences with only GAP's
+        cont = 0
+        for k in range(len(key)):
+            if key[k] == "-":
+                cont = cont+1
+        if cont == len(key)-1:
+            empty = True
+
+
+
+        for i in range(len(key)):
+            exist = True
+
+            if idxSubst == -1:
+                index = ord(key[i]) - ord('A')
+            else:
+                index = idxSubst
+
+            if index == -20:
+                index = 29
+
+            if curr.children[index] is None:
+                curr.children[index] = trieNo(index)
+                exist = False
+                listOut.append("[")
+                listOut.append(key[i])
+                listOut.append("]")
+                idxNew = index
+
+                for j in range(31):
+                    if curr.children[j] is not None and j != idxNew :
+                        idxSubst = j
+
+
+
+
+
+            if idxSubst == -1:
+                curr = curr.children[index]
+            else:
+                curr = curr.children[idxSubst]
+
+
+            if exist == True:
+                curr.seqCount = curr.seqCount + 1
+                listOut.append(key[i])
+
+        curr.isLeaf = True
+
+        return curr.seqCount, empty, listOut
+
+
+
+
+
+
+
+
+
+
+
+    # Generate the most found sequences in each group
+    def genMotifs(self, listSequences, listConserved):
+
+        consLev = self.calcConservPerc()
+
+        listMotifsFinal = []
+        listCountTemp = []
+        listLocalsFinal = []
+        listConsAminFinal = []
+        listCountFinal = []
+        listPercentFinal = []
         listMotifsNumbers = []
         listOrig = []
+        listItTemp = []
+
+        listCountAcum = []
+        listItAcum=[]
 
         idx = 0
 
-        for grupo in listaStr:
-            maior = 0
+        for group in listSequences:
+            maxVal = 0
             seqPred = ''
-            no = trieNo('+')
-            valor = 0
+            node = trieNo('+')
+            currVal = 0
 
+            for it in group:
+                insertTree = node.addNode(it)
+                currVal = insertTree[0]+1
+                if insertTree[1] == False:
 
-            for item in grupo:
-                valor = no.adicionaNo(item)+1
-                listaTempQuant.append(valor)
-                semMotivo = 0
-
-
-                if valor > maior:
-                    maior = valor
-
-            for k in range(len(grupo)):
-                if maior >1:
-                    if listaTempQuant[k] >= maior:
-                        listaMotivosFim.append(grupo[k])
-                        listaLocaisFim.append(listaFim[idx])
-                        listaAmConservFim.append(grupo)
-                        listaQuantFim.append(listaTempQuant[k])
-                        listaPorcentFim.append(round(maior / self.numEspecies * 100))
-                        listOrig.append(grupo)
-            """
+                    listCountTemp.append(currVal)
+                    listItTemp.append(it)
                 else:
-                    semMotivo = 1
+                    currVal = 0
+                    listCountTemp.append(currVal)
+                    listItTemp.append(it)
 
-            if semMotivo == 1:
-                for l in range(len(item)):
-                    seqPred = seqPred + '-'
-                listaMotivosFim.append(seqPred)
-                listaLocaisFim.append(listaFim[idx])
-                listaAmConservFim.append(grupo)
-                listaQuantFim.append(0)
-                listaPorcentFim.append(0)
-                listOrig.append(grupo)
-                seqPred = ''
-                semMotivo = 0
+            #print("Count occurrences ::::: ", listItTemp , ":::::", listCountTemp)
 
-            """
+            valComp = 0
+            valMaj = 0
+            item = ""
+            listaTempUniq = list(sorted(set(listItTemp), key=listItTemp.index))
+            listTempUse = []
 
 
-            for p in range(len(listaMotivosFim)):
+
+            for j in listaTempUniq:
+                for k in range(len(listCountTemp)):
+                    if j == listItTemp[k]:
+                        listTempUse.append(listCountTemp[k])
+                valMaj = max(listTempUse)
+                #print("Compiled of each sequence occurrence :: ", j , " :: ", valMaj)
+                listCountAcum.append(valMaj)
+                listItAcum.append(j)
+                listTempUse.clear()
+
+                valMaj = 0
+            listaTempUniq.clear()
+
+
+            for k in range(len(listCountAcum)):
+
+                if listCountAcum[k] >0 and listCountAcum[k] >= consLev:
+                    listMotifsFinal.append(listItAcum[k])
+                    listLocalsFinal.append(listConserved[idx])
+                    listConsAminFinal.append(group)
+                    listCountFinal.append(listCountAcum[k])
+                    listPercentFinal.append(round(listCountAcum[k] / self.specNumb * 100))
+                    listOrig.append(group)
+
+
+            for p in range(len(listMotifsFinal)):
                 listMotifsNumbers.append(p)
-
 
             idx = idx + 1
 
-            listaTempQuant.clear()
+            listItTemp.clear()
+            listCountTemp.clear()
+            listItAcum.clear()
+            listCountAcum.clear()
+
+            #print("LISTA DE MOTIVOS FINAL :: ", listMotifsFinal)
+
+        return listMotifsFinal, listLocalsFinal, listConsAminFinal, listCountFinal, listPercentFinal, listMotifsNumbers, listOrig
 
 
-        return listaMotivosFim, listaLocaisFim, listaAmConservFim, listaQuantFim, listaPorcentFim, listMotifsNumbers, listOrig
+
+
+
+
+
+
+
+
+
+
+
+
+    #Insertion of data in a trie strucuture, generating the motifs and the regions with alterations
+    def processSequences(self, listMotifs, listConservedAmin, listConservLocals, listPercOccurr):
+        listStrTemp = []
+        listStrFinal = []
+        conserved = 1
+        listTypTemp = []
+        listTypeFinal = []
+        listConsLocalsFinal = []
+        listAltCountTemp = []
+        listAltCountFinal = []
+        listMotifsFinal = []
+        listPercentOccurrFinal = listPercOccurr
+
+
+
+
+        for i in range(len(listConservedAmin)):
+            listConsLocalsFinal.append(listConservLocals[i])
+            listMotifsFinal.append(listMotifs[i])
+            
+
+            for j in range(len(listConservedAmin[i])):
+                word = ""
+                conserved = 1
+                alterations = 0
+                for k in range(len(listConservedAmin[i][j])):
+                    if listConservedAmin[i][j][k] == listMotifs[i][k]:
+                        word = word + listConservedAmin[i][j][k]
+
+                    else:
+
+                        word1 = "["
+                        word2 = listConservedAmin[i][j][k]
+                        word3 = "]"
+                        word = word + word1+word2+word3
+                        conserved = 0
+                        alterations = alterations + 1
+
+
+                listAltCountTemp.append(alterations)
+
+                listStrTemp.append(word)
+                listTypTemp.append(conserved)
+
+
+            listTypeFinal.append(listTypTemp.copy())
+            listAltCountFinal.append(listAltCountTemp.copy())
+            listStrFinal.append(listStrTemp.copy())
+            listStrTemp.clear()
+            listAltCountTemp.clear()
+            listTypTemp.clear()
+
+
+
+
+        return [listStrFinal, listConsLocalsFinal, listMotifsFinal, listAltCountFinal, listTypeFinal, listPercentOccurrFinal]
+
+
+
+
 
     def motifBySize(self, listaStr, finalList, minSize, txConser, txContent):
-        minConser = txConser / 100 * self.contaEspecies()
-        minContent = txConser / 100 * self.contaEspecies()
+        minConser = txConser / 100 * self.countSpecies()
+        minContent = txConser / 100 * self.countSpecies()
 
 
-        listTempMotif = []
-        listQtMers = []
-        listaMotivosFim = []
-
-        listaLocaisFim = []
-
-        listaPorcentFim = []
-        listMotifsNumbers = []
-
-        listLocals = []
-        listLocalsMotifs = []
-        listLocalsMotifsFim = []
-        idxMotif = 0
-
-        listFinalLocals = []
-        listCFinalMotifs = []
-        listaFinalCont = []
         groupNumber = 0
         result = []
 
         for grupo in listaStr:
 
-
-
-
             groupSize = len(grupo[0])
 
-            for gSz in range(0, groupSize-minSize+1):
-                searchMotif = self.searchInGroup(finalList, grupo, groupNumber, groupSize-gSz)
+            for gSz in range(0, groupSize - minSize + 1):
+                searchMotif = self.searchInGroup(finalList, grupo, groupNumber, groupSize - gSz)
                 if searchMotif[0] >= minConser:
-                    #value = "Motif :", searchMotif[1], "- Local :: ", searchMotif[2],
                     value = "Motif: {} - Local: {}".format(searchMotif[1], searchMotif[2])
                     result.append(value)
                     result.append("\n")
                     print(result)
                     break
 
-            groupNumber = groupNumber+1
+            groupNumber = groupNumber + 1
 
             occurrList = searchMotif[0]
             motifsList = searchMotif[1]
-            localsList  = searchMotif[2]
+            localsList = searchMotif[2]
 
 
-
-
-
-
-        """
-                    listLocals.append(listSpeciesTemp.copy())
-
-                    listTempLocals = []
-                    listCounterMers = []
-                    listaTempMerOccur = []
-
-                    incr = 0
-
-
-
-                    for mer in myList:
-
-                        listCounterMers.append(no.adicionaNo(mer) + 1)
-                        listaTempMerOccur.append(mer)
-                        listTempLocals.append(listaFim[grupo][incr])
-                        incr = incr + 1
-
-                listaLocaisFim.extend(listTempLocals)
-
-                maxOccur = 0
-                for r in range(len(listCounterMers)):
-                    if listCounterMers[r]>minContent:
-
-                        listFinalLocals.append(listTempLocals[r])
-                        listCFinalMotifs.append(listaTempMerOccur[r])
-                        listaFinalCont.append(listCounterMers[r])
-
-                        maxOccur = r
-                listaTempMerOccur.clear()
-                listTempLocals.clear()
-                listCounterMers.clear()
-
-                print("motivos :: ", listCFinalMotifs)
-                print("-------------------------------------------------------------------------")
-                #print("contagem :: ", listaFinalCont)
-                #print("local :: ", listFinalLocals)
-
-
-
-
-
-
-
-
-                
-
-
-                
-                listMersTemp = sorted(set(listaTempQuant), key=listaTempQuant.index)
-                
-                
-
-                
-                pos = 0
-                listCountMers = []
-                listLocalsMotifsTemp = []
-                for p in range(len(listMersTemp)):
-                    for q in range(len(listaTempQuant)):
-                        if listMersTemp[p] == listaTempQuant[q]:
-                            pos = q
-                    listCountMers.append(listCounterMers[pos])
-                    listLocalsMotifsTemp.append(listaLocaisFim[pos])
-                listaLocaisFim.clear()
-
-                listSuportTemp = []
-
-                for r in range(len(listCountMers)):
-                    if listCountMers[r] >= minConser:
-                        listTempMotif.append(listMersTemp[r])
-                        listSuportTemp.append(round(listCountMers[r] / self.numEspecies * 100))
-                        listLocalsMotifs.append(listLocalsMotifsTemp[r])
-
-                if len(listTempMotif) > 0:
-                    listaPorcentFim.append(listSuportTemp.copy())
-                    listLocalsMotifsFim.append(listLocalsMotifs.copy())
-                    listaMotivosFim.append(listTempMotif.copy())
-
-                listLocalsMotifs.clear()
-                listLocalsMotifsTemp.clear()
-                listaTempQuant.clear()
-                listCountMers.clear()
-                listMersTemp.clear()
-                listSuportTemp.clear()
-                listCounterMers.clear()
-
-                listTempMotif.clear()
-
-            listQtMers.clear()
-            listaTempQuant.clear()
-
-            for p in range(len(listaMotivosFim)):
-                listMotifsNumbers.append(p)
-
-            idx = idx + 1
-            """
         return motifsList, occurrList, localsList, result
+
+
+
+
 
 
 
@@ -423,7 +508,7 @@ class trieNo(object):
 
         x=-1
         for mer in listaTempMers:
-            listCounterMers.append(no.adicionaNo(mer) + 1)
+            listCounterMers.append(no.addNode(mer)[0] + 1)
             listMers.append(mer)
             localMer = listTempLocals[x+1]
             listLocals.append(listTempLocals[x+1])
@@ -449,406 +534,3 @@ class trieNo(object):
         return maxOccurMer, listMaxMers, listLocalsFinal
 
 
-
-
-
-    def adicionaNo(self, key):
-
-        curr = self
-        exist = True
-        contaGaps = 0
-
-        for i in range(len(key)):
-            if key[i] == '-':
-                contaGaps = contaGaps + 1
-
-        if contaGaps-1 != len(key):
-
-            for i in range(len(key)):
-                index = ord(key[i]) - ord('A')
-
-                if index == -20:
-                    index = 29
-
-                if curr.children[index] is None:
-                    curr.children[index] = trieNo(index)
-                    exist = False
-
-                curr = curr.children[index]
-
-                if exist == True:
-                    curr.contaSeq = curr.contaSeq + 1
-
-        return curr.contaSeq
-
-
-    def busca2(self, key):
-
-        curr = self
-        saida = []
-        numAlteracoes = 0
-
-        for i in range(len(key)):
-
-            if key[i] == '-':
-                index = ord('^') - ord('A')
-            else:
-                index = ord(key[i]) - ord('A')
-
-            if curr.children[index] is None:
-                numAlteracoes = numAlteracoes + 1
-                saida.append('{}{}{}'.format('[', key[i], ']'))
-
-                for j in range(31):
-                    if curr.children[j] is not None:
-                        index = j
-                        break
-
-            else:
-                saida.append(key[i])
-            curr = curr.children[index]
-
-
-        return [numAlteracoes, saida, i]
-
-
-
-    def busca(self, listaMotivos, listaSequencias):
-
-
-        temp = []
-        numAlteracoes = 0
-        saidaFim = []
-
-        for j in range(len(listaMotivos)):
-            curr = self
-            motivo = listaMotivos[j]
-            curr.adicionaNo(motivo)
-
-
-
-
-            for k in range(len(listaSequencias)):
-
-                for l in range(len(listaSequencias[k])):
-                    key = listaSequencias[k][l]
-                    endWord = ""
-
-                    for i in range(len(key)):
-
-                        if key[i] == '-':
-                            index = ord('^') - ord('A')
-                        else:
-                            index = ord(key[i]) - ord('A')
-
-
-                        if curr is not None:
-
-
-                            if curr.children[index] is None:
-                                numAlteracoes = numAlteracoes + 1
-                                #temp.append('{}{}{}'.format('[', key[i], ']'))
-                                st = '['+ key[i]+']'
-                                endWord = endWord+st
-
-                                for j in range(31):
-                                    if curr.children[j] is not None:
-                                        index = j
-                                        break
-
-                            else:
-
-                                #temp.append(key[i])
-                                endWord = endWord+key[i]
-
-                            curr = curr.children[index]
-                    temp.append(endWord)
-
-
-
-                    saidaFim.append(temp.copy())
-                    temp.clear()
-
-
-
-
-
-        return [numAlteracoes, saidaFim, i]
-
-
-
-    # gera ranking de espécies mais conservadas
-    def insereAlte(self, indice):
-        val = self.ranking[indice]
-        val = val + 1
-        self.ranking[indice] = val
-
-    def geraRankOrd(self, listaEsp):
-
-        vetEspOrd = [i for i in listaEsp]
-        vetEspDes = [i for i in listaEsp]
-
-        vetOrd = [int(i) for i in self.ranking]
-        vetDes = [int(i) for i in self.ranking]
-
-        for i in range(len(vetOrd)):
-
-            min = i
-
-            for j in range(i + 1, len(vetOrd)):
-                if vetOrd[min] > vetOrd[j]:
-                    min = j
-
-            temp = vetOrd[i]
-            vetOrd[i] = vetOrd[min]
-            vetOrd[min] = temp
-
-            temp2 = vetEspOrd[i]
-            vetEspOrd[i] = vetEspOrd[min]
-            vetEspOrd[min] = temp2
-
-        return [vetDes, vetOrd, vetEspDes, vetEspOrd]
-
-
-    def compara(self, listPred, listAminos, listEsp, listAgrup):
-
-        listaAlterada = []
-        listaConservada = []
-        listaAltTemp = []
-        listaConsTemp = []
-        espConsTemp = []
-        espAltTemp = []
-        espConsFinal = []
-        espAltFinal = []
-        seqPred = []
-        listNumAlterac = []
-        numAltera = 0
-
-        no = trieNo('+')
-        no.adicionaNo(listPred)
-        seqPred.append(listPred)
-
-        for j in range(len(listAminos)):
-
-            item = listAminos[j]
-            busca = no.busca(item)
-            if busca[0] > 0:
-                listaAltTemp.append(busca[1])
-                espAltTemp.append(listEsp[j])
-                listNumAlterac.append(busca[0])
-                #print("Especie com alterações:::", listEsp[j])
-                #print(" Qtde:  ", busca[0])
-
-
-
-            else:
-                listaConsTemp.append(busca[1])
-                espConsTemp.append(listEsp[j])
-
-        # print("Espcies conservadas ::", espConsTemp)
-        # print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-        listaAlterada.append(listaAltTemp.copy())
-        listaConservada.append(listaConsTemp.copy())
-
-        espConsFinal.append(espConsTemp.copy())
-        espAltFinal.append(espAltTemp.copy())
-
-        espConsTemp.clear()
-        espAltTemp.clear()
-        listaAltTemp.clear()
-        listaConsTemp.clear()
-
-        return [listaAlterada, listaConservada, espConsFinal, espAltFinal, listAgrup, seqPred, listNumAlterac]
-
-
-    def compara2(self, listPred, listAminos, listEsp, listAgrup):
-
-        listaAlterada = []
-        listaConservada = []
-        listaAltTemp = []
-        listaConsTemp = []
-        espConsTemp = []
-        espAltTemp = []
-        espConsFinal = []
-        espAltFinal = []
-        seqPred = []
-        listNumAlterac = []
-        numAltera = 0
-        listaMotivos = []
-
-        no = trieNo('+')
-        no.adicionaNo(listPred)
-        seqPred.append(listPred)
-
-
-        for i in range(len(listPred)):
-            for j in range(len(listAminos)):
-
-                item = listAminos[j]
-                busca = no.busca(item)
-                if busca[0] > 0:
-                    listaAltTemp.append(busca[1])
-                    espAltTemp.append(listEsp[j])
-                    listNumAlterac.append(busca[0])
-                    #print("Especie com alterações:::", listEsp[j])
-                    #print(" Qtde:  ", busca[0])
-
-
-
-                else:
-                    listaConsTemp.append(busca[1])
-                    espConsTemp.append(listEsp[j])
-
-                listaMotivos.append(listPred[i])
-
-        # print("Espcies conservadas ::", espConsTemp)
-        # print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-        listaAlterada.append(listaAltTemp.copy())
-        listaConservada.append(listaConsTemp.copy())
-
-        espConsFinal.append(espConsTemp.copy())
-        espAltFinal.append(espAltTemp.copy())
-
-        espConsTemp.clear()
-        espAltTemp.clear()
-        listaAltTemp.clear()
-        listaConsTemp.clear()
-
-        return [listaAlterada, listaConservada, espConsFinal, espAltFinal, listAgrup, seqPred, listNumAlterac]
-
-
-    def ordena(self, listaAl, listaEsp, listNum):
-        if len(listaAl) > 1:
-            mid = len(listaAl) // 2
-
-            lefthalf = listaAl[:mid]
-            righthalf = listaAl[mid:]
-
-            lefthalfEsp = listaEsp[:mid]
-            righthalfEsp = listaEsp[mid:]
-
-            lefthalfNum = listNum[:mid]
-            righthalfNum = listNum[mid:]
-
-            self.ordena(lefthalf, lefthalfEsp, lefthalfNum)
-            self.ordena(righthalf, righthalfEsp, righthalfNum)
-
-            i = 0
-            j = 0
-            k = 0
-            while i < len(lefthalf) and j < len(righthalf):
-                if lefthalf[i] < righthalf[j]:
-                    listaAl[k] = lefthalf[i]
-                    listaEsp[k] = lefthalfEsp[i]
-                    listNum[k] = lefthalfNum[i]
-
-                    i = i + 1
-                else:
-                    listaAl[k] = righthalf[j]
-                    listaEsp[k] = righthalfEsp[j]
-                    listNum[k] = righthalfNum[j]
-                    j = j + 1
-                k = k + 1
-
-            while i < len(lefthalf):
-                listaAl[k] = lefthalf[i]
-                listaEsp[k] = lefthalfEsp[i]
-                listNum[k] = lefthalfNum[i]
-                i = i + 1
-                k = k + 1
-
-            while j < len(righthalf):
-                listaAl[k] = righthalf[j]
-                listaEsp[k] = righthalfEsp[j]
-                listNum[k] = righthalfNum[j]
-                j = j + 1
-                k = k + 1
-
-        return listaAl, listaEsp, listNum
-
-
-    def rankingBS(self, listaEsp, listAlter):
-
-
-        for j in range(len(listaEsp)-1,0,-1):
-            for s in range(j):
-
-                if listAlter[s] > listAlter[s+1]:
-                    temp = listAlter[s]
-                    listAlter[s] = listAlter[s + 1]
-                    listAlter[s + 1] = temp
-
-                    temp2 = listaEsp[s]
-                    listaEsp[s] = listaEsp[s + 1]
-                    listaEsp[s + 1] = temp2
-
-
-        return listaEsp, listAlter
-
-
-    def geraListaFim(self, listaMotivos, listaAminos, listaLocCons):
-        listaStrTemp = []
-        listaStrFim = []
-        conservada = 1
-        listaTipoTemp = []
-        listaTipoFim = []
-        listaLocaisConsFim = []
-        listaContaAltTemp = []
-        listaContaAltFim = []
-        listaMotivoFim = []
-
-        for i in range(len(listaAminos)):
-            listaLocaisConsFim.append(listaLocCons[i])
-            listaMotivoFim.append(listaMotivos[i])
-
-            for j in range(len(listaAminos[i])):
-                word = ""
-                # print("Motivo em teste :::", listaMotivos[i], "Sequencia em teste ::", listaAminos[i][j])
-                conservada = 1
-
-                #listaLocaisConsFim.append(listaLocCons.copy())
-
-                alteracoes = 0
-                for k in range(len(listaAminos[i][j])):
-                    if listaAminos[i][j][k] == listaMotivos[i][k]:
-                        word = word + listaAminos[i][j][k]
-
-                    else:
-                        word = word + "[" + listaAminos[i][j][k] + "]"
-                        conservada = 0
-                        alteracoes = alteracoes + 1
-
-                listaContaAltTemp.append(alteracoes)
-
-                listaStrTemp.append(word)
-                listaTipoTemp.append(conservada)
-
-            listaTipoFim.append(listaTipoTemp.copy())
-            listaContaAltFim.append(listaContaAltTemp.copy())
-            listaStrFim.append(listaStrTemp.copy())
-            listaStrTemp.clear()
-            listaContaAltTemp.clear()
-            listaTipoTemp.clear()
-
-
-
-        return [listaStrFim, listaLocaisConsFim, listaMotivoFim, listaContaAltFim, listaTipoFim]
-
-
-"""
-root = trieNo('+')
-root.nomeDoArquivo = "sbtest.fas"
-
-especiesList = root.leEspecies()
-seqAminos = root.leSequencias()
-
-qtdeEspecies = root.contaEspecies()
-porceCon = root.porcConservacao(qtdeEspecies)
-locaisConservados = root.locaisConserv(porceCon)
-indices = root.agrupaSitesCons(locaisConservados)
-
-conservados = root.geraConserv(indices, seqAminos)
-
-root.motifBySize(conservados, indices, 2, 50, 50)
-
-"""
