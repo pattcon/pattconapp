@@ -23,24 +23,10 @@
 
 
 
-<div class='qtop'>
+<div class="divtopo">
 
-  <p align="center" style="height:150px"></p>
-
-</div>
-
- <br>
-
-<div class='qbottom'>
-
-  <div class='quodrant1' style="width:10%; text-align: center; float:left; height: 300px">
-
-<a href="/inicio">Inicio</a>
-<br><br>
-<a href="url">Tutorial</a>
-<br><br>
-<a href="url">Contato</a>
-<br>
+  <p align="center"></p>
+    <img src="{% static 'css/pattconbann.png' %}">
 
 
 </div>
@@ -50,72 +36,50 @@
 
 
 
-<div class='quodrant2'  style="overflow-y: auto; width:60%; height: 300px">
 
+
+<div class='divmenu'>
+<center>
+    <table>
+  <tr>
+    <td class="table1"><a href="/inicio"><b>Home</b></a></td>
+    <td class="table1"><a href="/inicio" style=""><b>Tutorial</b></a></td>
+    <td class="table1"><a href="/inicio"><b>Contact</b></a></td>
+  </tr>
+    </table>
+    </center>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<center>
+<div class="divconteudo">
 
 {%block conteudo%}
 
 
-		<form id="formindex" onsubmit="return pcon(this);" name="formindex" enctype="multipart/form-data" method="post" action="analise">
-
-			 {% csrf_token %}
-			        {{ form.as_p }}
 
 
 
-
-		<label class="description">Porcentagem de Conservação </label>
-
-			<input name="porcent" id="porcent" type="text" maxlength="255" value=""/>
-
-		<br><br>
-
-
-
-
-		<label class="description">Abrir Arquivo FASTA </label>
-		<br>
-
-			<input id="fileseq" name="fileseq" class="element file" type="file"/>
-				<br><br>
-				<input id="analisecamp"  name="submit" type="submit" value="Iniciar Análise" />
-
-
-
-
-</form>
 
 
 {%endblock conteudo%}
-        </div>
-
-
-
-	  </div>
-
-
-
-
-
-
-<div style="width:70%">
-
-	<div style="width:10%; float: left; text-align:right">
-
-	</div>
-	<div style="width:90%; text-align:center">
-
-{%block abaixo%}
-
-
-
-
-
-
-{%endblock abaixo%}
-</div>
 
 </div>
+</center>
+
+
+
+
+
 
 </body>
 </html>

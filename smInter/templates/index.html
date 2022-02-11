@@ -46,30 +46,33 @@
 			 {% csrf_token %}
 			        {{ form.as_p }}
 
-
-
-
+<center>
+ <table>
+  <tr>
+    <td class="table2">
 		<label class="description">Content Percent </label>
+		<input name="contpercent" id="contpercent" type="text" maxlength="255" value=""/>
 
-			<input name="contpercent" id="contpercent" type="text" maxlength="255" value=""/>
+	</td>
 
-		<br><br>
-<label class="description">Conservation Percent </label>
-
-			<input name="conspercent" id="conspercent" type="text" maxlength="190" value=""/>
-			<br><br><br>
-
+	  <td class="table2">
+		  <label class="description">Conservation Percent </label>
+	  <input name="conspercent" id="conspercent" type="text" maxlength="190" value=""/>
+	</td>
 
 
+    <td class="table2">
 		<label class="description">Open File FASTA </label>
-		<br>
 
 			<input id="fileseq" name="fileseq" class="element file" type="file"/>
-				<br><br><br>
 
+	</td>
+  </tr>
 
-		<div>
-  			<input type="radio" id="largestmot" name="typesearch" value="largestmot"
+	 <tr>
+
+		 <td class="table2">
+			 <input type="radio" id="largestmot" name="typesearch" value="largestmot"
          checked>
   			<label for="largestmot">Largests Motifs (Fast)</label>
 
@@ -79,11 +82,30 @@
   			<input type="radio" id="minsizemotif" name="typesearch" value="minsizemotif">
   			<label for="minsizemotif">Minimum Size (Slow)</label>
 			<input name="tammin" id="tammin" type="text" maxlength="190" value=""/>
-			</div>
+
+
+	</td>
+
+
+	 </tr>
+
+    </table>
+</center>
+
+
+
+
+
+
+
+
+
+
+
 
 			<br><br>
 
-			<input id="analisecamp"  name="submit" type="submit" value="Search" />
+			<input id="analisecamp" class="buttons" name="submit" type="submit"  value="Search" style="width: 90px" />
 
 
 <br>
@@ -93,7 +115,6 @@
 
 
 </form>
-
 {%endblock conteudo%}
 
 
@@ -101,11 +122,6 @@
 
 
 
-
-{%block abaixo%}
-
-
-{%endblock abaixo%}
 
 </body>
 </html>

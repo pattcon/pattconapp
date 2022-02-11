@@ -1,88 +1,81 @@
 
+
+
 body
 {
 	
-	background-image: url(smamFim.png);
-	background-repeat: no-repeat;
+	/* background-image: url(pattconbann.png); */
+	/*  background-repeat: no-repeat; */
 	text-align: center;
 	justify-content:center;
-	width: 100%;
-    height: 100%;
+	/* width: 90%;*/
+    /* height: 90%;*/
 	float: center;
-}
-
-
-.lista{
-
-width:100%;
-height: 10%;
-background-color: #FDEBD0;
-
-min-height: 1px;
-
 
 }
 
 
+a:link {
+  color: #FF7433;
+  background-color: transparent;
+  text-decoration: none;
+}
 
-.centerdown{
-width: 50%;
-    height: 40vh;
+a:visited {
+  color: #FF7433;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+
+.table1
+{
+  padding: 0px 45px 0px 45px;
 
 }
 
-.leftdowndiv{
-float: left;
+
+.table2
+{
+  padding: 8px 45px 8px 45px;
+
+  /*border-right:2px solid;
+border-left:2px solid;
+border-bottom:2px solid;
+border-top:2px solid;
+background-color:#EEEEEE;
+border-color:#FF7433;
+*/
+}
+
+.divtopo
+{
+width: 100%;
 top: 0;
-    left: 50vh;
-    text-align: center;
-     width: 20%;
-}
-
-.righdowndiv{
-float: left;
-top: 0;
-    left: 0;
-    width: 80%;
-    text-align: left;
-    padding-top: 10px;
-    display: block;
-    line-break: auto;
+        padding: 10px 0;
 }
 
 
 
 
-.cont{
+.divmenu{
 
-    text-align: center;
-width: 50%;
-float: left;
+padding-bottom: 5px;
 
 
 }
 
 
+.divconteudo
+{
+background-color: #FBDDC3;
+width:97.5%;
+height:60%;
+overflow-y:auto;
+padding-top:5px
 
-
-
-.quodrant{
-    width: 10%;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
 }
 
-
-.qbottom{
-    width: 90%;
-    height: 60%;
-}
-
-.qtop{
-    width: 90%;
-    height: 150px;
-}
 
 
 
@@ -127,4 +120,18 @@ float: left;
     top: 50vw;
     left: 50vh;
     background-color: green;
+}
+
+.image {
+border: 2px solid;
+padding: 20px;
+  resize: both;
+  overflow: auto;
+}
+
+.buttons
+{
+background-color:white;
+border-color:orange;
+height:36px
 }

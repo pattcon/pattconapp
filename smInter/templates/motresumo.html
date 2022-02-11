@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
-   <script src="{% static '/js/script.js' %}"
+   <script src="{% static '/js/script.js' %}"></script>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
 
-
+<link rel="stylesheet" href="{% static 'css/estilo.css' %}">
     <script src="{% static 'js/jseqlogo.js' %}" type="text/javascript"></script>
     <title>Title</title>
 </head>
@@ -42,7 +42,7 @@
        <br>
 
 
-            <input type="button" id="fasta" name="fasta" value="Gerar" onclick="fun()">
+            <input class="buttons" style="width: 90px" type="button" id="fasta" name="fasta" value="Gerar" onclick="fun()">
 
 <br><br>
 
@@ -51,14 +51,42 @@
 
        <br><br>
 
-    <center><b> Logo </b>  </center>
 
-<img src="{% static '/logoseq/lgseq.png' %}" height="50%" width="50%">
 </form>
+
+
 
 
 </div>
 
+
+
+  <div>
+
+
+
+      <form id="formlogo" name="formlogo" method="post" action="">
+     {% csrf_token %}
+			        {{ form.as_p }}
+         <label for="logotype">Select The Type Graph</label><br>
+
+          <select id="logotype" name="logotype" onchange="document.getElementById('logoimg').src = this.value;">
+            <option value="{% static '/logoseq/lgcount.png' %}">Counts</option>
+            <option value="{% static '/logoseq/lgweight.png' %}">Weight</option>
+            <option value="{% static '/logoseq/lgprob.png' %}">Probability</option>
+            <option value="{% static '/logoseq/lginf.png' %}">Information</option>
+        </select>
+
+
+</form>
+
+      <center><b> Logo </b>  </center>
+
+  <div class='image'>
+<img src="{% static '/logoseq/lgcount.png' %}" height="50%" width="50%" id="logoimg">
+  </div>
+
+  </div>
 
 
 
