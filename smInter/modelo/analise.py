@@ -97,15 +97,7 @@ class conserv_alter():
         #listSuportsRes = root.motifBySize(conservados, indices, motsize, txCons)[2]
 
 
-        """
-        tamMax = 0
 
-        for p in range(motsize, len(listMotifsRes)):
-            for q in range(len(listMotifsRes[p])):
-                tamCurr = len(listMotifsRes[p][q])
-                if tamCurr>tamMax:
-                    tamMax = tamCurr
-        """
 
 
 

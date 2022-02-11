@@ -160,9 +160,9 @@ def motivores(request):
     listaComp = []
 
     for j in range(len(listStr)):
-        listaComp.append("Espécie:")
+        listaComp.append("Specie:")
         listaComp.append(listaEsp[j])
-        listaComp.append("Sequência:")
+        listaComp.append("Sequence:")
         listaComp.append(listStr[j])
         listaComp.append("\n")
 
@@ -173,7 +173,7 @@ def motivores(request):
     file = open(fastalogo, "w")
     listaTeste = []
     for p in range(len(listOrigi[indice])):
-        nums = ">Motivo Numero " + str(p)
+        nums = ">Motif Number " + str(p)
         file.write(nums)
         file.write("\n")
         mot = str(listOrigi[indice][p])
@@ -259,7 +259,7 @@ def fastaspecies(request):
         for i in range(len(listMotifs)):
             mot = str(listMotifs[i])
             nums = str(listNumbers[i])
-            motins = ">" + specie + " Motivo Numero: " + nums + "\n"
+            motins = ">" + specie + " Motif Number: " + nums + "\n"
             file.write(motins)
             motins = mot
             file.write(motins)
@@ -352,12 +352,12 @@ def report(request):
 
     for i in range(len(listStr)):
 
-        file.write("::Motivo " + str(i) + " - " + str(listMotifs[i]) + '\n')
+        file.write("::Motifs " + str(i) + " - " + str(listMotifs[i]) + '\n')
         file.write("::Locals : " + str(listMotifBegin[i]) + ' a ' + str(listMotifEnd[i]) + '\n')
         file.write("::Species : " + '\n')
 
         for j in range(len(listStr[i])):
-            file.write("Specie: " + str(listSpecies[j]) + " - Sequência " + str(listStr[i][j]) + " Alterações: " + str(
+            file.write("Specie: " + str(listSpecies[j]) + " - Species " + str(listStr[i][j]) + " Alterations: " + str(
                 listContAlter[i][j]))
             file.write("\n")
 

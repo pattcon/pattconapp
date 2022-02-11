@@ -15,9 +15,9 @@
 
 	function pcon(frm)
 	{
-		if(frm.porcent.value == "")
+		if(frm.contpercent.value == "" || frm.conspercent.value == "" || frm.fileseq.value=="")
 		{
-		alert("Digite um valor para a porcentagem de conservação");
+		alert("All inputs are necessary");
 		return false;
 		}
 
