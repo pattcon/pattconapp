@@ -87,6 +87,7 @@ def analise(request):
             "porcOcorr": porcOcorr, "cons": consTx,
             "tsearch": tsearch
         }
+        return render(request, "result.html", context=context)
 
 
 
@@ -118,9 +119,7 @@ def analise(request):
             locals = new.executeBySize(minSize, percCons, percCont)[2]
             result = new.executeBySize(minSize, percCons, percCont)[3]
 
-            # request.session["finalListBySize"] = motifList
 
-            # listazip = zip(motifs, occurr, locals)
 
             listEnd = [motifs, occurr, locals]
 
@@ -133,7 +132,7 @@ def analise(request):
 
         return render(request, "resultbysize.html", context=context)
 
-    return render(request, "result.html", context=context)
+
 
 
 def motivores(request):
@@ -304,12 +303,12 @@ def fastageneral(request):
 
     for i in range(len(listMotifs)):
         mot = str(listMotifs[i])
-        motins = ">Motif Number " + str(i + 1)
+        motins = ">Motif Number " + str(i)
         motins += "\n"
         motins += str(mot)
         motins += "\n"
 
-        listres.append(">Motif Number " + str(i + 1))
+        listres.append(">Motif Number " + str(i))
         listres.append(mot)
         listres.append("")
         listres.append("")
@@ -352,12 +351,12 @@ def report(request):
 
     for i in range(len(listStr)):
 
-        file.write("::Motifs " + str(i) + " - " + str(listMotifs[i]) + '\n')
-        file.write("::Locals : " + str(listMotifBegin[i]) + ' a ' + str(listMotifEnd[i]) + '\n')
+        file.write("::Motif " + str(i) + " - " + str(listMotifs[i]) + '\n')
+        file.write("::Local : " + str(listMotifBegin[i]) + ' to ' + str(listMotifEnd[i]) + '\n')
         file.write("::Species : " + '\n')
 
         for j in range(len(listStr[i])):
-            file.write("Specie: " + str(listSpecies[j]) + " - Species " + str(listStr[i][j]) + " Alterations: " + str(
+            file.write("Specie: " + str(listSpecies[j]) + " - Sequence " + str(listStr[i][j]) + " Alterations: " + str(
                 listContAlter[i][j]))
             file.write("\n")
 
@@ -392,6 +391,6 @@ def genlogo(request):
 
     img = "smInter/static/logoseq/lgseq.png"
 
-    contexto = {"logo": img, "logotype":logotype, "teste":teste}
+    contexto = {"logo": img, "logotype":logotype}
 
     return render(request, "teste.html", context=contexto)

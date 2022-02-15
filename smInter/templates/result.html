@@ -10,9 +10,10 @@
 
 
   {%block conteudo%}
-
-  Search Type :::: {{tsearch}}
-
+<center>
+  Search Type <br>
+<b>  {{tsearch}} </b>
+</center>
 
 
   <br>
@@ -22,11 +23,11 @@
 
 
 <br>
-Motivo Número:   {{ numero }} <br>
-Sequência: {{ motivo }} <br>
-Local Início: {{ inicio }} <br>
-Local Fim: {{ fim }} <br>
-Tamanho: {{ tam }} <br>
+Motif Number:   {{ numero }} <br>
+Sequence: {{ motivo }} <br>
+Local Begin: {{ inicio }} <br>
+Local End: {{ fim }} <br>
+Lenght: {{ tam }} <br>
 
     <br>
 
@@ -50,35 +51,46 @@ Tamanho: {{ tam }} <br>
 
           {%endfor%}
 
-  {%endblock%}
+{%endblock conteudo%}
 
 
 
 
 
-{%block abaixo%}
 
-<form id="formfasta" name="formfasta" method="post" action="fastagen">
+
+
+
+
+{%block footer%}
+<div class="divbottom">
+
+
+<table class="table2" align="left">
+
+    <tr align="left">
+        <td width="17%" align="left">
+             <center>
+            Generate Fasta With All Motifs
+            <form id="formfasta" name="formfasta" method="post" action="fastagen">
      {% csrf_token %}
 			        {{ form.as_p }}
 
-        <input class="buttons" style="width: 140px" type="submit" value="Generate Motifs Fasta" id="botaofasta" name="val">
 
-       
+        <input class="buttons" style="width: 120px" type="submit" value="Generate" id="botaofasta" name="val">
+
+
 
 </form>
+</center>
+        </td>
 
-
-  
-
-
-
-
-
+        <td width="35%">
+<center>
+            Generate Fasta By Specie. Select The Specie
 <form id="formbusca" name="formbusca" method="post" action="fastaspecies">
      {% csrf_token %}
 			        {{ form.as_p }}
-         <label for="spp">Specie</label><br>
 
     <select  name="spp" id="spp">
         {%for k in spec%}
@@ -87,18 +99,38 @@ Tamanho: {{ tam }} <br>
 
     </select>
 
-        <input class="buttons" style="width: 140px" type="submit" value="Generate Specie Fasta" id="botaobusca" name="botaobusca">
+        <input class="buttons" style="width: 120px" type="submit" value="Generate" id="botaobusca" name="botaobusca">
 
 </form>
+</center>
+
+        </td>
 
 
+
+        <td width="36%">
+      <center>
+
+Generate a Report With All Motifs With Occurrences and Alterations in Each Specie
   <form id="formreport" name="formreport" method="post" action="report">
      {% csrf_token %}
 			        {{ form.as_p }}
-        <input class="buttons" style="width: 130px" type="submit" value="Report Generate" id="btreport" name="btreport">
-
+        <input class="buttons" style="width: 120px" type="submit" value="Report" id="btreport" name="btreport">
 
 </form>
+</center>
+
+        </td>
+
+
+    </tr>
+</table>
+
+
+</div>
+
+
+{%endblock footer%}
 
 
 <script>
@@ -117,7 +149,6 @@ Tamanho: {{ tam }} <br>
 
 </script>
 
-{%endblock%}
 
 
 

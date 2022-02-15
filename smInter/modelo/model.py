@@ -459,7 +459,6 @@ class trieNo(object):
                     value = "Motif: {} - Local: {}".format(searchMotif[1], searchMotif[2])
                     result.append(value)
                     result.append("\n")
-                    print(result)
                     break
 
             groupNumber = groupNumber + 1

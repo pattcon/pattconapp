@@ -30,29 +30,6 @@
 
   {%endfor%}
 
-<br><br>
-
-    <center><b> Fasta </b>  </center>
-    <br>
-   <form>
-     <label for="esp">Specie</label><br>
-       <textarea id="esp" name="esp" rows="5" cols="69" style="resize:none">
-</textarea>
-
-       <br>
-
-
-            <input class="buttons" style="width: 90px" type="button" id="fasta" name="fasta" value="Generate" onclick="fun()">
-
-<br><br>
-
-
-       <textarea id="fastaseq" name="fastaseq" rows="5" cols="69" style="resize:none" disabled></textarea>
-
-       <br><br>
-
-
-</form>
 
 
 
@@ -63,12 +40,14 @@
 
   <div>
 
+      <hr color="#FF7433">
 
-
+<center><b> Sequence Logo </b>  </center>
+      <br>
       <form id="formlogo" name="formlogo" method="post" action="">
      {% csrf_token %}
 			        {{ form.as_p }}
-         <label for="logotype">Select The Type Graph</label><br>
+         <label for="logotype">Select The Graph Type</label><br>
 
           <select id="logotype" name="logotype" onchange="document.getElementById('logoimg').src = this.value;">
             <option value="{% static '/logoseq/lgcount.png' %}">Counts</option>
@@ -80,19 +59,35 @@
 
 </form>
 
-      <center><b> Logo </b>  </center>
+
 
   <div class='image'>
 <img src="{% static '/logoseq/lgcount.png' %}" height="50%" width="50%" id="logoimg">
   </div>
 
   </div>
+  <br>
+
+
+   {%block footer%}
+
+
+<b>
+    <input class="buttons" style="width: 120px" type="button" value="Open In New Window" id="botaofasta" onclick="newWindow()">
+</b>
+
+  {%endblock footer%}
 
 
 
+ <script>
+function newWindow()
+{
+  var img = document.getElementById('logoimg').src;
+            window.open(img);
+        }
+</script>
   {%endblock conteudo%}
-
-
 
 
 </body>
