@@ -127,8 +127,7 @@ def analise(request):
                        "listEnd": listEnd,
                        "result": result}
 
-            """
-                        ","minsize":minSize, localsList":localsList,#"suportsList":suportsList"""
+
 
         return render(request, "resultbysize.html", context=context)
 
@@ -367,30 +366,3 @@ def report(request):
 
     return FileResponse(open("smamF/reports/report.txt", "rb"), as_attachment=True, content_type="text/plain")
 
-
-def genlogo(request):
-    logotype = request.POST.get("logotype")
-
-    crp_sites_df = pd.read_csv("smamF/fasta/output/fastalogo.fas", comment='>', names=['site'])
-    crp_sites_list = crp_sites_df['site'].values
-
-    dir = "smamF/fasta/input/"
-    for f in os.listdir(dir):
-        os.remove(os.path.join(dir, f))
-
-    crp_counts_df = logomaker.alignment_to_matrix(sequences=crp_sites_list, to_type='counts')
-    crp_weight_df = logomaker.alignment_to_matrix(sequences=crp_sites_list, to_type='weight')
-    crp_prob_df = logomaker.alignment_to_matrix(sequences=crp_sites_list, to_type='probality')
-    crp_prob_df = logomaker.alignment_to_matrix(sequences=crp_sites_list, to_type='information')
-
-
-
-    logo = logomaker.Logo(crp_counts_df, color_scheme="skylign_protein")
-
-    plt.savefig("smInter/static/logoseq/lgseq.png")
-
-    img = "smInter/static/logoseq/lgseq.png"
-
-    contexto = {"logo": img, "logotype":logotype}
-
-    return render(request, "teste.html", context=contexto)
