@@ -77,6 +77,9 @@ class conserv_alter():
 
 
     def executeBySize(self, motsize, txCons, txCont):
+
+
+
         root = trieNo('+')
         root.fileName = self.nomeArq
         root.conservPerc = txCons
@@ -95,9 +98,6 @@ class conserv_alter():
         listMotifsRes = root.motifBySize(conservados, indices,motsize, txCons, txCont)
         #listLocalsRes = root.motifBySize(conservados, indices, motsize, txCons)[1]
         #listSuportsRes = root.motifBySize(conservados, indices, motsize, txCons)[2]
-
-
-
 
 
 

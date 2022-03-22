@@ -442,6 +442,9 @@ class trieNo(object):
 
 
     def motifBySize(self, finalList, indexes, minSize, txConser, txContent):
+
+
+
         minConser = txConser / 100 * self.countSpecies()
         minContent = txConser / 100 * self.countSpecies()
 
@@ -577,11 +580,12 @@ class trieNo(object):
                                 localOutTemp.append(listLocalFinal[i][j])
                                 listStrTemp.append(seqMaj)
                                 #print("Motivo ::", listStrFinal[i][j], "Local ", listLocalFinal[i][j])
+                    break
 
             listStrFinal.clear()
             listLocalFinal.clear()
 
-            #localOutTemp = sorted(set(localOutTemp), key=localOutTemp.index)
+            localOutTemp = sorted(set(localOutTemp), key=localOutTemp.index)
 
             for i in range(len(motifsFinal)):
                 for j in range(len(localOutTemp)):
@@ -591,7 +595,6 @@ class trieNo(object):
                     break
 
 
-        #loc = set(localOut)
         print("Motifs ::: ", motifsFinal)
         print("Size ::: ", sizesFinal)
         print("Suporte ::: ", suportFinal)

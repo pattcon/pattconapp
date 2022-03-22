@@ -114,6 +114,9 @@ def analise(request):
             new.percCons = percCons
             new.percCont = percCont
 
+            import time
+            start = time.time()
+
             occurr = new.executeBySize(minSize, percCons, percCont)[0]
             motifs = new.executeBySize(minSize, percCons, percCont)[1]
             localsMotifs = new.executeBySize(minSize, percCons, percCont)[2]
@@ -134,13 +137,21 @@ def analise(request):
                 listEnd.append("-----------------------------------------")
                 listEnd.append("\n")
 
+            end = time.time()
+            elapsed = end - start
+
+            elapsed_time = open('elapsed_time_bysize.txt', 'w')
+
+            elapsed_time.write("Time elapsed ::: ")
+            elapsed_time.write(str(elapsed))
+            elapsed_time.close()
 
 
 
-            #listEnd = [motifs, occurr, localsMotifs, sizesMotifs]
+
 
             context = {"tsearch": tsearch, "motifList": motifs, "locals": localsMotifs, "occurr": occurr, "minsize": minSize,
-                       "listEnd": listEnd, "sizes":sizesMotifs}
+                       "listEnd": listEnd, "sizes":sizesMotifs, "elapsedtime":elapsed_time}
 
 
 
