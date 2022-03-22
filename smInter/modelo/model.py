@@ -441,34 +441,164 @@ class trieNo(object):
 
 
 
-    def motifBySize(self, listaStr, finalList, minSize, txConser, txContent):
+    def motifBySize(self, finalList, indexes, minSize, txConser, txContent):
         minConser = txConser / 100 * self.countSpecies()
         minContent = txConser / 100 * self.countSpecies()
 
+        sizeSeqVar = 0
+        strSeq = []
+        sizeSeq = []
+        groupSeq = []
+        groupId = -1
+        mersList = []
+        motifsFinal = []
+        sizesFinal = []
+        suportFinal = []
+        localsTemp = []
+        localFinal = []
 
-        groupNumber = 0
-        result = []
+        listStrTemp = []
+        listStrFinal = []
+        listLocalFinal = []
+        localOutTemp = []
+        localOut = []
 
-        for grupo in listaStr:
 
-            groupSize = len(grupo[0])
 
-            for gSz in range(0, groupSize - minSize + 1):
-                searchMotif = self.searchInGroup(finalList, grupo, groupNumber, groupSize - gSz)
-                if searchMotif[0] >= minConser:
-                    value = "Motif: {} - Local: {}".format(searchMotif[1], searchMotif[2])
-                    result.append(value)
-                    result.append("\n")
+        #print("Indexes ::", finalList)
+
+        for group in finalList:
+
+
+            groupId = groupId + 1
+            groupList = []
+
+
+
+
+            for item in group:
+
+
+
+
+                size = len(item)
+                currVal = 0
+
+                incr = -1
+
+                #Mers generation
+                for count in range(size):
+
+                    incr = incr + 1
+
+                    for leng in range(size, count, -1):
+                        sizeSeqVar = leng-count
+
+                        #Minimum size defined by user
+                        if sizeSeqVar>=minSize:
+                            strSeq.append(item[count:leng])
+                            #List of size of each MER
+                            sizeSeq.append(len(item[count:leng]))
+                            groupSeq.append(groupId)
+                            localsTemp.append(indexes[groupId][incr]+1)
+
+                groupList.extend(strSeq.copy())
+                localFinal.extend(localsTemp.copy())
+
+
+
+
+                listStrFinal.append(strSeq.copy())
+                listLocalFinal.append(localsTemp.copy())
+
+
+
+
+
+
+
+                strSeq.clear()
+                localsTemp.clear()
+
+
+
+                listTree = []
+                listTreeTemp = []
+                maxTam = max(sizeSeq)
+
+                listLocalsTemp = []
+                listLocalsFF = []
+                #Generate the list of sequence by sizes to be used in the tree
+                for j in range(maxTam, minSize-1, -1):
+                    for i in range(len(groupList)):
+                        if sizeSeq[i] == j:
+                            listTreeTemp.append(groupList[i])
+                            #listLocalsFF.append(localsTemp[i])
+
+
+                    listTree.append(listTreeTemp.copy())
+                    listTreeTemp.clear()
+
+
+            for i in range(len(listTree)):
+                node = trieNo("+")
+                contMer = 0
+                majMotifSize = 0
+                seqMaj = ""
+                sizeMaj = 0
+                lclTemp = 0
+
+                for j in range(len(listTree[i])):
+                    value = listTree[i][j]
+                    contMer = node.addNode(value)[0]+1
+
+                    if contMer>majMotifSize:
+                        majMotifSize = contMer
+                        seqMaj = value
+                        sizeMaj = sizeSeq[i]
+
+
+
+
+
+                #print("Lista Final ::: ", len(listStrFinal), "lista locals :: ", len(listLocalFinal))
+
+
+
+                if majMotifSize>=minConser:
+
+                    motifsFinal.append(seqMaj)
+                    sizesFinal.append(sizeMaj)
+                    suportFinal.append(majMotifSize)
+
+                    for i in range(len(listStrFinal)):
+                        for j in range(len(listStrFinal[i])):
+                            if listStrFinal[i][j] == seqMaj:
+                                localOutTemp.append(listLocalFinal[i][j])
+                                listStrTemp.append(seqMaj)
+                                #print("Motivo ::", listStrFinal[i][j], "Local ", listLocalFinal[i][j])
+
+            listStrFinal.clear()
+            listLocalFinal.clear()
+
+            #localOutTemp = sorted(set(localOutTemp), key=localOutTemp.index)
+
+            for i in range(len(motifsFinal)):
+                for j in range(len(localOutTemp)):
+                    if motifsFinal[i] == listStrTemp[j]:
+                        localOut.append(localOutTemp[j])
+                        break
                     break
 
-            groupNumber = groupNumber + 1
 
-            occurrList = searchMotif[0]
-            motifsList = searchMotif[1]
-            localsList = searchMotif[2]
+        #loc = set(localOut)
+        print("Motifs ::: ", motifsFinal)
+        print("Size ::: ", sizesFinal)
+        print("Suporte ::: ", suportFinal)
+        print("Locals ::: ", localOutTemp)
 
 
-        return motifsList, occurrList, localsList, result
+        return suportFinal, motifsFinal,localOutTemp, sizesFinal
 
 
 

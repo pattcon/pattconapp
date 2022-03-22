@@ -116,16 +116,31 @@ def analise(request):
 
             occurr = new.executeBySize(minSize, percCons, percCont)[0]
             motifs = new.executeBySize(minSize, percCons, percCont)[1]
-            locals = new.executeBySize(minSize, percCons, percCont)[2]
-            result = new.executeBySize(minSize, percCons, percCont)[3]
+            localsMotifs = new.executeBySize(minSize, percCons, percCont)[2]
+            sizesMotifs = new.executeBySize(minSize, percCons, percCont)[3]
+
+            listEnd = []
+            for j in range(len(motifs)):
+                listEnd.append("Motif:")
+                listEnd.append(motifs[j])
+                listEnd.append("Support:")
+                listEnd.append(occurr[j])
+                listEnd.append("Local:")
+                listEnd.append(localsMotifs[j])
+
+                listEnd.append("Length:")
+                listEnd.append(sizesMotifs[j])
+
+                listEnd.append("-----------------------------------------")
+                listEnd.append("\n")
 
 
 
-            listEnd = [motifs, occurr, locals]
 
-            context = {"tsearch": tsearch, "motifList": motifs, "locals": locals, "occurr": occurr, "minsize": minSize,
-                       "listEnd": listEnd,
-                       "result": result}
+            #listEnd = [motifs, occurr, localsMotifs, sizesMotifs]
+
+            context = {"tsearch": tsearch, "motifList": motifs, "locals": localsMotifs, "occurr": occurr, "minsize": minSize,
+                       "listEnd": listEnd, "sizes":sizesMotifs}
 
 
 
