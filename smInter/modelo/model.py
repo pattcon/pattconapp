@@ -49,10 +49,13 @@ class trieNo(object):
             listTemp = []
             listTemp.append(re.split(r'_', i.id))
 
-            if len(listTemp[0][0]) < 3:
-                it = listTemp[0][0] + ' ' + listTemp[0][1]
-            else:
-                it = listTemp[0][0]
+            it = []
+            it.append(listTemp[0][0])
+
+            #if len(listTemp[0][0]) < 3:
+                #it = listTemp[0][0] + ' ' + listTemp[0][1]
+            #else:
+                #it = listTemp[0][0]
 
             listSpecies.append(it)
 

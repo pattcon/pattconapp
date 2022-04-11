@@ -9,6 +9,8 @@ root = trieNo('+')
 root.fileName = "testeBySize.fas"
 
 especiesList = root.readSpecies()
+
+print("List species :", especiesList)
 seqAminos = root.readSequences()
 
 qtdeEspecies = root.countSpecies()
