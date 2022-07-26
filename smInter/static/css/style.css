@@ -1,0 +1,124 @@
+
+
+
+body
+{
+	
+	/* background-image: url(pattconbann.png); */
+	/*  background-repeat: no-repeat; */
+	text-align: center;
+	justify-content:center;
+	/* width: 90%;*/
+    /* height: 90%;*/
+	float: center;
+
+}
+
+
+a:link {
+  color: #FF7433;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #FF7433;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+
+.table1
+{
+  padding: 0px 45px 0px 45px;
+
+}
+
+
+.table2
+{
+  padding: 0px 35px 0px 35px;
+
+
+
+  /*border-right:2px solid;
+border-left:2px solid;
+border-bottom:2px solid;
+border-top:2px solid;
+background-color:#EEEEEE;
+border-color:#FF7433;
+*/
+}
+
+.divtopo
+{
+width: 100%;
+top: 0;
+        padding: 10px 0;
+}
+
+
+
+
+.divmenu{
+
+padding-bottom: 5px;
+
+
+}
+
+
+.divconteudo
+{
+background-image: url("wallp.png");
+background-color: #FBDDC3;
+background-repeat: no-repeat;
+/*background-blend-mode: overlay;*/
+background-size: 100%;
+/*opacity: 0.20;*/
+width:97.5%;
+height:56%;
+overflow-y:auto;
+padding-top:5px
+}
+
+
+.divfooter
+{
+padding-top:5px;
+padding-bottom: 3px;
+height:10%;
+width:97.5%;
+border-bottom: 5px solid red;
+vertical-align:center;
+}
+
+
+
+
+
+
+
+.blocoabaixo{
+
+    width: 100%;
+
+}
+
+
+
+.image {
+/*border: 2px solid;*/
+padding: 20px;
+  resize: both;
+  /*overflow: auto;*/
+}
+
+.buttons
+{
+background-color:white;
+border-color:orange;
+height:36px;
+font-weight: bold;
+/*color: #FF7433;*/
+}

@@ -49,39 +49,47 @@
 <center>
  <table>
   <tr>
-    <td class="table2">
+    <td width="200">
+		<br><br>
 		<label class="description"><b>Content Percent</b> </label>
-		<input name="contpercent" id="contpercent" type="text" maxlength="255" value=""/>
+		</td>
+		<td width="100">
+			<br><br>
+		<input name="contpercent" id="contpercent" type="text" size="7" value=""/>
+
 
 	</td>
-
-	  <td class="table2">
+	  </tr>
+<tr>
+	  <td width="200">
 		  <label class="description"><b>Conservation Percent</b> </label>
-	  <input name="conspercent" id="conspercent" type="text" maxlength="190" value=""/>
+		  </td>
+	<td width="100">
+	  <input name="conspercent" id="conspercent" type="text" size="7" value=""/>
 	</td>
+</tr>
+
+	 <tr>
+    <td width="200">
+		<label for="tammin"><b>Minimum Size</b></label>
+		</td>
+		 <td width="100">
+			<input name="tammin" id="tammin" type="text" size="7" value=""/>
 
 
-    <td class="table2">
-		<label class="description"><b>Open File FASTA </b></label>
-
-			<input id="fileseq" name="fileseq" class="element file" type="file"/>
 
 	</td>
   </tr>
 
 	 <tr>
 
-		 <td class="table2" colspan="2">
-			 <input type="radio" id="largestmot" name="typesearch" value="largestmot"
-         checked>
-  			<label for="largestmot"><b>Largests Motifs (Fast)</b></label>
+		 <td colspan="2">
+			 <br><br>
 
+<label class="description"><b>Open File FASTA </b></label>
 
+			<input id="fileseq" style="value: No File Selected" name="fileseq" class="element file" type="file" value="No File Selected"/>
 
-
-  			<input type="radio" id="minsizemotif" name="typesearch" value="minsizemotif">
-  			<label for="minsizemotif"><b>Minimum Size (Slow)</b></label>
-			<input name="tammin" id="tammin" type="text" maxlength="190" value=""/>
 
 
 	</td>
@@ -91,13 +99,6 @@
 
     </table>
 </center>
-
-
-
-
-
-
-
 
 
 

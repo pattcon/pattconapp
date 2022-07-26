@@ -4,6 +4,7 @@ from .modelo.analise import conserv_alter
 import logomaker
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 
 from django.core.files.storage import FileSystemStorage
 
@@ -20,144 +21,170 @@ def analise(request):
     tsearch = ""
     context = {}
 
-    if searchType == "largestmot":
-        tsearch = "Largests Motifs"
+    tsearch = "Minimun Size"
+    fastaloc = ''
+    percCons = 0
+    percCont = 0
+    minSize = 0
 
-        dir = "smamF/fasta/input/"
-        for f in os.listdir(dir):
-            os.remove(os.path.join(dir, f))
+    if request.method == 'POST' and request.FILES['fileseq']:
+        myfile = request.FILES['fileseq']
+        fs = FileSystemStorage()
 
-        # Get input data from template form
-        fastaloc = ""
-        percContent = 0
-        percConserv = 0
+        percCont = int(request.POST.get("contpercent"))
+        percCons = int(request.POST.get("conspercent"))
+        minSize = int(request.POST.get("tammin"))
+        filename = fs.save(myfile.name, myfile)
+        fastaloc = str("smamF/fasta/input/" + myfile.name)
 
-        if request.method == 'POST' and request.FILES['fileseq']:
-            myfile = request.FILES['fileseq']
-            fs = FileSystemStorage()
+    new = conserv_alter()
+    new.nomeArq = fastaloc
+    new.percCons = percCons
+    new.percCont = percCont
 
-            percContent = int(request.POST.get("contpercent"))
-            percConserv = int(request.POST.get("conspercent"))
+    lstMotifs = new.executeBySize(minSize, percCons, percCont)[0]
+    lstLocals = new.executeBySize(minSize, percCons, percCont)[1]
+    lstSpec = new.executeBySize(minSize, percCons, percCont)[2]
+    lstSupprt = new.executeBySize(minSize, percCons, percCont)[3]
+    lstSpecN = new.executeBySize(minSize, percCons, percCont)[4]
+    lstSizes = new.executeBySize(minSize, percCons, percCont)[5]
+    lstEndLocal = new.executeBySize(minSize, percCons, percCont)[6]
 
-            filename = fs.save(myfile.name, myfile)
-            fastaloc = str("smamF/fasta/input/" + myfile.name)
+    lstSpAlter = new.executeBySize(minSize, percCons, percCont)[7]
+    lstSpNoAlter = new.executeBySize(minSize, percCons, percCont)[8]
 
-        novo = conserv_alter()
-        novo.nomeArq = fastaloc
-        novo.percCont = percContent
-        novo.percCons = percConserv
+    lstStrAlter = new.executeBySize(minSize, percCons, percCont)[9]
+    lstStrNoAlter = new.executeBySize(minSize, percCons, percCont)[10]
+    request.session['lstSpAlt'] = lstSpAlter
+    request.session['lstSpNoAlt'] = lstSpNoAlter
 
-        res = novo.executar()
+    request.session['lstStrAlt'] = lstStrAlter
+    request.session['lstStrNoAlt'] = lstStrNoAlter
 
-        consTx = res[17]
-
-        request.session["finalList"] = res
-
-        rang = len(res[0])
-        tam = []
-
-        for i in range(rang):
-            inicio = res[3][i]
-            fim = res[4][i]
-            tam.append(fim - inicio + 1)
-
-        inicio = res[3]
-        fim = res[4]
-        numero = res[0]
-        local = res[1]
-        motivo = res[2]
-        species = res[9]
-
-        rang = len(res[0])
-
-        motifsizes = []
-        for i in range(rang):
-            bg = res[3][i]
-            ed = res[4][i]
-            motifsizes.append(bg - ed + 1)
-
-        porcOcorr = res[16]
-
-        listazip = zip(numero, local, motivo, inicio, fim, tam)
-
-        context = {
-
-            "vl": "fim", "resultado": res, "numero": res[0], "locais": local, "motivo": motivo, "inicio": inicio,
-            "fim": fim, "tam": tam, "inFimJuntos": res[5], "listazip": listazip, "spec": species,
-            "porcOcorr": porcOcorr, "cons": consTx,
-            "tsearch": tsearch
-        }
-        return render(request, "result.html", context=context)
+    request.session['lstMotifs'] = lstMotifs
 
 
+    lstMotifNumber = []
+    for m in range(len(lstMotifs)):
+        lstMotifNumber.append(m + 1)
 
-    else:
-        if searchType == "minsizemotif":
-            tsearch = "Minimun Size"
-            fastaloc = ''
-            percCons = 0
-            percCont = 0
-            minSize = 0
+        lstQty = []
+        for t in range(len(lstSpec)):
+            lstQty.append(10)
 
-            if request.method == 'POST' and request.FILES['fileseq']:
-                myfile = request.FILES['fileseq']
-                fs = FileSystemStorage()
+    lstSpecNames = []
+    for n in range(len(lstSpecN)):
+        vl = lstSpecN[n]
+        lstSpecNames.append(vl)
 
-                percCont = int(request.POST.get("contpercent"))
-                percCons = int(request.POST.get("conspercent"))
-                minSize = int(request.POST.get("tammin"))
-                filename = fs.save(myfile.name, myfile)
-                fastaloc = str("smamF/fasta/input/" + myfile.name)
+    lstSpecNumber = []
+    for n in range(len(lstSpecNames)):
+        lstSpecNumber.append(str(n + 1))
 
-            new = conserv_alter()
-            new.nomeArq = fastaloc
-            new.percCons = percCons
-            new.percCont = percCont
+    lstZip = zip(lstMotifs, lstLocals, lstSpec, lstSupprt, lstMotifNumber, lstSpecNames, lstSizes, lstEndLocal)
 
-            import time
-            start = time.time()
+    context = {"tsearch": tsearch, "minsize": minSize, "motifs": lstMotifs,
+               "locals": lstLocals, "spec": lstSpec, "supports": lstSupprt, "ziplist": lstZip
+               }
 
-            occurr = new.executeBySize(minSize, percCons, percCont)[0]
-            motifs = new.executeBySize(minSize, percCons, percCont)[1]
-            localsMotifs = new.executeBySize(minSize, percCons, percCont)[2]
-            sizesMotifs = new.executeBySize(minSize, percCons, percCont)[3]
+    return render(request, "resultbysize.html", context=context)
 
-            listEnd = []
-            for j in range(len(motifs)):
-                listEnd.append("Motif:")
-                listEnd.append(motifs[j])
-                listEnd.append("Support:")
-                listEnd.append(occurr[j])
-                listEnd.append("Local:")
-                listEnd.append(localsMotifs[j])
 
-                listEnd.append("Length:")
-                listEnd.append(sizesMotifs[j])
+def motbyspecies(request):
+    lstSpAlter = list(request.session.get('lstSpAlt'))
+    lstSpNoAlter = list(request.session.get('lstSpNoAlt'))
 
-                listEnd.append("-----------------------------------------")
-                listEnd.append("\n")
+    lstStrAlter = list(request.session.get('lstStrAlt'))
+    lstStrNoAlter = list(request.session.get('lstStrNoAlt'))
 
-            end = time.time()
-            elapsed = end - start
+    lstMotifs = list(request.session.get('lstMotifs'))
 
-            elapsed_time = open('elapsed_time_bysize.txt', 'w')
+    print(lstMotifs)
+    print(lstSpAlter)
+    print(lstStrAlter)
 
-            elapsed_time.write("Time elapsed ::: ")
-            elapsed_time.write(str(elapsed))
-            elapsed_time.close()
+    lstSpAlterFinal, lstSpNoAlterFinal = [], []
+    lstStrAlterFinal, lstStrNoAlterFinal = [], []
+
+    lsTemp, lsTemp2 = [], []
+
+
+
+    for j in range(len(lstStrNoAlter)):
+        for k in range(len(lstStrNoAlter[j])):
+            lsTemp.append(lstSpNoAlter[j][k])
+        lstSpNoAlterFinal.append(lsTemp.copy())
+        lsTemp.clear()
+
+    for l in range(len(lstStrNoAlter)):
+        for m in range(len(lstStrNoAlter[l])):
+            lsTemp.append(lstStrNoAlter[l][m])
+        lstStrNoAlterFinal.append(lsTemp.copy())
+        lsTemp.clear()
+
+
+
+    #species with alterations
+
+    for j in range(len(lstSpAlter)):
+        for k in range(len(lstSpAlter[j])):
+            lsTemp.append(lstSpAlter[j][k])
+        lstSpAlterFinal.append(lsTemp.copy())
+        lsTemp.clear()
+
+    for l in range(len(lstStrAlter)):
+        for m in range(len(lstStrAlter[l])):
+            lsTemp.append(lstStrAlter[l][m])
+        lstStrAlterFinal.append(lsTemp.copy())
+        lsTemp.clear()
 
 
 
 
+    del request.session['lstSpAlt']
+    del request.session['lstSpNoAlt']
 
-            context = {"tsearch": tsearch, "motifList": motifs, "locals": localsMotifs, "occurr": occurr, "minsize": minSize,
-                       "listEnd": listEnd, "sizes":sizesMotifs, "elapsedtime":elapsed_time}
-
-
-
-        return render(request, "resultbysize.html", context=context)
+    del request.session['lstStrAlt']
+    del request.session['lstStrNoAlt']
 
 
+
+    listNoAlt = zip(lstMotifs, lstSpNoAlterFinal, lstStrNoAlterFinal)
+    listAlt = zip(lstMotifs, lstSpAlterFinal, lstStrAlterFinal)
+
+
+
+
+    listJoinNoAlt,listJoinAlt, tmp, tmp2=[],[],[],[]
+    for d in range(len(lstSpNoAlterFinal)):
+        for e in range(len(lstSpNoAlterFinal[d])):
+            tmp.append(str(lstSpNoAlterFinal[d][e])+" - "+str(lstStrNoAlterFinal[d][e]))
+        listJoinNoAlt.append(tmp.copy())
+        tmp.clear()
+
+    for m in range(len(lstSpAlterFinal)):
+        for n in range(len(lstSpAlterFinal[m])):
+            tmp.append(str(lstSpAlterFinal[m][n])+" - "+str(lstStrAlterFinal[m][n]))
+        listJoinAlt.append(tmp.copy())
+        tmp.clear()
+
+
+
+
+
+
+    listStr = zip(lstMotifs, listJoinNoAlt, listJoinAlt)
+    listAltMin = zip(lstMotifs, listJoinAlt)
+
+
+
+    # , lstStrAlter, lstStrNoAlter
+    context = {"listNoAlt": listNoAlt, "lstSpNoAlterFinal": lstSpNoAlterFinal,
+               "lstStrNoAlterFinal": lstStrNoAlterFinal, "lstMotifs": lstMotifs, "listStr":listStr,
+               "listAltMin":listAltMin
+               }
+
+    return render(request, "motbysp.html", context=context)
 
 
 def motivores(request):
@@ -205,9 +232,6 @@ def motivores(request):
         file.write("\n")
     file.close()
 
-
-
-
     crp_sites_df = pd.read_csv("smamF/fasta/output/fastalogo.fas", comment='>', names=['site'])
     crp_sites_list = crp_sites_df['site'].values
 
@@ -220,7 +244,6 @@ def motivores(request):
     for f in os.listdir(dir):
         os.remove(os.path.join(dir, f))
 
-
     logo = logomaker.Logo(crp_counts_df, color_scheme="skylign_protein")
     plt.savefig("smInter/static/logoseq/lgcount.png")
 
@@ -232,8 +255,6 @@ def motivores(request):
 
     logo = logomaker.Logo(crp_inf_df, color_scheme="skylign_protein")
     plt.savefig("smInter/static/logoseq/lginf.png")
-
-
 
     contexto = {"numero": numero, "listaStr": listStr, "motivo": motivo, "listaEsp": listaEsp, "listaTipo": listaTipo,
                 "listaContaAlt": listaContAlt, "listaMod": listaModif, "listaComp": listaComp
@@ -392,3 +413,15 @@ def report(request):
 
     return FileResponse(open("smamF/reports/report.txt", "rb"), as_attachment=True, content_type="text/plain")
 
+
+def tutorial(request):
+    return render(request, "tutorial.html")
+
+
+def downsequencetest(request):
+    return FileResponse(open("smamF/fasta/seqtest/testsequence.fas", "rb"), as_attachment=True,
+                        content_type="text/plain")
+
+
+def contact(request):
+    return render(request, "contact.html")

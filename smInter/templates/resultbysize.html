@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 
 <!DOCTYPE html>
@@ -11,31 +12,69 @@
 
 
   {%block conteudo%}
-<br>
-  Search Type :::: {{tsearch}}
+
+
 
 <br>
-
-Min Size :: {{minsize}}
-  <hr>
-
-  <br>
-<br>
-
 <b>
 ::::Motifs List :::
 </b>
+<br>
+Min Size :: {{minsize}}
+  <br>
+  <hr>
 
 
-<br><br>
 
-  {%for i in listEnd%}
-  {{i}}<br>
-  {%endfor%}
+
+
+    {%for lstMotifs, listLocalsFinal, lstSpec, lstSupprt, lstMotifNumber, lstSpecNames, lstSizes, lstEndLocal in ziplist%}
+
+
+
+<p align="center">
+
+  Motif Number: {{lstMotifNumber}}<br>
+  Sequence: <b> {{lstMotifs}}</b><br><br>
+    Local Begin: {{listLocalsFinal}}<br>
+    Local End: {{lstEndLocal}}<br>
+  Length: {{lstSizes}}<br>
+  Support: {{lstSupprt}}<br>
+
+
+    <br>
+
+</p>
+    <br>
+
+<form id="formlogo" name="formlogo" method="post" action="motbysp">
+     {% csrf_token %}
+			        {{ form.as_p }}
+          <input class="buttons" style="width: 160px" type="submit" value="Analyze" id="botaofasta" onclick="newWindow()">
+  </form>
+
+
+
+    <hr>
+
+
+
+    {%endfor%}
+
+
+
+
+
+
+    <br><br>
+
+
+</p>
+
 
   <br><br>
 
-<a href="/elapsedtime">Elapsed</a>
+
 
   {%endblock conteudo%}
 

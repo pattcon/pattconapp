@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+  {%block conteudo%}
+
+
+
+<br>
+<b>
+::::Tutorial :::
+</b>
+
+  <hr>
+
+
+<table cellpadding="5">
+
+    <tr>
+
+        <td align="center">
+            <img src="./static/images/001.png" width="45%" height="45%" border="1" >
+
+
+        </td>
+
+
+
+         <td align="center">
+            <img src="./static/images/002motdescr.png" border="1" >
+        </td>
+
+    <tr>
+
+    <td align="center">
+            Use your multi-Fasta file or download this file: <a href="/seqtest">File</a><br><br>
+            Fill the fields with your Content Percent, Conservation Percent and Minimum Size<br><br>
+            Click in Search button.
+        </td>
+
+
+
+ <td align="center">
+            Check the results of analyses. All motifs are listed.<br><br>
+            Click in "Analyse" button to get the occurrences of each motif in the input sequences.
+        </td>
+
+</tr>
+
+            <tr><td colspan="5"> <hr></td>
+
+
+    </tr>
+        <tr>
+
+         <td align="center">
+            <img src="./static/images/003motifocc.png" border="1" ><br>
+        </td>
+
+        <td align="center">
+            <img src="./static/images/005analy.png" border="1" ><br>
+        </td>
+
+        </tr>
+
+    <tr>
+
+<td align="center"> Check the results of motifs summary<br><br></td>
+
+
+<td align="center"> Select one option to generate output files clicking in the corresponding button.<br><br>
+            Select and click in Generate Logo, to generate a log image of motif occurrence.
+            </td>
+
+
+
+    </tr>
+    <tr><td colspan="4"> <hr></td>
+
+    <tr>
+         <td align="center" colspan="4">
+            <img src="./static/images/006seqlogo.png" height="30%" width="30%" border="1" ><br>
+        </td>
+    <tr>
+
+ <td colspan="4" align="center"> Select the option too visualize diffente logos's format <br><br>
+    Click in Open In New Window to open the logo image in a new window of th navigator.
+
+    </td>
+
+</tr>
+
+    </tr>
+
+
+
+</table>
+
+
+
+
+  <br><br>
+
+
+
+  {%endblock conteudo%}
+
+
+
+
+
+
+
+</body>
+</html>

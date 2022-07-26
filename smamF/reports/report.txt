@@ -1,504 +1,264 @@
-::Motifs 0 - NITVP
-::Locals : 40 to 44
+::Motif 0 - LDSSIFLR
+::Local : 2 to 9
 ::Species : 
-Specie: XP 036552587.1 - Sequence [-][-][-][-][-] Alterations: 5
-Specie: XP 036550993.1 - Sequence [E][T][L][S][K] Alterations: 5
-Specie: XP 036513763.1 - Sequence [-][-][-][-][-] Alterations: 5
-Specie: XP 036505101.1 - Sequence [E]I[L][S][K] Alterations: 4
-Specie: XP 035348002.1 - Sequence NITVP Alterations: 0
-Specie: XP 033602569.1 - Sequence NITVP Alterations: 0
-Specie: XP 033435306.1 - Sequence NITVP Alterations: 0
-Specie: XP 022510914.1 - Sequence [M][S][A][C][H] Alterations: 5
-Specie: XP 022495945.1 - Sequence [M][S][A][C][D] Alterations: 5
-Specie: XP 022284196.1 - Sequence [-][M][E]V[H] Alterations: 4
-Specie: XP 020116230.1 - Sequence [-][-][-][-][-] Alterations: 5
-Specie: XP 018695655.1 - Sequence [M][S][A][C][H] Alterations: 5
-Specie: XP 016630177.1 - Sequence [M][S][A][C][H] Alterations: 5
-Specie: XP 016625639.1 - Sequence [V][V][L]V[Y] Alterations: 4
-Specie: XP 016250572.1 - Sequence [M][S][A][C][H] Alterations: 5
-Specie: XP 013288076.1 - Sequence [M][S][A][C][H] Alterations: 5
-Specie: XP 007739432.1 - Sequence [M][S][A][C][H] Alterations: 5
-Specie: XP 002479247.1 - Sequence NITVP Alterations: 0
-Specie: XP 002146952.1 - Sequence NITVP Alterations: 0
-Specie: TLD32521.1 - Sequence [D][D][C]V[K] Alterations: 4
-Specie: TLD24448.1 - Sequence [P][C]TVP Alterations: 2
-Specie: TID20867.1 - Sequence [D][D][C]V[K] Alterations: 4
-Specie: TID16357.1 - Sequence [P][C]TVP Alterations: 2
-Specie: SLM39090.1 - Sequence [M][T][D][T][A] Alterations: 5
-Specie: RDW84298.1 - Sequence NITVP Alterations: 0
-Specie: RDW60270.1 - Sequence N[V]TVP Alterations: 1
-Specie: RDI86015.1 - Sequence [D][E][C]V[K] Alterations: 4
-Specie: RDI80449.1 - Sequence [T][T][S][L]P Alterations: 4
-Specie: RAO67844.1 - Sequence NITVP Alterations: 0
-Specie: QDS72940.1 - Sequence [E][L][S][L][G] Alterations: 5
-Specie: PVH75298.1 - Sequence NITVP Alterations: 0
-Specie: PSN74067.1 - Sequence [E][D][C][P][D] Alterations: 5
-Specie: PSN59886.1 - Sequence NITVP Alterations: 0
-Specie: PLN84728.1 - Sequence [D][V][G][L][K] Alterations: 5
-Specie: PCH04032.1 - Sequence NITVP Alterations: 0
-Specie: OXV11794.1 - Sequence NITV[L] Alterations: 1
-Specie: OXV07938.1 - Sequence NITVP Alterations: 0
-Specie: OXV06465.1 - Sequence NITVP Alterations: 0
-Specie: OTB17893.1 - Sequence NITVP Alterations: 0
-Specie: OTA98035.1 - Sequence [D]ITVP Alterations: 1
-Specie: OTA60265.1 - Sequence NITVP Alterations: 0
-Specie: ORY08339.1 - Sequence [K][S][N][A][H] Alterations: 5
-Specie: OCL05176.1 - Sequence NITVP Alterations: 0
-Specie: OCK88270.1 - Sequence NITVP Alterations: 0
-Specie: OAL52286.1 - Sequence [D][T][F][L][R] Alterations: 5
-Specie: OAL03184.1 - Sequence [H]ITVP Alterations: 1
-Specie: OAL00433.1 - Sequence [T][N][C][D][S] Alterations: 5
-Specie: KUL90393.1 - Sequence NITVP Alterations: 0
-Specie: KAF3395649.1 - Sequence NITVP Alterations: 0
-Specie: KAF2837471.1 - Sequence N[R]TVP Alterations: 1
-Specie: KAF2420326.1 - Sequence [E][H][C][T][T] Alterations: 5
-Specie: KAF2399820.1 - Sequence [S][D][C]V[K] Alterations: 4
-Specie: KAF2263082.1 - Sequence [E][D][C][Q][S] Alterations: 5
-Specie: KAF2111308.1 - Sequence NITVP Alterations: 0
-Specie: KAF2103490.1 - Sequence [P][S][L][P]P Alterations: 4
-Specie: KAF2099407.1 - Sequence [L][E][R][A][A] Alterations: 5
-Specie: KAF1849190.1 - Sequence N[V]TVP Alterations: 1
-Specie: KAE9994558.1 - Sequence [-][-][-][M][G] Alterations: 5
-Specie: KAE9990371.1 - Sequence [T][T][S][L]P Alterations: 4
-Specie: KAE9985775.1 - Sequence [D][E][C]V[K] Alterations: 4
-Specie: KAE9982238.1 - Sequence [D][E][C]V[K] Alterations: 4
-Specie: KAE9969643.1 - Sequence [P][C]TVP Alterations: 2
-Specie: KAA6408516.1 - Sequence [M][T][D][T][A] Alterations: 5
-Specie: GAM35381.1 - Sequence NITVP Alterations: 0
-Specie: CZT51936.1 - Sequence NITVP Alterations: 0
-Specie: CZT12655.1 - Sequence [E][E][C]V[H] Alterations: 4
-Specie: CZT06706.1 - Sequence [E][E][C]V[H] Alterations: 4
-Specie: CRG89259.1 - Sequence NITVP Alterations: 0
+Specie: ['KDN48563.1'] - Sequence LDSSIFLR Alterations: 0
+Specie: ['CEL55771.1'] - Sequence LDSSIFLR Alterations: 0
+Specie: ['TTTTEL55830.1'] - Sequence LDSSIFLR Alterations: 0
+Specie: ['CEL55830.1'] - Sequence LDSSIFLR Alterations: 0
 ----------------------------------------------------------------------------
-::Motifs 1 - LP
-::Locals : 118 to 119
+::Motif 1 - ADSSIFLR
+::Local : 11 to 18
 ::Species : 
-Specie: XP 036552587.1 - Sequence [I]P Alterations: 1
-Specie: XP 036550993.1 - Sequence LP Alterations: 0
-Specie: XP 036513763.1 - Sequence [I]P Alterations: 1
-Specie: XP 036505101.1 - Sequence LP Alterations: 0
-Specie: XP 035348002.1 - Sequence LP Alterations: 0
-Specie: XP 033602569.1 - Sequence LP Alterations: 0
-Specie: XP 033435306.1 - Sequence LP Alterations: 0
-Specie: XP 022510914.1 - Sequence [I]P Alterations: 1
-Specie: XP 022495945.1 - Sequence [I]P Alterations: 1
-Specie: XP 022284196.1 - Sequence [I][S] Alterations: 2
-Specie: XP 020116230.1 - Sequence LP Alterations: 0
-Specie: XP 018695655.1 - Sequence [I]P Alterations: 1
-Specie: XP 016630177.1 - Sequence LP Alterations: 0
-Specie: XP 016625639.1 - Sequence LP Alterations: 0
-Specie: XP 016250572.1 - Sequence [I]P Alterations: 1
-Specie: XP 013288076.1 - Sequence [I]P Alterations: 1
-Specie: XP 007739432.1 - Sequence LP Alterations: 0
-Specie: XP 002479247.1 - Sequence LP Alterations: 0
-Specie: XP 002146952.1 - Sequence LP Alterations: 0
-Specie: TLD32521.1 - Sequence LP Alterations: 0
-Specie: TLD24448.1 - Sequence LP Alterations: 0
-Specie: TID20867.1 - Sequence LP Alterations: 0
-Specie: TID16357.1 - Sequence LP Alterations: 0
-Specie: SLM39090.1 - Sequence [I][D] Alterations: 2
-Specie: RDW84298.1 - Sequence LP Alterations: 0
-Specie: RDW60270.1 - Sequence LP Alterations: 0
-Specie: RDI86015.1 - Sequence LP Alterations: 0
-Specie: RDI80449.1 - Sequence LP Alterations: 0
-Specie: RAO67844.1 - Sequence LP Alterations: 0
-Specie: QDS72940.1 - Sequence [F]P Alterations: 1
-Specie: PVH75298.1 - Sequence LP Alterations: 0
-Specie: PSN74067.1 - Sequence [P][K] Alterations: 2
-Specie: PSN59886.1 - Sequence LP Alterations: 0
-Specie: PLN84728.1 - Sequence [V]P Alterations: 1
-Specie: PCH04032.1 - Sequence LP Alterations: 0
-Specie: OXV11794.1 - Sequence LP Alterations: 0
-Specie: OXV07938.1 - Sequence LP Alterations: 0
-Specie: OXV06465.1 - Sequence LP Alterations: 0
-Specie: OTB17893.1 - Sequence LP Alterations: 0
-Specie: OTA98035.1 - Sequence LP Alterations: 0
-Specie: OTA60265.1 - Sequence LP Alterations: 0
-Specie: ORY08339.1 - Sequence [-][-] Alterations: 2
-Specie: OCL05176.1 - Sequence LP Alterations: 0
-Specie: OCK88270.1 - Sequence LP Alterations: 0
-Specie: OAL52286.1 - Sequence [-][-] Alterations: 2
-Specie: OAL03184.1 - Sequence LP Alterations: 0
-Specie: OAL00433.1 - Sequence L[K] Alterations: 1
-Specie: KUL90393.1 - Sequence LP Alterations: 0
-Specie: KAF3395649.1 - Sequence LP Alterations: 0
-Specie: KAF2837471.1 - Sequence LP Alterations: 0
-Specie: KAF2420326.1 - Sequence L[A] Alterations: 1
-Specie: KAF2399820.1 - Sequence LP Alterations: 0
-Specie: KAF2263082.1 - Sequence [P][K] Alterations: 2
-Specie: KAF2111308.1 - Sequence LP Alterations: 0
-Specie: KAF2103490.1 - Sequence LP Alterations: 0
-Specie: KAF2099407.1 - Sequence [T]P Alterations: 1
-Specie: KAF1849190.1 - Sequence LP Alterations: 0
-Specie: KAE9994558.1 - Sequence [S]P Alterations: 1
-Specie: KAE9990371.1 - Sequence LP Alterations: 0
-Specie: KAE9985775.1 - Sequence LP Alterations: 0
-Specie: KAE9982238.1 - Sequence LP Alterations: 0
-Specie: KAE9969643.1 - Sequence LP Alterations: 0
-Specie: KAA6408516.1 - Sequence [I][N] Alterations: 2
-Specie: GAM35381.1 - Sequence LP Alterations: 0
-Specie: CZT51936.1 - Sequence LP Alterations: 0
-Specie: CZT12655.1 - Sequence LP Alterations: 0
-Specie: CZT06706.1 - Sequence LP Alterations: 0
-Specie: CRG89259.1 - Sequence LP Alterations: 0
+Specie: ['KDN48563.1'] - Sequence ADSSIFLR Alterations: 0
+Specie: ['CEL55771.1'] - Sequence [C]DSSIFLR Alterations: 1
+Specie: ['TTTTEL55830.1'] - Sequence [D]DSSIFLR Alterations: 1
+Specie: ['CEL55830.1'] - Sequence [E]DSSIFLR Alterations: 1
 ----------------------------------------------------------------------------
-::Motifs 2 - WNQ
-::Locals : 151 to 153
+::Motif 2 - CDSSIFLR
+::Local : 11 to 18
 ::Species : 
-Specie: XP 036552587.1 - Sequence [L]N[K] Alterations: 2
-Specie: XP 036550993.1 - Sequence [Y]N[P] Alterations: 2
-Specie: XP 036513763.1 - Sequence [L]N[K] Alterations: 2
-Specie: XP 036505101.1 - Sequence [Y]N[P] Alterations: 2
-Specie: XP 035348002.1 - Sequence WNQ Alterations: 0
-Specie: XP 033602569.1 - Sequence WN[L] Alterations: 1
-Specie: XP 033435306.1 - Sequence WN[L] Alterations: 1
-Specie: XP 022510914.1 - Sequence WN[P] Alterations: 1
-Specie: XP 022495945.1 - Sequence WN[P] Alterations: 1
-Specie: XP 022284196.1 - Sequence [A][S][L] Alterations: 3
-Specie: XP 020116230.1 - Sequence [-][-][-] Alterations: 3
-Specie: XP 018695655.1 - Sequence WN[P] Alterations: 1
-Specie: XP 016630177.1 - Sequence WN[P] Alterations: 1
-Specie: XP 016625639.1 - Sequence WN[P] Alterations: 1
-Specie: XP 016250572.1 - Sequence WN[P] Alterations: 1
-Specie: XP 013288076.1 - Sequence WN[P] Alterations: 1
-Specie: XP 007739432.1 - Sequence WN[P] Alterations: 1
-Specie: XP 002479247.1 - Sequence WNQ Alterations: 0
-Specie: XP 002146952.1 - Sequence WN[P] Alterations: 1
-Specie: TLD32521.1 - Sequence WN[P] Alterations: 1
-Specie: TLD24448.1 - Sequence W[S][P] Alterations: 2
-Specie: TID20867.1 - Sequence WN[P] Alterations: 1
-Specie: TID16357.1 - Sequence W[S][P] Alterations: 2
-Specie: SLM39090.1 - Sequence [S][S][T] Alterations: 3
-Specie: RDW84298.1 - Sequence WNQ Alterations: 0
-Specie: RDW60270.1 - Sequence WNQ Alterations: 0
-Specie: RDI86015.1 - Sequence WN[P] Alterations: 1
-Specie: RDI80449.1 - Sequence [Y]N[P] Alterations: 2
-Specie: RAO67844.1 - Sequence WNQ Alterations: 0
-Specie: QDS72940.1 - Sequence W[K][P] Alterations: 2
-Specie: PVH75298.1 - Sequence WNQ Alterations: 0
-Specie: PSN74067.1 - Sequence WN[P] Alterations: 1
-Specie: PSN59886.1 - Sequence WNQ Alterations: 0
-Specie: PLN84728.1 - Sequence [-][R][P] Alterations: 3
-Specie: PCH04032.1 - Sequence WNQ Alterations: 0
-Specie: OXV11794.1 - Sequence WNQ Alterations: 0
-Specie: OXV07938.1 - Sequence WNQ Alterations: 0
-Specie: OXV06465.1 - Sequence WNQ Alterations: 0
-Specie: OTB17893.1 - Sequence WN[L] Alterations: 1
-Specie: OTA98035.1 - Sequence WN[I] Alterations: 1
-Specie: OTA60265.1 - Sequence WN[L] Alterations: 1
-Specie: ORY08339.1 - Sequence [-][-][-] Alterations: 3
-Specie: OCL05176.1 - Sequence WNQ Alterations: 0
-Specie: OCK88270.1 - Sequence WNQ Alterations: 0
-Specie: OAL52286.1 - Sequence [-][-][P] Alterations: 3
-Specie: OAL03184.1 - Sequence WN[L] Alterations: 1
-Specie: OAL00433.1 - Sequence WN[P] Alterations: 1
-Specie: KUL90393.1 - Sequence WNQ Alterations: 0
-Specie: KAF3395649.1 - Sequence WNQ Alterations: 0
-Specie: KAF2837471.1 - Sequence WN[I] Alterations: 1
-Specie: KAF2420326.1 - Sequence WN[P] Alterations: 1
-Specie: KAF2399820.1 - Sequence WN[P] Alterations: 1
-Specie: KAF2263082.1 - Sequence WN[P] Alterations: 1
-Specie: KAF2111308.1 - Sequence WNQ Alterations: 0
-Specie: KAF2103490.1 - Sequence WN[P] Alterations: 1
-Specie: KAF2099407.1 - Sequence [-][-][-] Alterations: 3
-Specie: KAF1849190.1 - Sequence WNQ Alterations: 0
-Specie: KAE9994558.1 - Sequence [-][-][-] Alterations: 3
-Specie: KAE9990371.1 - Sequence [Y]N[P] Alterations: 2
-Specie: KAE9985775.1 - Sequence WN[P] Alterations: 1
-Specie: KAE9982238.1 - Sequence WN[P] Alterations: 1
-Specie: KAE9969643.1 - Sequence W[S][P] Alterations: 2
-Specie: KAA6408516.1 - Sequence [S][S][T] Alterations: 3
-Specie: GAM35381.1 - Sequence WNQ Alterations: 0
-Specie: CZT51936.1 - Sequence WNQ Alterations: 0
-Specie: CZT12655.1 - Sequence WN[P] Alterations: 1
-Specie: CZT06706.1 - Sequence WN[P] Alterations: 1
-Specie: CRG89259.1 - Sequence WNQ Alterations: 0
+Specie: ['KDN48563.1'] - Sequence [A]DSSIFLR Alterations: 1
+Specie: ['CEL55771.1'] - Sequence CDSSIFLR Alterations: 0
+Specie: ['TTTTEL55830.1'] - Sequence [D]DSSIFLR Alterations: 1
+Specie: ['CEL55830.1'] - Sequence [E]DSSIFLR Alterations: 1
 ----------------------------------------------------------------------------
-::Motifs 3 - WNP
-::Locals : 151 to 153
+::Motif 3 - DDSSIFLR
+::Local : 11 to 18
 ::Species : 
-Specie: XP 036552587.1 - Sequence [L]N[K] Alterations: 2
-Specie: XP 036550993.1 - Sequence [Y]NP Alterations: 1
-Specie: XP 036513763.1 - Sequence [L]N[K] Alterations: 2
-Specie: XP 036505101.1 - Sequence [Y]NP Alterations: 1
-Specie: XP 035348002.1 - Sequence WN[Q] Alterations: 1
-Specie: XP 033602569.1 - Sequence WN[L] Alterations: 1
-Specie: XP 033435306.1 - Sequence WN[L] Alterations: 1
-Specie: XP 022510914.1 - Sequence WNP Alterations: 0
-Specie: XP 022495945.1 - Sequence WNP Alterations: 0
-Specie: XP 022284196.1 - Sequence [A][S][L] Alterations: 3
-Specie: XP 020116230.1 - Sequence [-][-][-] Alterations: 3
-Specie: XP 018695655.1 - Sequence WNP Alterations: 0
-Specie: XP 016630177.1 - Sequence WNP Alterations: 0
-Specie: XP 016625639.1 - Sequence WNP Alterations: 0
-Specie: XP 016250572.1 - Sequence WNP Alterations: 0
-Specie: XP 013288076.1 - Sequence WNP Alterations: 0
-Specie: XP 007739432.1 - Sequence WNP Alterations: 0
-Specie: XP 002479247.1 - Sequence WN[Q] Alterations: 1
-Specie: XP 002146952.1 - Sequence WNP Alterations: 0
-Specie: TLD32521.1 - Sequence WNP Alterations: 0
-Specie: TLD24448.1 - Sequence W[S]P Alterations: 1
-Specie: TID20867.1 - Sequence WNP Alterations: 0
-Specie: TID16357.1 - Sequence W[S]P Alterations: 1
-Specie: SLM39090.1 - Sequence [S][S][T] Alterations: 3
-Specie: RDW84298.1 - Sequence WN[Q] Alterations: 1
-Specie: RDW60270.1 - Sequence WN[Q] Alterations: 1
-Specie: RDI86015.1 - Sequence WNP Alterations: 0
-Specie: RDI80449.1 - Sequence [Y]NP Alterations: 1
-Specie: RAO67844.1 - Sequence WN[Q] Alterations: 1
-Specie: QDS72940.1 - Sequence W[K]P Alterations: 1
-Specie: PVH75298.1 - Sequence WN[Q] Alterations: 1
-Specie: PSN74067.1 - Sequence WNP Alterations: 0
-Specie: PSN59886.1 - Sequence WN[Q] Alterations: 1
-Specie: PLN84728.1 - Sequence [-][R]P Alterations: 2
-Specie: PCH04032.1 - Sequence WN[Q] Alterations: 1
-Specie: OXV11794.1 - Sequence WN[Q] Alterations: 1
-Specie: OXV07938.1 - Sequence WN[Q] Alterations: 1
-Specie: OXV06465.1 - Sequence WN[Q] Alterations: 1
-Specie: OTB17893.1 - Sequence WN[L] Alterations: 1
-Specie: OTA98035.1 - Sequence WN[I] Alterations: 1
-Specie: OTA60265.1 - Sequence WN[L] Alterations: 1
-Specie: ORY08339.1 - Sequence [-][-][-] Alterations: 3
-Specie: OCL05176.1 - Sequence WN[Q] Alterations: 1
-Specie: OCK88270.1 - Sequence WN[Q] Alterations: 1
-Specie: OAL52286.1 - Sequence [-][-]P Alterations: 2
-Specie: OAL03184.1 - Sequence WN[L] Alterations: 1
-Specie: OAL00433.1 - Sequence WNP Alterations: 0
-Specie: KUL90393.1 - Sequence WN[Q] Alterations: 1
-Specie: KAF3395649.1 - Sequence WN[Q] Alterations: 1
-Specie: KAF2837471.1 - Sequence WN[I] Alterations: 1
-Specie: KAF2420326.1 - Sequence WNP Alterations: 0
-Specie: KAF2399820.1 - Sequence WNP Alterations: 0
-Specie: KAF2263082.1 - Sequence WNP Alterations: 0
-Specie: KAF2111308.1 - Sequence WN[Q] Alterations: 1
-Specie: KAF2103490.1 - Sequence WNP Alterations: 0
-Specie: KAF2099407.1 - Sequence [-][-][-] Alterations: 3
-Specie: KAF1849190.1 - Sequence WN[Q] Alterations: 1
-Specie: KAE9994558.1 - Sequence [-][-][-] Alterations: 3
-Specie: KAE9990371.1 - Sequence [Y]NP Alterations: 1
-Specie: KAE9985775.1 - Sequence WNP Alterations: 0
-Specie: KAE9982238.1 - Sequence WNP Alterations: 0
-Specie: KAE9969643.1 - Sequence W[S]P Alterations: 1
-Specie: KAA6408516.1 - Sequence [S][S][T] Alterations: 3
-Specie: GAM35381.1 - Sequence WN[Q] Alterations: 1
-Specie: CZT51936.1 - Sequence WN[Q] Alterations: 1
-Specie: CZT12655.1 - Sequence WNP Alterations: 0
-Specie: CZT06706.1 - Sequence WNP Alterations: 0
-Specie: CRG89259.1 - Sequence WN[Q] Alterations: 1
+Specie: ['KDN48563.1'] - Sequence [A]DSSIFLR Alterations: 1
+Specie: ['CEL55771.1'] - Sequence [C]DSSIFLR Alterations: 1
+Specie: ['TTTTEL55830.1'] - Sequence DDSSIFLR Alterations: 0
+Specie: ['CEL55830.1'] - Sequence [E]DSSIFLR Alterations: 1
 ----------------------------------------------------------------------------
-::Motifs 4 - CN
-::Locals : 283 to 284
+::Motif 4 - EDSSIFLR
+::Local : 11 to 18
 ::Species : 
-Specie: XP 036552587.1 - Sequence [R]N Alterations: 1
-Specie: XP 036550993.1 - Sequence [T][S] Alterations: 2
-Specie: XP 036513763.1 - Sequence [R]N Alterations: 1
-Specie: XP 036505101.1 - Sequence [T][S] Alterations: 2
-Specie: XP 035348002.1 - Sequence CN Alterations: 0
-Specie: XP 033602569.1 - Sequence [A]N Alterations: 1
-Specie: XP 033435306.1 - Sequence [A]N Alterations: 1
-Specie: XP 022510914.1 - Sequence [S]N Alterations: 1
-Specie: XP 022495945.1 - Sequence [S]N Alterations: 1
-Specie: XP 022284196.1 - Sequence [-][Q] Alterations: 2
-Specie: XP 020116230.1 - Sequence CN Alterations: 0
-Specie: XP 018695655.1 - Sequence [S]N Alterations: 1
-Specie: XP 016630177.1 - Sequence [S]N Alterations: 1
-Specie: XP 016625639.1 - Sequence [S]N Alterations: 1
-Specie: XP 016250572.1 - Sequence [S]N Alterations: 1
-Specie: XP 013288076.1 - Sequence [S]N Alterations: 1
-Specie: XP 007739432.1 - Sequence [S]N Alterations: 1
-Specie: XP 002479247.1 - Sequence CN Alterations: 0
-Specie: XP 002146952.1 - Sequence CN Alterations: 0
-Specie: TLD32521.1 - Sequence C[P] Alterations: 1
-Specie: TLD24448.1 - Sequence [V][P] Alterations: 2
-Specie: TID20867.1 - Sequence C[P] Alterations: 1
-Specie: TID16357.1 - Sequence [V][P] Alterations: 2
-Specie: SLM39090.1 - Sequence [H]N Alterations: 1
-Specie: RDW84298.1 - Sequence CN Alterations: 0
-Specie: RDW60270.1 - Sequence CN Alterations: 0
-Specie: RDI86015.1 - Sequence C[P] Alterations: 1
-Specie: RDI80449.1 - Sequence [A][A] Alterations: 2
-Specie: RAO67844.1 - Sequence C[S] Alterations: 1
-Specie: QDS72940.1 - Sequence [V][P] Alterations: 2
-Specie: PVH75298.1 - Sequence CN Alterations: 0
-Specie: PSN74067.1 - Sequence [S][P] Alterations: 2
-Specie: PSN59886.1 - Sequence CN Alterations: 0
-Specie: PLN84728.1 - Sequence [L][S] Alterations: 2
-Specie: PCH04032.1 - Sequence C[S] Alterations: 1
-Specie: OXV11794.1 - Sequence CN Alterations: 0
-Specie: OXV07938.1 - Sequence CN Alterations: 0
-Specie: OXV06465.1 - Sequence C[S] Alterations: 1
-Specie: OTB17893.1 - Sequence [A]N Alterations: 1
-Specie: OTA98035.1 - Sequence [T]N Alterations: 1
-Specie: OTA60265.1 - Sequence [S][G] Alterations: 2
-Specie: ORY08339.1 - Sequence [V][P] Alterations: 2
-Specie: OCL05176.1 - Sequence CN Alterations: 0
-Specie: OCK88270.1 - Sequence CN Alterations: 0
-Specie: OAL52286.1 - Sequence [R][P] Alterations: 2
-Specie: OAL03184.1 - Sequence CN Alterations: 0
-Specie: OAL00433.1 - Sequence [S][P] Alterations: 2
-Specie: KUL90393.1 - Sequence C[P] Alterations: 1
-Specie: KAF3395649.1 - Sequence C[S] Alterations: 1
-Specie: KAF2837471.1 - Sequence [A][G] Alterations: 2
-Specie: KAF2420326.1 - Sequence [S][P] Alterations: 2
-Specie: KAF2399820.1 - Sequence [A][P] Alterations: 2
-Specie: KAF2263082.1 - Sequence [V][P] Alterations: 2
-Specie: KAF2111308.1 - Sequence CN Alterations: 0
-Specie: KAF2103490.1 - Sequence [E]N Alterations: 1
-Specie: KAF2099407.1 - Sequence [V][S] Alterations: 2
-Specie: KAF1849190.1 - Sequence CN Alterations: 0
-Specie: KAE9994558.1 - Sequence [S][P] Alterations: 2
-Specie: KAE9990371.1 - Sequence [A][A] Alterations: 2
-Specie: KAE9985775.1 - Sequence C[P] Alterations: 1
-Specie: KAE9982238.1 - Sequence C[P] Alterations: 1
-Specie: KAE9969643.1 - Sequence [V][P] Alterations: 2
-Specie: KAA6408516.1 - Sequence [H]N Alterations: 1
-Specie: GAM35381.1 - Sequence C[S] Alterations: 1
-Specie: CZT51936.1 - Sequence CN Alterations: 0
-Specie: CZT12655.1 - Sequence [W][P] Alterations: 2
-Specie: CZT06706.1 - Sequence [W][P] Alterations: 2
-Specie: CRG89259.1 - Sequence CN Alterations: 0
+Specie: ['KDN48563.1'] - Sequence [A]DSSIFLR Alterations: 1
+Specie: ['CEL55771.1'] - Sequence [C]DSSIFLR Alterations: 1
+Specie: ['TTTTEL55830.1'] - Sequence [D]DSSIFLR Alterations: 1
+Specie: ['CEL55830.1'] - Sequence EDSSIFLR Alterations: 0
 ----------------------------------------------------------------------------
-::Motifs 5 - R
-::Locals : 421 to 421
+::Motif 5 - AFSSIFLR
+::Local : 20 to 27
 ::Species : 
-Specie: XP 036552587.1 - Sequence R Alterations: 0
-Specie: XP 036550993.1 - Sequence [M] Alterations: 1
-Specie: XP 036513763.1 - Sequence R Alterations: 0
-Specie: XP 036505101.1 - Sequence [M] Alterations: 1
-Specie: XP 035348002.1 - Sequence R Alterations: 0
-Specie: XP 033602569.1 - Sequence [K] Alterations: 1
-Specie: XP 033435306.1 - Sequence [K] Alterations: 1
-Specie: XP 022510914.1 - Sequence [Q] Alterations: 1
-Specie: XP 022495945.1 - Sequence [Q] Alterations: 1
-Specie: XP 022284196.1 - Sequence R Alterations: 0
-Specie: XP 020116230.1 - Sequence R Alterations: 0
-Specie: XP 018695655.1 - Sequence [Q] Alterations: 1
-Specie: XP 016630177.1 - Sequence [Q] Alterations: 1
-Specie: XP 016625639.1 - Sequence [Q] Alterations: 1
-Specie: XP 016250572.1 - Sequence [Q] Alterations: 1
-Specie: XP 013288076.1 - Sequence [Q] Alterations: 1
-Specie: XP 007739432.1 - Sequence [Q] Alterations: 1
-Specie: XP 002479247.1 - Sequence R Alterations: 0
-Specie: XP 002146952.1 - Sequence R Alterations: 0
-Specie: TLD32521.1 - Sequence [H] Alterations: 1
-Specie: TLD24448.1 - Sequence [E] Alterations: 1
-Specie: TID20867.1 - Sequence [H] Alterations: 1
-Specie: TID16357.1 - Sequence [E] Alterations: 1
-Specie: SLM39090.1 - Sequence R Alterations: 0
-Specie: RDW84298.1 - Sequence [K] Alterations: 1
-Specie: RDW60270.1 - Sequence [K] Alterations: 1
-Specie: RDI86015.1 - Sequence [H] Alterations: 1
-Specie: RDI80449.1 - Sequence [Q] Alterations: 1
-Specie: RAO67844.1 - Sequence R Alterations: 0
-Specie: QDS72940.1 - Sequence [K] Alterations: 1
-Specie: PVH75298.1 - Sequence [K] Alterations: 1
-Specie: PSN74067.1 - Sequence R Alterations: 0
-Specie: PSN59886.1 - Sequence [G] Alterations: 1
-Specie: PLN84728.1 - Sequence [E] Alterations: 1
-Specie: PCH04032.1 - Sequence R Alterations: 0
-Specie: OXV11794.1 - Sequence [K] Alterations: 1
-Specie: OXV07938.1 - Sequence [K] Alterations: 1
-Specie: OXV06465.1 - Sequence [K] Alterations: 1
-Specie: OTB17893.1 - Sequence [K] Alterations: 1
-Specie: OTA98035.1 - Sequence [K] Alterations: 1
-Specie: OTA60265.1 - Sequence [K] Alterations: 1
-Specie: ORY08339.1 - Sequence [K] Alterations: 1
-Specie: OCL05176.1 - Sequence R Alterations: 0
-Specie: OCK88270.1 - Sequence R Alterations: 0
-Specie: OAL52286.1 - Sequence [K] Alterations: 1
-Specie: OAL03184.1 - Sequence [N] Alterations: 1
-Specie: OAL00433.1 - Sequence [H] Alterations: 1
-Specie: KUL90393.1 - Sequence R Alterations: 0
-Specie: KAF3395649.1 - Sequence R Alterations: 0
-Specie: KAF2837471.1 - Sequence [A] Alterations: 1
-Specie: KAF2420326.1 - Sequence [H] Alterations: 1
-Specie: KAF2399820.1 - Sequence R Alterations: 0
-Specie: KAF2263082.1 - Sequence R Alterations: 0
-Specie: KAF2111308.1 - Sequence [S] Alterations: 1
-Specie: KAF2103490.1 - Sequence [Q] Alterations: 1
-Specie: KAF2099407.1 - Sequence [K] Alterations: 1
-Specie: KAF1849190.1 - Sequence [D] Alterations: 1
-Specie: KAE9994558.1 - Sequence [K] Alterations: 1
-Specie: KAE9990371.1 - Sequence [Q] Alterations: 1
-Specie: KAE9985775.1 - Sequence [H] Alterations: 1
-Specie: KAE9982238.1 - Sequence [H] Alterations: 1
-Specie: KAE9969643.1 - Sequence R Alterations: 0
-Specie: KAA6408516.1 - Sequence R Alterations: 0
-Specie: GAM35381.1 - Sequence R Alterations: 0
-Specie: CZT51936.1 - Sequence [K] Alterations: 1
-Specie: CZT12655.1 - Sequence [Q] Alterations: 1
-Specie: CZT06706.1 - Sequence [Q] Alterations: 1
-Specie: CRG89259.1 - Sequence R Alterations: 0
+Specie: ['KDN48563.1'] - Sequence AFSSIFLR Alterations: 0
+Specie: ['CEL55771.1'] - Sequence [C][G]SSIFLR Alterations: 2
+Specie: ['TTTTEL55830.1'] - Sequence [D][D]SSIFLR Alterations: 2
+Specie: ['CEL55830.1'] - Sequence [E][D]SSIFLR Alterations: 2
 ----------------------------------------------------------------------------
-::Motifs 6 - K
-::Locals : 421 to 421
+::Motif 6 - CGSSIFLR
+::Local : 20 to 27
 ::Species : 
-Specie: XP 036552587.1 - Sequence [R] Alterations: 1
-Specie: XP 036550993.1 - Sequence [M] Alterations: 1
-Specie: XP 036513763.1 - Sequence [R] Alterations: 1
-Specie: XP 036505101.1 - Sequence [M] Alterations: 1
-Specie: XP 035348002.1 - Sequence [R] Alterations: 1
-Specie: XP 033602569.1 - Sequence K Alterations: 0
-Specie: XP 033435306.1 - Sequence K Alterations: 0
-Specie: XP 022510914.1 - Sequence [Q] Alterations: 1
-Specie: XP 022495945.1 - Sequence [Q] Alterations: 1
-Specie: XP 022284196.1 - Sequence [R] Alterations: 1
-Specie: XP 020116230.1 - Sequence [R] Alterations: 1
-Specie: XP 018695655.1 - Sequence [Q] Alterations: 1
-Specie: XP 016630177.1 - Sequence [Q] Alterations: 1
-Specie: XP 016625639.1 - Sequence [Q] Alterations: 1
-Specie: XP 016250572.1 - Sequence [Q] Alterations: 1
-Specie: XP 013288076.1 - Sequence [Q] Alterations: 1
-Specie: XP 007739432.1 - Sequence [Q] Alterations: 1
-Specie: XP 002479247.1 - Sequence [R] Alterations: 1
-Specie: XP 002146952.1 - Sequence [R] Alterations: 1
-Specie: TLD32521.1 - Sequence [H] Alterations: 1
-Specie: TLD24448.1 - Sequence [E] Alterations: 1
-Specie: TID20867.1 - Sequence [H] Alterations: 1
-Specie: TID16357.1 - Sequence [E] Alterations: 1
-Specie: SLM39090.1 - Sequence [R] Alterations: 1
-Specie: RDW84298.1 - Sequence K Alterations: 0
-Specie: RDW60270.1 - Sequence K Alterations: 0
-Specie: RDI86015.1 - Sequence [H] Alterations: 1
-Specie: RDI80449.1 - Sequence [Q] Alterations: 1
-Specie: RAO67844.1 - Sequence [R] Alterations: 1
-Specie: QDS72940.1 - Sequence K Alterations: 0
-Specie: PVH75298.1 - Sequence K Alterations: 0
-Specie: PSN74067.1 - Sequence [R] Alterations: 1
-Specie: PSN59886.1 - Sequence [G] Alterations: 1
-Specie: PLN84728.1 - Sequence [E] Alterations: 1
-Specie: PCH04032.1 - Sequence [R] Alterations: 1
-Specie: OXV11794.1 - Sequence K Alterations: 0
-Specie: OXV07938.1 - Sequence K Alterations: 0
-Specie: OXV06465.1 - Sequence K Alterations: 0
-Specie: OTB17893.1 - Sequence K Alterations: 0
-Specie: OTA98035.1 - Sequence K Alterations: 0
-Specie: OTA60265.1 - Sequence K Alterations: 0
-Specie: ORY08339.1 - Sequence K Alterations: 0
-Specie: OCL05176.1 - Sequence [R] Alterations: 1
-Specie: OCK88270.1 - Sequence [R] Alterations: 1
-Specie: OAL52286.1 - Sequence K Alterations: 0
-Specie: OAL03184.1 - Sequence [N] Alterations: 1
-Specie: OAL00433.1 - Sequence [H] Alterations: 1
-Specie: KUL90393.1 - Sequence [R] Alterations: 1
-Specie: KAF3395649.1 - Sequence [R] Alterations: 1
-Specie: KAF2837471.1 - Sequence [A] Alterations: 1
-Specie: KAF2420326.1 - Sequence [H] Alterations: 1
-Specie: KAF2399820.1 - Sequence [R] Alterations: 1
-Specie: KAF2263082.1 - Sequence [R] Alterations: 1
-Specie: KAF2111308.1 - Sequence [S] Alterations: 1
-Specie: KAF2103490.1 - Sequence [Q] Alterations: 1
-Specie: KAF2099407.1 - Sequence K Alterations: 0
-Specie: KAF1849190.1 - Sequence [D] Alterations: 1
-Specie: KAE9994558.1 - Sequence K Alterations: 0
-Specie: KAE9990371.1 - Sequence [Q] Alterations: 1
-Specie: KAE9985775.1 - Sequence [H] Alterations: 1
-Specie: KAE9982238.1 - Sequence [H] Alterations: 1
-Specie: KAE9969643.1 - Sequence [R] Alterations: 1
-Specie: KAA6408516.1 - Sequence [R] Alterations: 1
-Specie: GAM35381.1 - Sequence [R] Alterations: 1
-Specie: CZT51936.1 - Sequence K Alterations: 0
-Specie: CZT12655.1 - Sequence [Q] Alterations: 1
-Specie: CZT06706.1 - Sequence [Q] Alterations: 1
-Specie: CRG89259.1 - Sequence [R] Alterations: 1
+Specie: ['KDN48563.1'] - Sequence [A][F]SSIFLR Alterations: 2
+Specie: ['CEL55771.1'] - Sequence CGSSIFLR Alterations: 0
+Specie: ['TTTTEL55830.1'] - Sequence [D][D]SSIFLR Alterations: 2
+Specie: ['CEL55830.1'] - Sequence [E][D]SSIFLR Alterations: 2
+----------------------------------------------------------------------------
+::Motif 7 - DDSSIFLR
+::Local : 20 to 27
+::Species : 
+Specie: ['KDN48563.1'] - Sequence [A][F]SSIFLR Alterations: 2
+Specie: ['CEL55771.1'] - Sequence [C][G]SSIFLR Alterations: 2
+Specie: ['TTTTEL55830.1'] - Sequence DDSSIFLR Alterations: 0
+Specie: ['CEL55830.1'] - Sequence [E]DSSIFLR Alterations: 1
+----------------------------------------------------------------------------
+::Motif 8 - EDSSIFLR
+::Local : 20 to 27
+::Species : 
+Specie: ['KDN48563.1'] - Sequence [A][F]SSIFLR Alterations: 2
+Specie: ['CEL55771.1'] - Sequence [C][G]SSIFLR Alterations: 2
+Specie: ['TTTTEL55830.1'] - Sequence [D]DSSIFLR Alterations: 1
+Specie: ['CEL55830.1'] - Sequence EDSSIFLR Alterations: 0
+----------------------------------------------------------------------------
+::Motif 9 - AFESIFLR
+::Local : 29 to 36
+::Species : 
+Specie: ['KDN48563.1'] - Sequence AFESIFLR Alterations: 0
+Specie: ['CEL55771.1'] - Sequence [C][G][W]SIFLR Alterations: 3
+Specie: ['TTTTEL55830.1'] - Sequence [D][D][A]SIFLR Alterations: 3
+Specie: ['CEL55830.1'] - Sequence [E][D][V]SIFLR Alterations: 3
+----------------------------------------------------------------------------
+::Motif 10 - CGWSIFLR
+::Local : 29 to 36
+::Species : 
+Specie: ['KDN48563.1'] - Sequence [A][F][E]SIFLR Alterations: 3
+Specie: ['CEL55771.1'] - Sequence CGWSIFLR Alterations: 0
+Specie: ['TTTTEL55830.1'] - Sequence [D][D][A]SIFLR Alterations: 3
+Specie: ['CEL55830.1'] - Sequence [E][D][V]SIFLR Alterations: 3
+----------------------------------------------------------------------------
+::Motif 11 - DDASIFLR
+::Local : 29 to 36
+::Species : 
+Specie: ['KDN48563.1'] - Sequence [A][F][E]SIFLR Alterations: 3
+Specie: ['CEL55771.1'] - Sequence [C][G][W]SIFLR Alterations: 3
+Specie: ['TTTTEL55830.1'] - Sequence DDASIFLR Alterations: 0
+Specie: ['CEL55830.1'] - Sequence [E]D[V]SIFLR Alterations: 2
+----------------------------------------------------------------------------
+::Motif 12 - EDVSIFLR
+::Local : 29 to 36
+::Species : 
+Specie: ['KDN48563.1'] - Sequence [A][F][E]SIFLR Alterations: 3
+Specie: ['CEL55771.1'] - Sequence [C][G][W]SIFLR Alterations: 3
+Specie: ['TTTTEL55830.1'] - Sequence [D]D[A]SIFLR Alterations: 2
+Specie: ['CEL55830.1'] - Sequence EDVSIFLR Alterations: 0
+----------------------------------------------------------------------------
+::Motif 13 - AFERIFLR
+::Local : 38 to 45
+::Species : 
+Specie: ['KDN48563.1'] - Sequence AFERIFLR Alterations: 0
+Specie: ['CEL55771.1'] - Sequence [C][G][W][H]IFLR Alterations: 4
+Specie: ['TTTTEL55830.1'] - Sequence [D][D][A][K]IFLR Alterations: 4
+Specie: ['CEL55830.1'] - Sequence [E][D][V][M]IFLR Alterations: 4
+----------------------------------------------------------------------------
+::Motif 14 - CGWHIFLR
+::Local : 38 to 45
+::Species : 
+Specie: ['KDN48563.1'] - Sequence [A][F][E][R]IFLR Alterations: 4
+Specie: ['CEL55771.1'] - Sequence CGWHIFLR Alterations: 0
+Specie: ['TTTTEL55830.1'] - Sequence [D][D][A][K]IFLR Alterations: 4
+Specie: ['CEL55830.1'] - Sequence [E][D][V][M]IFLR Alterations: 4
+----------------------------------------------------------------------------
+::Motif 15 - DDAKIFLR
+::Local : 38 to 45
+::Species : 
+Specie: ['KDN48563.1'] - Sequence [A][F][E][R]IFLR Alterations: 4
+Specie: ['CEL55771.1'] - Sequence [C][G][W][H]IFLR Alterations: 4
+Specie: ['TTTTEL55830.1'] - Sequence DDAKIFLR Alterations: 0
+Specie: ['CEL55830.1'] - Sequence [E]D[V][M]IFLR Alterations: 3
+----------------------------------------------------------------------------
+::Motif 16 - EDVMIFLR
+::Local : 38 to 45
+::Species : 
+Specie: ['KDN48563.1'] - Sequence [A][F][E][R]IFLR Alterations: 4
+Specie: ['CEL55771.1'] - Sequence [C][G][W][H]IFLR Alterations: 4
+Specie: ['TTTTEL55830.1'] - Sequence [D]D[A][K]IFLR Alterations: 3
+Specie: ['CEL55830.1'] - Sequence EDVMIFLR Alterations: 0
+----------------------------------------------------------------------------
+::Motif 17 - AFERPFLR
+::Local : 47 to 54
+::Species : 
+Specie: ['KDN48563.1'] - Sequence AFERPFLR Alterations: 0
+Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E]FLR Alterations: 5
+Specie: ['TTTTEL55830.1'] - Sequence [D][D][A][K][D]FLR Alterations: 5
+Specie: ['CEL55830.1'] - Sequence [E][D][V][M][N]FLR Alterations: 5
+----------------------------------------------------------------------------
+::Motif 18 - CGWHEFLR
+::Local : 47 to 54
+::Species : 
+Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P]FLR Alterations: 5
+Specie: ['CEL55771.1'] - Sequence CGWHEFLR Alterations: 0
+Specie: ['TTTTEL55830.1'] - Sequence [D][D][A][K][D]FLR Alterations: 5
+Specie: ['CEL55830.1'] - Sequence [E][D][V][M][N]FLR Alterations: 5
+----------------------------------------------------------------------------
+::Motif 19 - DDAKDFLR
+::Local : 47 to 54
+::Species : 
+Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P]FLR Alterations: 5
+Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E]FLR Alterations: 5
+Specie: ['TTTTEL55830.1'] - Sequence DDAKDFLR Alterations: 0
+Specie: ['CEL55830.1'] - Sequence [E]D[V][M][N]FLR Alterations: 4
+----------------------------------------------------------------------------
+::Motif 20 - EDVMNFLR
+::Local : 47 to 54
+::Species : 
+Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P]FLR Alterations: 5
+Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E]FLR Alterations: 5
+Specie: ['TTTTEL55830.1'] - Sequence [D]D[A][K][D]FLR Alterations: 4
+Specie: ['CEL55830.1'] - Sequence EDVMNFLR Alterations: 0
+----------------------------------------------------------------------------
+::Motif 21 - AFERPRLR
+::Local : 56 to 63
+::Species : 
+Specie: ['KDN48563.1'] - Sequence AFERPRLR Alterations: 0
+Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E][G]LR Alterations: 6
+Specie: ['TTTTEL55830.1'] - Sequence [D][D][A][K][D][T]LR Alterations: 6
+Specie: ['CEL55830.1'] - Sequence [E][D][V][M][N][Q]LR Alterations: 6
+----------------------------------------------------------------------------
+::Motif 22 - CGWHEGLR
+::Local : 56 to 63
+::Species : 
+Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P][R]LR Alterations: 6
+Specie: ['CEL55771.1'] - Sequence CGWHEGLR Alterations: 0
+Specie: ['TTTTEL55830.1'] - Sequence [D][D][A][K][D][T]LR Alterations: 6
+Specie: ['CEL55830.1'] - Sequence [E][D][V][M][N][Q]LR Alterations: 6
+----------------------------------------------------------------------------
+::Motif 23 - DDAKDTLR
+::Local : 56 to 63
+::Species : 
+Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P][R]LR Alterations: 6
+Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E][G]LR Alterations: 6
+Specie: ['TTTTEL55830.1'] - Sequence DDAKDTLR Alterations: 0
+Specie: ['CEL55830.1'] - Sequence [E]D[V][M][N][Q]LR Alterations: 5
+----------------------------------------------------------------------------
+::Motif 24 - EDVMNQLR
+::Local : 56 to 63
+::Species : 
+Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P][R]LR Alterations: 6
+Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E][G]LR Alterations: 6
+Specie: ['TTTTEL55830.1'] - Sequence [D]D[A][K][D][T]LR Alterations: 5
+Specie: ['CEL55830.1'] - Sequence EDVMNQLR Alterations: 0
+----------------------------------------------------------------------------
+::Motif 25 - AFERPRTR
+::Local : 65 to 72
+::Species : 
+Specie: ['KDN48563.1'] - Sequence AFERPRTR Alterations: 0
+Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E][G][N]R Alterations: 7
+Specie: ['TTTTEL55830.1'] - Sequence [D][D][A][K][D][T][P]R Alterations: 7
+Specie: ['CEL55830.1'] - Sequence [E][D][V][M][N][Q][C]R Alterations: 7
+----------------------------------------------------------------------------
+::Motif 26 - CGWHEGNR
+::Local : 65 to 72
+::Species : 
+Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P][R][T]R Alterations: 7
+Specie: ['CEL55771.1'] - Sequence CGWHEGNR Alterations: 0
+Specie: ['TTTTEL55830.1'] - Sequence [D][D][A][K][D][T][P]R Alterations: 7
+Specie: ['CEL55830.1'] - Sequence [E][D][V][M][N][Q][C]R Alterations: 7
+----------------------------------------------------------------------------
+::Motif 27 - DDAKDTPR
+::Local : 65 to 72
+::Species : 
+Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P][R][T]R Alterations: 7
+Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E][G][N]R Alterations: 7
+Specie: ['TTTTEL55830.1'] - Sequence DDAKDTPR Alterations: 0
+Specie: ['CEL55830.1'] - Sequence [E]D[V][M][N][Q][C]R Alterations: 6
+----------------------------------------------------------------------------
+::Motif 28 - EDVMNQCR
+::Local : 65 to 72
+::Species : 
+Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P][R][T]R Alterations: 7
+Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E][G][N]R Alterations: 7
+Specie: ['TTTTEL55830.1'] - Sequence [D]D[A][K][D][T][P]R Alterations: 6
+Specie: ['CEL55830.1'] - Sequence EDVMNQCR Alterations: 0
+----------------------------------------------------------------------------
+::Motif 29 - AFERPRTE
+::Local : 74 to 81
+::Species : 
+Specie: ['KDN48563.1'] - Sequence AFERPRTE Alterations: 0
+Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E][G][N][F] Alterations: 8
+Specie: ['TTTTEL55830.1'] - Sequence [D][D][A][K][D][T][P][H] Alterations: 8
+Specie: ['CEL55830.1'] - Sequence [E][D][V][M][N][Q][C][N] Alterations: 8
+----------------------------------------------------------------------------
+::Motif 30 - CGWHEGNF
+::Local : 74 to 81
+::Species : 
+Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P][R][T][E] Alterations: 8
+Specie: ['CEL55771.1'] - Sequence CGWHEGNF Alterations: 0
+Specie: ['TTTTEL55830.1'] - Sequence [D][D][A][K][D][T][P][H] Alterations: 8
+Specie: ['CEL55830.1'] - Sequence [E][D][V][M][N][Q][C][N] Alterations: 8
+----------------------------------------------------------------------------
+::Motif 31 - DDAKDTPH
+::Local : 74 to 81
+::Species : 
+Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P][R][T][E] Alterations: 8
+Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E][G][N][F] Alterations: 8
+Specie: ['TTTTEL55830.1'] - Sequence DDAKDTPH Alterations: 0
+Specie: ['CEL55830.1'] - Sequence [E]D[V][M][N][Q][C][N] Alterations: 7
+----------------------------------------------------------------------------
+::Motif 32 - EDVMNQCN
+::Local : 74 to 81
+::Species : 
+Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P][R][T][E] Alterations: 8
+Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E][G][N][F] Alterations: 8
+Specie: ['TTTTEL55830.1'] - Sequence [D]D[A][K][D][T][P][H] Alterations: 7
+Specie: ['CEL55830.1'] - Sequence EDVMNQCN Alterations: 0
 ----------------------------------------------------------------------------

@@ -6,73 +6,8 @@ class conserv_alter():
     nomeArq = '001.fas'
     percCont = 0
     percCons = 0
-
-    def executar(self):
-        root = trieNo('+')
-        root.fileName = self.nomeArq
-
-        root.conservPerc = self.percCons
-        root.contentPerc = self.percCont
-
-        especiesList = root.readSpecies()
-        seqAminos = root.readSequences()
-
-        qtdeEspecies = root.countSpecies()
-        porceCon = root.calcConservPerc()
-        locaisConservados = root.conservLocals(porceCon)
-        indices = root.groupConsLocals(locaisConservados)
-
-
-
-        conservados = root.genConserved(indices, seqAminos)
-        listResult = root.genMotifs(conservados, indices)
-        #predominantes = root.geraPred(conservados)
-
-        listConsOrig = listResult[6]
-        lista = root.processSequences(listResult[0], listResult[2], listResult[1],listResult[4])
-        motivos =lista[2]
-        locais = lista[1]
-
-        listaStrFim = lista[0]
-        listaContaAlt = lista[3]
-        listaTipo = lista[4]
-
-        #numerMotivo = listResult[5]
-        numerMotivo = []
-
-        qtde = len(motivos)
-        for i in range(0, qtde):
-            numerMotivo.append(i)
-
-
-
-        inicioLocal = []
-        fimLocais = []
-
-        for k in range(len(locais)):
-            size = len(locais[k])
-            inicioLocal.append(locais[k][0]+1)
-            fimLocais.append(locais[k][size-1]+1)
-
-        inFimJuntos = []
-        for l in range(len(inicioLocal)):
-            if l>1:
-                inFimJuntos.append([numerMotivo[l-1], inicioLocal[l], fimLocais[l]])
-
-        listaEsp = especiesList
-
-        listaAltStr = []
-        listaAltEsp = []
-        listaAltQtde = []
-
-        listaConsStr = []
-        listaConsEsp = []
-
-
-        porcentOcorr = listResult[4]
-
-
-        return numerMotivo, locais, motivos, inicioLocal, fimLocais, inFimJuntos,listaStrFim, listaContaAlt, listaTipo, listaEsp,listaAltStr,listaAltEsp,listaAltQtde,listaConsStr,listaConsEsp, listConsOrig, porcentOcorr, porceCon
+    lstSpAlter = []
+    lstSpNoAlter = []
 
 
 
@@ -88,18 +23,57 @@ class conserv_alter():
         especiesList = root.readSpecies()
         seqAminos = root.readSequences()
 
-        qtdeEspecies = root.countSpecies()
+        qtSpecies = root.countSpecies()
         porceCon = root.calcConservPerc()
         locaisConservados = root.conservLocals(porceCon)
         indices = root.groupConsLocals(locaisConservados)
 
         conservados = root.genConserved(indices, seqAminos)
 
-        listMotifsRes = root.motifBySize(conservados, indices,motsize, txCons, txCont)
-        #listLocalsRes = root.motifBySize(conservados, indices, motsize, txCons)[1]
-        #listSuportsRes = root.motifBySize(conservados, indices, motsize, txCons)[2]
+        listMotifs = root.motifBySize(indices,conservados,motsize, txCons)[0]
+        listLocals = root.motifBySize(indices,conservados,motsize, txCons)[1]
+        listSpec = root.motifBySize(indices,conservados,motsize, txCons)[2]
+        listSupport = root.motifBySize(indices,conservados,motsize, txCons)[3]
+        listEndLocal = []
+        listAlt = root.motifBySize(indices, conservados, motsize, txCons)[4]
+        listNoAlt = root.motifBySize(indices, conservados, motsize, txCons)[5]
+
+        listStrAlt = root.motifBySize(indices, conservados, motsize, txCons)[6]
+        listStrNoAlt = root.motifBySize(indices, conservados, motsize, txCons)[7]
+
+        listSpecN = []
+        lsTemp =[]
+
+
+        #for i in range(len(listStrAlt)):
+            #print(str(listStrAlt[i])+" - "+str(listStrNoAlt[i]))
+
+
+        for m in range(len(listSpec)):
+            for n in range(len(listSpec[m])):
+                idx = listSpec[m][n]
+                sp = especiesList[idx]
+                lsTemp.append(sp)
+            listSpecN.append(lsTemp.copy())
+            lsTemp.clear()
+
+        listSpecNames = []
+        for p in range(len(listSpecN)):
+            listSpecNames.append(listSpecN[p])
+
+        listSizes = []
+        listLocalsFinal = []
+        for k in range(len(listMotifs)):
+            listSizes.append(len(listMotifs[k]))
+            listEndLocal.append(listLocals[k]+len(listMotifs[k]))
+            listLocalsFinal.append(listLocals[k]+1)
 
 
 
-        return listMotifsRes
+
+
+
+
+
+        return listMotifs, listLocalsFinal, listSpec, listSupport, listSpecNames, listSizes, listEndLocal, listAlt, listNoAlt, listStrAlt, listStrNoAlt
 

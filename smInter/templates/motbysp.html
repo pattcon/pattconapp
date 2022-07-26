@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+  {%block conteudo%}
+
+
+<form id="formlogo" name="formlogo" method="post" action="analise">
+     {% csrf_token %}
+			        {{ form.as_p }}
+
+<br>
+<b>
+::::Motifs Analyse :::
+</b>
+
+  <br>
+  <hr>
+
+
+<p align="center">
+
+    {%for j,k,l in listStr%}
+
+    Motif: {{j}} <br>
+    Species With Motif<br>
+    <br>
+    {%for p in k%}
+    {{p}} <br>
+{%endfor%}
+    <br>
+Species With Alterations<br>
+    {%for s in l%}
+    {{s}} <br>
+{%endfor%}
+<br>
+<hr>
+{%endfor%}
+
+
+
+
+    <br>
+
+
+
+    <br>
+
+</p>
+    <br>
+
+  </form>
+
+
+
+    <hr>
+
+
+
+
+
+
+
+
+
+    <br><br>
+
+
+</p>
+
+
+  <br><br>
+
+
+
+  {%endblock conteudo%}
+
+
+
+
+
+
+
+</body>
+</html>
