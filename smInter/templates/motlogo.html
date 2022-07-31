@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+
+
+
+<link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <title>Title</title>
+</head>
+<body>
+  {%block conteudo%}
+<div class="motivos" >
+
+  <br>
+
+    <center><b> Sequence Logo </b>  </center><br>
+    <hr>
+  Motif Number:  {{number}}
+    <br>
+    <b>{{motifSelect}}</b>
+
+  <br><br>
+
+    Sequences <br>
+
+
+
+  {%for i in lstMotStr%}
+{{i}} <br>
+
+
+
+  {%endfor%}
+
+
+
+
+
+</div>
+
+
+
+  <div>
+
+      <hr>
+
+
+      <br>
+      <form id="formlogo" name="formlogo" method="post" action="">
+     {% csrf_token %}
+			        {{ form.as_p }}
+         <label for="logotype">Select The Graph Type</label><br>
+
+          <select id="logotype" name="logotype" onchange="document.getElementById('logoimg').src = this.value;">
+            <option value="{% static '/logoseq/lgcount.png' %}">Counts</option>
+            <option value="{% static '/logoseq/lgweight.png' %}">Weight</option>
+            <option value="{% static '/logoseq/lgprob.png' %}">Probability</option>
+            <option value="{% static '/logoseq/lginf.png' %}">Information</option>
+        </select>
+
+
+</form>
+
+
+
+  <div class='image'>
+<img src="{% static '/logoseq/lgcount.png' %}" height="50%" width="50%" id="logoimg">
+  </div>
+
+  </div>
+  <br>
+
+{%endblock conteudo%}
+   {%block footer%}
+
+<center>
+<b>
+
+    <button class="buttons" onclick="openNewWindow()">
+<span class="icon">Open In New Window</span>
+</button>
+
+</b>
+</center>
+
+
+ <script type="text/javascript">
+function openNewWindow()
+{
+
+img = document.getElementById('logotype').value
+
+window.open(img);
+        }
+</script>
+
+  {%endblock footer%}
+
+
+
+
+
+</body>
+</html>
+

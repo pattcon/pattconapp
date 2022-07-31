@@ -40,13 +40,13 @@ class conserv_alter():
 
         listStrAlt = root.motifBySize(indices, conservados, motsize, txCons)[6]
         listStrNoAlt = root.motifBySize(indices, conservados, motsize, txCons)[7]
+        listStrNorm = root.motifBySize(indices, conservados, motsize, txCons)[8]
+        listNumAlt = root.motifBySize(indices, conservados, motsize, txCons)[9]
+
+
 
         listSpecN = []
         lsTemp =[]
-
-
-        #for i in range(len(listStrAlt)):
-            #print(str(listStrAlt[i])+" - "+str(listStrNoAlt[i]))
 
 
         for m in range(len(listSpec)):
@@ -75,5 +75,5 @@ class conserv_alter():
 
 
 
-        return listMotifs, listLocalsFinal, listSpec, listSupport, listSpecNames, listSizes, listEndLocal, listAlt, listNoAlt, listStrAlt, listStrNoAlt
+        return listMotifs, listLocalsFinal, listSpec, listSupport, listSpecNames, listSizes, listEndLocal, listAlt, listNoAlt, listStrAlt, listStrNoAlt, especiesList, listStrNorm, listNumAlt
 

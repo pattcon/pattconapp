@@ -134,7 +134,7 @@ def motivores(request):
                 "listaContaAlt":listaContAlt, "listaMod":listaModif, "listaComp":listaComp
                 }
 
-    return render(request, 'motresumo.html', context=contexto )
+    return render(request, 'motlogo.html', context=contexto )
 
 
 

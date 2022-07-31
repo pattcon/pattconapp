@@ -1,264 +1,78 @@
 ::Motif 0 - LDSSIFLR
-::Local : 2 to 9
-::Species : 
-Specie: ['KDN48563.1'] - Sequence LDSSIFLR Alterations: 0
-Specie: ['CEL55771.1'] - Sequence LDSSIFLR Alterations: 0
-Specie: ['TTTTEL55830.1'] - Sequence LDSSIFLR Alterations: 0
-Specie: ['CEL55830.1'] - Sequence LDSSIFLR Alterations: 0
+::Local : 2 to 9 - Size: 8
+::Species With Motifs : 
+ - Specie: ['KDN48563.1']
+ - Specie: ['TTTTEL55830.1']
+ - Specie: ['CEL55830.1']
+::Species With Alterations : 
+ - Specie: ['CEL55771.1']
+ - Sequence: LDS[D][F]FLR
+ - Alterations: 2
+
 ----------------------------------------------------------------------------
-::Motif 1 - ADSSIFLR
-::Local : 11 to 18
-::Species : 
-Specie: ['KDN48563.1'] - Sequence ADSSIFLR Alterations: 0
-Specie: ['CEL55771.1'] - Sequence [C]DSSIFLR Alterations: 1
-Specie: ['TTTTEL55830.1'] - Sequence [D]DSSIFLR Alterations: 1
-Specie: ['CEL55830.1'] - Sequence [E]DSSIFLR Alterations: 1
+::Motif 1 - DSSIFLR
+::Local : 12 to 18 - Size: 7
+::Species With Motifs : 
+ - Specie: ['KDN48563.1']
+ - Specie: ['CEL55771.1']
+ - Specie: ['CEL55830.1']
+::Species With Alterations : 
+ - Specie: ['TTTTEL55830.1']
+ - Sequence: D[T][R][G][M]LR
+ - Alterations: 4
+
 ----------------------------------------------------------------------------
-::Motif 2 - CDSSIFLR
-::Local : 11 to 18
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A]DSSIFLR Alterations: 1
-Specie: ['CEL55771.1'] - Sequence CDSSIFLR Alterations: 0
-Specie: ['TTTTEL55830.1'] - Sequence [D]DSSIFLR Alterations: 1
-Specie: ['CEL55830.1'] - Sequence [E]DSSIFLR Alterations: 1
+::Motif 2 - DSSIFLR
+::Local : 21 to 27 - Size: 7
+::Species With Motifs : 
+ - Specie: ['TTTTEL55830.1']
+ - Specie: ['CEL55830.1']
+::Species With Alterations : 
+ - Specie: ['KDN48563.1']
+ - Sequence: [F]SS[R]F[G][T]
+ - Alterations: 4
+
+ - Specie: ['CEL55771.1']
+ - Sequence: [G]SSIFLR
+ - Alterations: 1
+
 ----------------------------------------------------------------------------
-::Motif 3 - DDSSIFLR
-::Local : 11 to 18
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A]DSSIFLR Alterations: 1
-Specie: ['CEL55771.1'] - Sequence [C]DSSIFLR Alterations: 1
-Specie: ['TTTTEL55830.1'] - Sequence DDSSIFLR Alterations: 0
-Specie: ['CEL55830.1'] - Sequence [E]DSSIFLR Alterations: 1
+::Motif 3 - SIFLR
+::Local : 32 to 36 - Size: 5
+::Species With Motifs : 
+ - Specie: ['KDN48563.1']
+ - Specie: ['CEL55771.1']
+ - Specie: ['TTTTEL55830.1']
+::Species With Alterations : 
+ - Specie: ['CEL55830.1']
+ - Sequence: SI[D][D]R
+ - Alterations: 2
+
 ----------------------------------------------------------------------------
-::Motif 4 - EDSSIFLR
-::Local : 11 to 18
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A]DSSIFLR Alterations: 1
-Specie: ['CEL55771.1'] - Sequence [C]DSSIFLR Alterations: 1
-Specie: ['TTTTEL55830.1'] - Sequence [D]DSSIFLR Alterations: 1
-Specie: ['CEL55830.1'] - Sequence EDSSIFLR Alterations: 0
+::Motif 4 - IFLR
+::Local : 42 to 45 - Size: 4
+::Species With Motifs : 
+ - Specie: ['KDN48563.1']
+ - Specie: ['TTTTEL55830.1']
+ - Specie: ['CEL55830.1']
+::Species With Alterations : 
+ - Specie: ['CEL55771.1']
+ - Sequence: I[M][N]R
+ - Alterations: 2
+
 ----------------------------------------------------------------------------
-::Motif 5 - AFSSIFLR
-::Local : 20 to 27
-::Species : 
-Specie: ['KDN48563.1'] - Sequence AFSSIFLR Alterations: 0
-Specie: ['CEL55771.1'] - Sequence [C][G]SSIFLR Alterations: 2
-Specie: ['TTTTEL55830.1'] - Sequence [D][D]SSIFLR Alterations: 2
-Specie: ['CEL55830.1'] - Sequence [E][D]SSIFLR Alterations: 2
-----------------------------------------------------------------------------
-::Motif 6 - CGSSIFLR
-::Local : 20 to 27
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A][F]SSIFLR Alterations: 2
-Specie: ['CEL55771.1'] - Sequence CGSSIFLR Alterations: 0
-Specie: ['TTTTEL55830.1'] - Sequence [D][D]SSIFLR Alterations: 2
-Specie: ['CEL55830.1'] - Sequence [E][D]SSIFLR Alterations: 2
-----------------------------------------------------------------------------
-::Motif 7 - DDSSIFLR
-::Local : 20 to 27
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A][F]SSIFLR Alterations: 2
-Specie: ['CEL55771.1'] - Sequence [C][G]SSIFLR Alterations: 2
-Specie: ['TTTTEL55830.1'] - Sequence DDSSIFLR Alterations: 0
-Specie: ['CEL55830.1'] - Sequence [E]DSSIFLR Alterations: 1
-----------------------------------------------------------------------------
-::Motif 8 - EDSSIFLR
-::Local : 20 to 27
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A][F]SSIFLR Alterations: 2
-Specie: ['CEL55771.1'] - Sequence [C][G]SSIFLR Alterations: 2
-Specie: ['TTTTEL55830.1'] - Sequence [D]DSSIFLR Alterations: 1
-Specie: ['CEL55830.1'] - Sequence EDSSIFLR Alterations: 0
-----------------------------------------------------------------------------
-::Motif 9 - AFESIFLR
-::Local : 29 to 36
-::Species : 
-Specie: ['KDN48563.1'] - Sequence AFESIFLR Alterations: 0
-Specie: ['CEL55771.1'] - Sequence [C][G][W]SIFLR Alterations: 3
-Specie: ['TTTTEL55830.1'] - Sequence [D][D][A]SIFLR Alterations: 3
-Specie: ['CEL55830.1'] - Sequence [E][D][V]SIFLR Alterations: 3
-----------------------------------------------------------------------------
-::Motif 10 - CGWSIFLR
-::Local : 29 to 36
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A][F][E]SIFLR Alterations: 3
-Specie: ['CEL55771.1'] - Sequence CGWSIFLR Alterations: 0
-Specie: ['TTTTEL55830.1'] - Sequence [D][D][A]SIFLR Alterations: 3
-Specie: ['CEL55830.1'] - Sequence [E][D][V]SIFLR Alterations: 3
-----------------------------------------------------------------------------
-::Motif 11 - DDASIFLR
-::Local : 29 to 36
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A][F][E]SIFLR Alterations: 3
-Specie: ['CEL55771.1'] - Sequence [C][G][W]SIFLR Alterations: 3
-Specie: ['TTTTEL55830.1'] - Sequence DDASIFLR Alterations: 0
-Specie: ['CEL55830.1'] - Sequence [E]D[V]SIFLR Alterations: 2
-----------------------------------------------------------------------------
-::Motif 12 - EDVSIFLR
-::Local : 29 to 36
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A][F][E]SIFLR Alterations: 3
-Specie: ['CEL55771.1'] - Sequence [C][G][W]SIFLR Alterations: 3
-Specie: ['TTTTEL55830.1'] - Sequence [D]D[A]SIFLR Alterations: 2
-Specie: ['CEL55830.1'] - Sequence EDVSIFLR Alterations: 0
-----------------------------------------------------------------------------
-::Motif 13 - AFERIFLR
-::Local : 38 to 45
-::Species : 
-Specie: ['KDN48563.1'] - Sequence AFERIFLR Alterations: 0
-Specie: ['CEL55771.1'] - Sequence [C][G][W][H]IFLR Alterations: 4
-Specie: ['TTTTEL55830.1'] - Sequence [D][D][A][K]IFLR Alterations: 4
-Specie: ['CEL55830.1'] - Sequence [E][D][V][M]IFLR Alterations: 4
-----------------------------------------------------------------------------
-::Motif 14 - CGWHIFLR
-::Local : 38 to 45
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A][F][E][R]IFLR Alterations: 4
-Specie: ['CEL55771.1'] - Sequence CGWHIFLR Alterations: 0
-Specie: ['TTTTEL55830.1'] - Sequence [D][D][A][K]IFLR Alterations: 4
-Specie: ['CEL55830.1'] - Sequence [E][D][V][M]IFLR Alterations: 4
-----------------------------------------------------------------------------
-::Motif 15 - DDAKIFLR
-::Local : 38 to 45
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A][F][E][R]IFLR Alterations: 4
-Specie: ['CEL55771.1'] - Sequence [C][G][W][H]IFLR Alterations: 4
-Specie: ['TTTTEL55830.1'] - Sequence DDAKIFLR Alterations: 0
-Specie: ['CEL55830.1'] - Sequence [E]D[V][M]IFLR Alterations: 3
-----------------------------------------------------------------------------
-::Motif 16 - EDVMIFLR
-::Local : 38 to 45
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A][F][E][R]IFLR Alterations: 4
-Specie: ['CEL55771.1'] - Sequence [C][G][W][H]IFLR Alterations: 4
-Specie: ['TTTTEL55830.1'] - Sequence [D]D[A][K]IFLR Alterations: 3
-Specie: ['CEL55830.1'] - Sequence EDVMIFLR Alterations: 0
-----------------------------------------------------------------------------
-::Motif 17 - AFERPFLR
-::Local : 47 to 54
-::Species : 
-Specie: ['KDN48563.1'] - Sequence AFERPFLR Alterations: 0
-Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E]FLR Alterations: 5
-Specie: ['TTTTEL55830.1'] - Sequence [D][D][A][K][D]FLR Alterations: 5
-Specie: ['CEL55830.1'] - Sequence [E][D][V][M][N]FLR Alterations: 5
-----------------------------------------------------------------------------
-::Motif 18 - CGWHEFLR
-::Local : 47 to 54
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P]FLR Alterations: 5
-Specie: ['CEL55771.1'] - Sequence CGWHEFLR Alterations: 0
-Specie: ['TTTTEL55830.1'] - Sequence [D][D][A][K][D]FLR Alterations: 5
-Specie: ['CEL55830.1'] - Sequence [E][D][V][M][N]FLR Alterations: 5
-----------------------------------------------------------------------------
-::Motif 19 - DDAKDFLR
-::Local : 47 to 54
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P]FLR Alterations: 5
-Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E]FLR Alterations: 5
-Specie: ['TTTTEL55830.1'] - Sequence DDAKDFLR Alterations: 0
-Specie: ['CEL55830.1'] - Sequence [E]D[V][M][N]FLR Alterations: 4
-----------------------------------------------------------------------------
-::Motif 20 - EDVMNFLR
-::Local : 47 to 54
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P]FLR Alterations: 5
-Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E]FLR Alterations: 5
-Specie: ['TTTTEL55830.1'] - Sequence [D]D[A][K][D]FLR Alterations: 4
-Specie: ['CEL55830.1'] - Sequence EDVMNFLR Alterations: 0
-----------------------------------------------------------------------------
-::Motif 21 - AFERPRLR
-::Local : 56 to 63
-::Species : 
-Specie: ['KDN48563.1'] - Sequence AFERPRLR Alterations: 0
-Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E][G]LR Alterations: 6
-Specie: ['TTTTEL55830.1'] - Sequence [D][D][A][K][D][T]LR Alterations: 6
-Specie: ['CEL55830.1'] - Sequence [E][D][V][M][N][Q]LR Alterations: 6
-----------------------------------------------------------------------------
-::Motif 22 - CGWHEGLR
-::Local : 56 to 63
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P][R]LR Alterations: 6
-Specie: ['CEL55771.1'] - Sequence CGWHEGLR Alterations: 0
-Specie: ['TTTTEL55830.1'] - Sequence [D][D][A][K][D][T]LR Alterations: 6
-Specie: ['CEL55830.1'] - Sequence [E][D][V][M][N][Q]LR Alterations: 6
-----------------------------------------------------------------------------
-::Motif 23 - DDAKDTLR
-::Local : 56 to 63
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P][R]LR Alterations: 6
-Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E][G]LR Alterations: 6
-Specie: ['TTTTEL55830.1'] - Sequence DDAKDTLR Alterations: 0
-Specie: ['CEL55830.1'] - Sequence [E]D[V][M][N][Q]LR Alterations: 5
-----------------------------------------------------------------------------
-::Motif 24 - EDVMNQLR
-::Local : 56 to 63
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P][R]LR Alterations: 6
-Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E][G]LR Alterations: 6
-Specie: ['TTTTEL55830.1'] - Sequence [D]D[A][K][D][T]LR Alterations: 5
-Specie: ['CEL55830.1'] - Sequence EDVMNQLR Alterations: 0
-----------------------------------------------------------------------------
-::Motif 25 - AFERPRTR
-::Local : 65 to 72
-::Species : 
-Specie: ['KDN48563.1'] - Sequence AFERPRTR Alterations: 0
-Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E][G][N]R Alterations: 7
-Specie: ['TTTTEL55830.1'] - Sequence [D][D][A][K][D][T][P]R Alterations: 7
-Specie: ['CEL55830.1'] - Sequence [E][D][V][M][N][Q][C]R Alterations: 7
-----------------------------------------------------------------------------
-::Motif 26 - CGWHEGNR
-::Local : 65 to 72
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P][R][T]R Alterations: 7
-Specie: ['CEL55771.1'] - Sequence CGWHEGNR Alterations: 0
-Specie: ['TTTTEL55830.1'] - Sequence [D][D][A][K][D][T][P]R Alterations: 7
-Specie: ['CEL55830.1'] - Sequence [E][D][V][M][N][Q][C]R Alterations: 7
-----------------------------------------------------------------------------
-::Motif 27 - DDAKDTPR
-::Local : 65 to 72
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P][R][T]R Alterations: 7
-Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E][G][N]R Alterations: 7
-Specie: ['TTTTEL55830.1'] - Sequence DDAKDTPR Alterations: 0
-Specie: ['CEL55830.1'] - Sequence [E]D[V][M][N][Q][C]R Alterations: 6
-----------------------------------------------------------------------------
-::Motif 28 - EDVMNQCR
-::Local : 65 to 72
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P][R][T]R Alterations: 7
-Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E][G][N]R Alterations: 7
-Specie: ['TTTTEL55830.1'] - Sequence [D]D[A][K][D][T][P]R Alterations: 6
-Specie: ['CEL55830.1'] - Sequence EDVMNQCR Alterations: 0
-----------------------------------------------------------------------------
-::Motif 29 - AFERPRTE
-::Local : 74 to 81
-::Species : 
-Specie: ['KDN48563.1'] - Sequence AFERPRTE Alterations: 0
-Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E][G][N][F] Alterations: 8
-Specie: ['TTTTEL55830.1'] - Sequence [D][D][A][K][D][T][P][H] Alterations: 8
-Specie: ['CEL55830.1'] - Sequence [E][D][V][M][N][Q][C][N] Alterations: 8
-----------------------------------------------------------------------------
-::Motif 30 - CGWHEGNF
-::Local : 74 to 81
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P][R][T][E] Alterations: 8
-Specie: ['CEL55771.1'] - Sequence CGWHEGNF Alterations: 0
-Specie: ['TTTTEL55830.1'] - Sequence [D][D][A][K][D][T][P][H] Alterations: 8
-Specie: ['CEL55830.1'] - Sequence [E][D][V][M][N][Q][C][N] Alterations: 8
-----------------------------------------------------------------------------
-::Motif 31 - DDAKDTPH
-::Local : 74 to 81
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P][R][T][E] Alterations: 8
-Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E][G][N][F] Alterations: 8
-Specie: ['TTTTEL55830.1'] - Sequence DDAKDTPH Alterations: 0
-Specie: ['CEL55830.1'] - Sequence [E]D[V][M][N][Q][C][N] Alterations: 7
-----------------------------------------------------------------------------
-::Motif 32 - EDVMNQCN
-::Local : 74 to 81
-::Species : 
-Specie: ['KDN48563.1'] - Sequence [A][F][E][R][P][R][T][E] Alterations: 8
-Specie: ['CEL55771.1'] - Sequence [C][G][W][H][E][G][N][F] Alterations: 8
-Specie: ['TTTTEL55830.1'] - Sequence [D]D[A][K][D][T][P][H] Alterations: 7
-Specie: ['CEL55830.1'] - Sequence EDVMNQCN Alterations: 0
+::Motif 5 - FLR
+::Local : 52 to 54 - Size: 3
+::Species With Motifs : 
+ - Specie: ['KDN48563.1']
+ - Specie: ['CEL55771.1']
+::Species With Alterations : 
+ - Specie: ['TTTTEL55830.1']
+ - Sequence: [D][G]R
+ - Alterations: 2
+
+ - Specie: ['CEL55830.1']
+ - Sequence: [G]LR
+ - Alterations: 1
+
 ----------------------------------------------------------------------------

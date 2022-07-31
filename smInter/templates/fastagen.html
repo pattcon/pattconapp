@@ -39,12 +39,51 @@
 
 
 
-<a href="/downfastgen">
-        <input class="buttons" style="width: 90px" type="button" value="Download" id="botaofasta" name="botaofasta">
-
-         </a>
 
 {%block footer%}
+
+  <table>
+
+      <tr>
+
+          <td align="center" colspan="2">
+              Download
+          </td>
+</tr>
+      <tr>
+
+
+           <td>
+              <form id="formtxt" name="formlogo" method="post" action="downfastgenTxt">
+     {% csrf_token %}
+			        {{ form.as_p }}
+          <input class="buttons" style="width: 160px" type="submit" value="TXT" id="btntxt" onclick="newWindow()">
+    </form>
+          </td>
+
+
+           <td>
+              <form id="formlogo" name="formlogo" method="post" action="downfastgen">
+     {% csrf_token %}
+			        {{ form.as_p }}
+          <input class="buttons" style="width: 160px" type="submit" value="Fasta" id="btnfasta" onclick="newWindow()">
+    </form>
+          </td>
+
+
+
+
+      </tr>
+
+  </table>
+
+
+
+
+
+
+
+
 
 
 

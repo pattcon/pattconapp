@@ -42,21 +42,10 @@ Min Size :: {{minsize}}
   Support: {{lstSupprt}}<br>
 
 
-    <br>
-
 </p>
     <br>
 
-<form id="formlogo" name="formlogo" method="post" action="motbysp">
-     {% csrf_token %}
-			        {{ form.as_p }}
-          <input class="buttons" style="width: 160px" type="submit" value="Analyze" id="botaofasta" onclick="newWindow()">
-  </form>
-
-
-
-    <hr>
-
+<hr>
 
 
     {%endfor%}
@@ -80,6 +69,16 @@ Min Size :: {{minsize}}
 
 
 
+{%block footer%}
+
+
+<form id="formlogo" name="formlogo" method="post" action="motbysp">
+     {% csrf_token %}
+			        {{ form.as_p }}
+          <input class="buttons" style="width: 160px" type="submit" value="Analyze" id="botaofasta" onclick="newWindow()">
+  </form>
+
+    {%endblock footer%}
 
 
 

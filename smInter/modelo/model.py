@@ -197,7 +197,7 @@ class trieNo(object):
 
         listStr, listOcc, listLine, listGroup, listFinalPos, listSize, listLocal = [], [], [], [], [], [], []
         listAllMot, listAllLoc, listAllOcc, listMotFinal, listLocFinal, listOccFinal= [],[],[],[],[],[]
-        listAllSeqs, listAllNumAlter, listAllStrForm=[],[],[]
+        listAllSeqs, listAllNumAlter, listAllStrForm, lsAllStrNorm=[],[],[],[]
         lstSeqs = []
 
         for grp in range(len(listStrsCons)):
@@ -273,24 +273,32 @@ class trieNo(object):
                             listAllOcc.append(lstMosOcc)
                             listAllSeqs.append(lstSeqs)
 
-                            lsTemp, lsAltTmp = [], []
+
+
+                            lsTemp, lsAltTmp, lsTemp2,lsTemp3, lsTempAlt2 =[], [],[],[], []
                             for ls in range(len(lstSeqs)):
                                 alter = 0
                                 strng = ''
+                                strng2 = ''
                                 for lt in range(len(lstSeqs[ls])):
                                     for mot in range(len(lstMosStr)):
+                                        strng2 = strng2+lstSeqs[ls][lt]
                                         if lstMosStr[mot][lt] == lstSeqs[ls][lt]:
                                             strng = strng+lstMosStr[mot][lt]
                                         else:
                                             strng = strng + '['+lstSeqs[ls][lt]+']'
                                             alter = alter+1
                                 lsTemp.append(strng)
-                                lsAltTmp.append(alter)
 
+                                lsAltTmp.append(alter)
+                                lsTemp3.append(strng2)
+
+                            lsAllStrNorm.append(lsTemp3.copy())
                             listAllStrForm.append(lsTemp.copy())
                             listAllNumAlter.append(lsAltTmp.copy())
                             lsAltTmp.clear()
                             lsTemp.clear()
+                            lsTemp3.clear()
 
                     lstSeqs.clear()
                     listStrTemp.clear()
@@ -302,8 +310,7 @@ class trieNo(object):
 
 
         lstTempMot, lstTempLoc, lstTempOcc, lstTempSupp = [], [], [], []
-        lstAllStrForm, lstAllNumAlter = [],[]
-
+        lstAllStrForm, lstAllNumAlter, lstAllStrNorm = [],[],[]
 
 
         for i in range(len(listAllMot)):
@@ -314,7 +321,7 @@ class trieNo(object):
                 lstTempSupp.append(len(lstTempOcc[i])/self.specNumb*100)
                 lstAllStrForm.append(listAllStrForm[i])
                 lstAllNumAlter.append(listAllNumAlter[i])
-
+                lstAllStrNorm.append(lsAllStrNorm[i])
 
 
         lstLocAlt, lstLocNoAlt, lstSpecAlt, lstSpecNoAlt = [], [], [], []
@@ -367,12 +374,9 @@ class trieNo(object):
                 else:
                     lsTmpNoAlt.append(self.readSpecies()[spB])
             listSpAltF.append(lsTmpAlt.copy())
-            lsTmpAlt.clear()
-
-
             listSpNoAltF.append(lsTmpNoAlt.copy())
+            lsTmpAlt.clear()
             lsTmpNoAlt.clear()
-
 
 
 
@@ -385,8 +389,8 @@ class trieNo(object):
 
         #eliminate the smaller motifs that is in the other largest motif
         lstLocFinal, lstMotFinal, lstOccFinal, lstSuppFinal, lstMotifEnd =[], [], [], [], []
-        listSpAltFinal, listSpNoAltFinal =[],[]
-        listStrAltFinal, listStrNoAltFinal = [],[]
+        listSpAltFinal, listSpNoAltFinal, listAllMotFinal =[],[],[]
+        listStrAltFinal, listStrNoAltFinal, listAllStrNorm, listNumAltFinal = [],[], [],[]
 
 
         while idx<len(lstTempMot):
@@ -400,6 +404,9 @@ class trieNo(object):
             listSpNoAltFinal.append(listSpNoAltF[idx])
             listStrAltFinal.append(lstStrAlt[idx])
             listStrNoAltFinal.append(lstStrNoAlt[idx])
+            listAllStrForm.append(lstAllStrForm[idx])
+            listAllStrNorm.append(lstAllStrNorm[idx])
+            listNumAltFinal.append(lstLocAlt[idx])
 
 
             while lstTempMot[idx] in lstTempMot[curr] and lstTempLoc[idx] <= lstTempLoc[curr]+len(lstTempMot[curr]):
@@ -414,12 +421,12 @@ class trieNo(object):
                 else:
                     break
             curr = idx
-        return lstMotFinal, lstLocFinal, lstOccFinal, lstSuppFinal, listSpAltFinal, listSpNoAltFinal, listStrAltFinal, listStrNoAltFinal
 
-
+        return lstMotFinal, lstLocFinal, lstOccFinal, lstSuppFinal, listSpAltFinal, listSpNoAltFinal, listStrAltFinal, listStrNoAltFinal, listAllStrNorm,listNumAltFinal
+    
 '''
 root = trieNo('+')
-root.fileName = "raqalinh.fasta"
+root.fileName = "testsequence.fas"
 
 especiesList = root.readSpecies()
 
@@ -437,22 +444,5 @@ indices = root.groupConsLocals(locaisConservados)
 conservados = root.genConserved(indices, seqAminos)
 
 root.motifBySize(indices, conservados, 4, 50)
-root.processBySize()
 
-'''
-
-
-'''
-
-for i in range(len(root.listMotifs)):
-
-    print('Motif: ',root.listMotifs[i])
-
-    print('Support: ',root.support[i])
-    print('Size: ',root.sizesMotifs[i])
-    print('Lines: ',root.linesMotifs[i])
-    print('Group: ',root.groupMotifs[i])
-    print('Begin: ',root.beginMotifs[i])
-    print('Final: ',root.endMotifs[i])
-    print('')
 '''
